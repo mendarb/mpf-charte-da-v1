@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>MP Finance — Direction Artistique v1 · N&B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e0e0e;--ink-soft:#2a2a28;--g-800:#1c1c1a;--g-700:#4a4a47;--g-600:#5e5e5a;
+    --g-500:#7c7c77;--g-400:#9b9b95;--g-300:#c7c4bc;--g-200:#e3e0d8;--g-100:#eeebe3;
+    --paper:#f7f5ef;--paper-2:#efece4;--white:#ffffff;
+    --line:#ddd9cf;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#cbc7bd}
+  body{font-family:'Golos Text',sans-serif;color:var(--ink);letter-spacing:-0.011em;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+  .board{width:1680px;margin:0 auto;background:var(--paper);overflow:hidden;position:relative}
+  .board::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");opacity:.022;mix-blend-mode:multiply}
+  .wrap{padding-left:150px;padding-right:150px}
+  .mono{font-family:'JetBrains Mono',monospace;letter-spacing:0}
+
+  /* eyebrow */
+  .ey{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--g-500)}
+  .ey b{color:var(--ink);font-weight:500}
+  .hr{height:1px;background:var(--line);border:0}
+
+  /* masthead */
+  .mast{display:flex;justify-content:space-between;align-items:center;padding:34px 150px;border-bottom:1px solid var(--ink)}
+  .mast .mk{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.04em;font-weight:500}
+  .mast .mk .x{color:var(--g-400);margin:0 8px}
+  .mast .rt{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--g-500)}
+
+  /* hero */
+  .hero{padding:130px 150px 96px;position:relative}
+  .hero .ey{margin-bottom:44px}
+  .hero h1{font-weight:800;font-size:142px;line-height:0.9;letter-spacing:-0.055em}
+  .hero h1 em{font-style:normal;font-weight:300;color:var(--g-400)}
+  .hero .lead{margin-left:auto;margin-top:60px;max-width:560px;font-size:19px;line-height:1.72;color:var(--ink-soft);font-weight:400}
+  .hero .lead .first{font-weight:600;color:var(--ink)}
+
+  /* full-bleed photo */
+  .bleed{position:relative;width:100%}
+  .bleed img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(1.02)}
+  .band{height:680px}
+  .band .cap{position:absolute;left:150px;bottom:34px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.9);mix-blend-mode:difference}
+  .band .idx{position:absolute;right:150px;top:34px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.9);mix-blend-mode:difference}
+
+  /* meta strip */
+  .meta{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+  .meta .cell{padding:40px 0;border-right:1px solid var(--line)}
+  .meta .cell:last-child{border-right:0}
+  .meta .cell:not(:first-child){padding-left:40px}
+  .meta .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--g-500);margin-bottom:14px}
+  .meta .v{font-size:18px;font-weight:600;letter-spacing:-0.02em}
+  .meta .v small{display:block;font-weight:400;font-size:13.5px;color:var(--g-600);margin-top:6px;letter-spacing:0}
+
+  /* section scaffold */
+  section{padding:120px 0}
+  .sec-head{display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:60px;align-items:end;margin-bottom:72px}
+  .sec-head .l .ey{margin-bottom:24px}
+  .sec-head h2{font-weight:700;font-size:52px;letter-spacing:-0.04em;line-height:1.0}
+  .sec-head .note{font-size:15px;color:var(--g-600);line-height:1.6;padding-bottom:8px}
+
+  /* 01 logo */
+  .logo-hero{position:relative;background:var(--ink);height:440px;display:flex;align-items:center;justify-content:center}
+  .logo-hero img{height:104px;width:auto}
+  .logo-hero .tagm{position:absolute;left:150px;bottom:36px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+  .logo-hero .rtm{position:absolute;right:150px;top:36px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.45)}
+  .logo-light{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+  .logo-light .cell{padding:80px 60px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:300px;border-right:1px solid var(--line)}
+  .logo-light .cell:last-child{border-right:0}
+  .logo-light img{height:62px;width:auto}
+  .logo-light .lab{margin-top:28px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--g-500)}
+
+  .entities{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid var(--line)}
+  .entities .e{padding:54px 60px 54px 0}
+  .entities .e:first-child{border-right:1px solid var(--line);padding-right:60px}
+  .entities .e:last-child{padding-left:60px}
+  .entities .lk{display:flex;align-items:flex-end;gap:13px;margin-bottom:24px}
+  .entities .lk img{height:42px;width:auto}
+  .entities .lk .pro{font-weight:700;font-size:14px;letter-spacing:.2em;color:var(--g-400);padding-bottom:4px}
+  .entities .nm{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--g-600);margin-bottom:14px}
+  .entities p{font-size:15px;color:var(--g-700);line-height:1.65;max-width:430px}
+
+  .clear{display:grid;grid-template-columns:300px 1fr;gap:70px;align-items:center;padding-top:54px}
+  .clear .dia{position:relative;aspect-ratio:1/.72;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:var(--paper-2)}
+  .clear .dia .pad{position:absolute;inset:26px;border:1px dashed var(--g-300)}
+  .clear .dia img{height:46px;width:auto;position:relative}
+  .clear .tx h4{font-size:18px;font-weight:700;letter-spacing:-0.02em;margin-bottom:14px}
+  .clear .tx p{font-size:15px;color:var(--g-700);line-height:1.7;max-width:620px}
+
+  /* 02 palette */
+  .scale{display:grid;grid-template-columns:repeat(8,1fr)}
+  .sw{height:280px;display:flex;align-items:flex-end;padding:22px 20px}
+  .sw .hx{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.02em}
+  .scale .meta-r{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:60px;padding-top:34px;border-top:1px solid var(--line);margin-top:0}
+  .scale .meta-r p{font-size:16px;line-height:1.7;color:var(--ink-soft)}
+  .scale .meta-r p strong{font-weight:700}
+  .scale .meta-r .mono{font-size:13px;color:var(--g-600);line-height:2}
+
+  /* 03 typo */
+  .ty .row{display:grid;grid-template-columns:230px 1fr;gap:60px;align-items:baseline;padding:42px 0;border-top:1px solid var(--line)}
+  .ty .row:first-of-type{border-top:0;padding-top:0}
+  .ty .row .m .lv{font-weight:700;font-size:15px}
+  .ty .row .m .sp{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--g-500);margin-top:9px;line-height:1.7}
+  .s-disp{font-weight:800;font-size:92px;letter-spacing:-0.055em;line-height:0.9}
+  .s-h2{font-weight:700;font-size:46px;letter-spacing:-0.035em}
+  .s-lead{font-weight:300;font-size:28px;color:var(--ink-soft);line-height:1.4;letter-spacing:-0.02em}
+  .s-body{font-weight:400;font-size:18px;color:var(--ink-soft);line-height:1.75;max-width:840px}
+  .s-label{font-family:'Golos Text';font-weight:600;font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--g-600)}
+
+  /* 04 photo composition */
+  .photo-comp{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:repeat(2,330px);gap:18px}
+  .photo-comp .p{position:relative;overflow:hidden;background:#ddd}
+  .photo-comp .p.tall{grid-row:1/3}
+  .photo-comp .p img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(1.02)}
+  .photo-comp .p .t{position:absolute;left:20px;bottom:16px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;mix-blend-mode:difference}
+  .photo-note{margin-top:30px;font-size:16px;color:var(--ink-soft);line-height:1.72;max-width:980px}
+  .photo-note em{color:var(--g-500);font-style:italic}
+
+  /* 05 matiere */
+  .tex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .tx-sw{position:relative;overflow:hidden;min-height:360px}
+  .tx-sw.pale{background:linear-gradient(135deg,#efece4 0%,#e2ded4 48%,#d2cec4 100%)}
+  .tx-sw.deep{background:linear-gradient(135deg,#5f5d57 0%,#46443f 52%,#2e2c28 100%)}
+  .tx-no{position:absolute;inset:0;opacity:.55;mix-blend-mode:multiply}
+  .tx-sw.deep .tx-no{mix-blend-mode:overlay;opacity:.45}
+  .tx-lab{position:absolute;left:26px;bottom:24px}
+  .tx-lab .t{font-weight:700;font-size:21px;letter-spacing:-0.02em}
+  .tx-lab .s{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-top:8px}
+  .tx-sw.pale .tx-lab .t{color:#34332f}.tx-sw.pale .tx-lab .s{color:#6c6a64}
+  .tx-sw.deep .tx-lab .t{color:#f4f2ee}.tx-sw.deep .tx-lab .s{color:#c9c6bf}
+  .tex-copy{grid-column:1/-1;padding-top:30px;border-top:1px solid var(--line);font-size:16px;color:var(--ink-soft);line-height:1.72;max-width:1040px}
+  .tex-copy strong{font-weight:700}
+
+  /* 06 systeme */
+  .sys{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sys .c{padding:54px 60px 54px 0}
+  .sys .c:first-child{border-right:1px solid var(--line)}
+  .sys .c:last-child{padding-left:60px;padding-right:0}
+  .sys .demo{height:96px;background:var(--ink);margin-bottom:30px}
+  .sys .c.dig .demo{border-radius:16px}
+  .sys h3{font-weight:700;font-size:22px;letter-spacing:-0.025em;margin-bottom:12px}
+  .sys p{font-size:15px;color:var(--g-700);line-height:1.65;max-width:480px}
+  .sys .px{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--g-500);margin-top:18px}
+  .space{display:flex;gap:54px;align-items:flex-end;padding-top:60px}
+  .space .bars{display:flex;align-items:flex-end;gap:18px}
+  .space .bars .col{text-align:center}
+  .space .bars .u{background:var(--ink);width:30px}
+  .space .bars .lab{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--g-500);margin-top:10px}
+  .space .tx h4{font-size:17px;font-weight:700;margin-bottom:10px}
+  .space .tx p{font-size:15px;color:var(--g-700);line-height:1.7;max-width:560px}
+
+  footer{padding:60px 150px 70px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;align-items:center}
+  footer .l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--g-500);max-width:900px;line-height:1.7}
+  footer .r{font-weight:800;font-size:15px;letter-spacing:-0.02em}
+</style>
+</head>
+<body>
+<div class="board">
+
+  <!-- MASTHEAD -->
+  <div class="mast">
+    <div class="mk">56k<span class="x">×</span>MP Finance</div>
+    <div class="rt">Direction Artistique — v1 · N&amp;B intégral</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="ey"><b>01</b> &nbsp;—&nbsp; Charte graphique · proposition</div>
+    <h1>L'épure,<br>comme signe<br><em>de</em> sérieux.</h1>
+    <p class="lead"><span class="first">Pas de couleur. Du noir, du blanc, beaucoup de respiration.</span> Toute la marque tient dans une seule typographie, une photographie sobre et la précision des espaces. Un minimalisme intégral, à la hauteur d'une exigence patrimoniale.</p>
+  </div>
+
+  <!-- FULL-BLEED PHOTO -->
+  <div class="bleed band">
+    <img src="assets/mpf-team.jpg" alt="Équipe MP Finance">
+    <span class="cap">MP Finance · l'accompagnement avant tout</span>
+    <span class="idx">Fig. 00 — Photographie de marque</span>
+  </div>
+
+  <!-- META STRIP -->
+  <div class="wrap">
+    <div class="meta">
+      <div class="cell"><div class="k">Référence</div><div class="v">milimalis.com<small>épure éditoriale</small></div></div>
+      <div class="cell"><div class="k">Typographie</div><div class="v">Golos Text<small>une seule famille</small></div></div>
+      <div class="cell"><div class="k">Couleur</div><div class="v">Aucune<small>noir &amp; blanc intégral</small></div></div>
+      <div class="cell"><div class="k">Matière</div><div class="v">Pierre de Jaumont<small>texture désaturée</small></div></div>
+    </div>
+  </div>
+
+  <!-- 01 LOGO -->
+  <section class="wrap" style="padding-bottom:0">
+    <div class="sec-head">
+      <div class="l"><div class="ey"><b>02</b> &nbsp;—&nbsp; Identité</div><h2>Logo &amp; signature</h2></div>
+      <div class="note">Logo inchangé. La distinction des entités passe par la tagline — jamais par un second logo, ni par une couleur.</div>
+    </div>
+  </section>
+  <div class="bleed logo-hero">
+    <img src="assets/logo-blanc.png" alt="MP Finance" style="filter:none">
+    <span class="tagm">Version inversée · fond foncé / photographie</span>
+    <span class="rtm">Lockup principal</span>
+  </div>
+  <div class="logo-light">
+    <div class="cell">
+      <img src="assets/logo-noir.png" alt="MP Finance">
+      <div class="lab">Version principale · fond clair</div>
+    </div>
+    <div class="cell" style="align-items:center;text-align:center">
+      <img src="assets/logo-noir.png" alt="MP Finance" style="height:30px">
+      <div class="lab" style="margin-top:24px">Taille réduite · ≥ 28 mm / 96 px</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="entities">
+      <div class="e">
+        <div class="lk"><img src="assets/logo-noir.png" alt="MP Finance"></div>
+        <div class="nm">Particuliers</div>
+        <p>Entité grand public. Tagline orientée accompagnement : crédit immobilier, rachat, assurance, gestion de patrimoine.</p>
+      </div>
+      <div class="e">
+        <div class="lk"><img src="assets/logo-noir.png" alt="MP Finance"><span class="pro">PRO</span></div>
+        <div class="nm">Professionnels &amp; entreprises</div>
+        <p>Même logo, même filet. Seules la mention « Pro » et la tagline changent. Une marque, deux adresses.</p>
+      </div>
+    </div>
+    <div class="clear">
+      <div class="dia"><span class="pad"></span><img src="assets/logo-noir.png" alt="MP Finance"></div>
+      <div class="tx">
+        <h4>Zone de protection &amp; taille minimale</h4>
+        <p>Espace vide minimum autour du logo = hauteur de la lettre « M ». Taille minimale d'impression : 28 mm de large pour préserver la lisibilité. Jamais de déformation, de rotation, ni d'effet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 PALETTE -->
+  <section class="wrap">
+    <div class="sec-head">
+      <div class="l"><div class="ey"><b>03</b> &nbsp;—&nbsp; Couleur</div><h2>Noir, blanc,<br>nuances.</h2></div>
+      <div class="note">Une échelle de gris, rien d'autre. Le contraste et le vide font tout le travail.</div>
+    </div>
+    <div class="scale">
+      <div class="sw" style="background:#0e0e0e"><span class="hx" style="color:#fff">#0E0E0E</span></div>
+      <div class="sw" style="background:#2a2a28"><span class="hx" style="color:#fff">#2A2A28</span></div>
+      <div class="sw" style="background:#4a4a47"><span class="hx" style="color:#fff">#4A4A47</span></div>
+      <div class="sw" style="background:#7c7c77"><span class="hx" style="color:#fff">#7C7C77</span></div>
+      <div class="sw" style="background:#9b9b95"><span class="hx" style="color:#fff">#9B9B95</span></div>
+      <div class="sw" style="background:#c7c4bc"><span class="hx" style="color:#2a2a28">#C7C4BC</span></div>
+      <div class="sw" style="background:#e3e0d8"><span class="hx" style="color:#2a2a28">#E3E0D8</span></div>
+      <div class="sw" style="background:#f7f5ef;box-shadow:inset 1px 0 0 #e3e0d8"><span class="hx" style="color:#2a2a28">#F7F5EF</span></div>
+      <div class="meta-r">
+        <p><strong>Aucune couleur d'accent.</strong> Le papier est un blanc cassé chaud qui adoucit l'écran comme le print. L'encre n'est pas un noir pur, pour un rendu plus doux et plus haut de gamme. Les gris structurent l'information ; le vide structure la page.</p>
+        <div class="mono">Encre — texte, aplats, logo<br>Gris 400–600 — méta, légendes, filets<br>Papier — fond par défaut, respiration</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TYPO -->
+  <section class="wrap">
+    <div class="sec-head">
+      <div class="l"><div class="ey"><b>04</b> &nbsp;—&nbsp; Typographie</div><h2>Golos Text,<br>seule en scène.</h2></div>
+      <div class="note">Une seule famille. Toute la hiérarchie naît de la graisse, de l'échelle et de la casse — jamais d'une 2ᵉ police.</div>
+    </div>
+    <div class="ty">
+      <div class="row"><div class="m"><div class="lv">Display</div><div class="sp">Golos 800<br>72–142 px · −5,5 %</div></div><div class="s-disp">Votre projet mérite mieux.</div></div>
+      <div class="row"><div class="m"><div class="lv">Titre</div><div class="sp">Golos 700<br>40–52 px · −3,5 %</div></div><div class="s-h2">Un partenaire, pas un guichet.</div></div>
+      <div class="row"><div class="m"><div class="lv">Chapô</div><div class="sp">Golos 300<br>26–28 px · 1.4</div></div><div class="s-lead">Le conseil patrimonial à hauteur d'exigence, porté par un réseau de courtiers indépendants.</div></div>
+      <div class="row"><div class="m"><div class="lv">Corps</div><div class="sp">Golos 400<br>16–18 px · 1.75</div></div><div class="s-body">MP Finance accompagne particuliers et professionnels sur l'ensemble de leurs projets de financement. De la première acquisition à la stratégie patrimoniale, chaque dossier est traité avec la même rigueur.</div></div>
+      <div class="row"><div class="m"><div class="lv">Label</div><div class="sp">Golos 600<br>13–14 px · +28 %</div></div><div class="s-label">Courtage · Patrimoine · Assurance</div></div>
+    </div>
+  </section>
+
+  <!-- 04 PHOTO -->
+  <section class="wrap">
+    <div class="sec-head">
+      <div class="l"><div class="ey"><b>05</b> &nbsp;—&nbsp; Photographie</div><h2>Noir &amp; blanc,<br>lumineux.</h2></div>
+      <div class="note">L'humain et les lieux de travail, lumière naturelle, peu de contraste. Désaturation totale, toujours.</div>
+    </div>
+    <div class="photo-comp">
+      <div class="p tall"><img src="assets/mpf-interior.jpg" alt=""><span class="t">Espaces · lumière</span></div>
+      <div class="p"><img src="assets/mpf-team.jpg" alt=""><span class="t">Équipe · proximité</span></div>
+      <div class="p"><img src="assets/mpf-desk.jpg" alt=""><span class="t">Détail · conseil</span></div>
+    </div>
+    <p class="photo-note">Des visages, des bureaux, des gestes de conseil — la marque incarne l'accompagnement, pas l'abstraction financière. Tirage noir &amp; blanc doux : hautes lumières préservées, noirs jamais bouchés, grain léger. <em>Photographies réelles MP Finance, retraitées en N&amp;B.</em></p>
+  </section>
+
+  <!-- 05 MATIERE -->
+  <section class="wrap">
+    <div class="sec-head">
+      <div class="l"><div class="ey"><b>06</b> &nbsp;—&nbsp; Matière</div><h2>Pierre de<br>Jaumont.</h2></div>
+      <div class="note">La seule matière de la marque : la pierre, désaturée. Aucune teinte dorée — uniquement la trame et le relief, en niveaux de gris.</div>
+    </div>
+    <div class="tex">
+      <div class="tx-sw pale">
+        <svg class="tx-no" xmlns="http://www.w3.org/2000/svg"><filter id="n1"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.017" numOctaves="4" seed="7"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#n1)" opacity="0.6"/></svg>
+        <div class="tx-lab"><div class="t">Pierre claire</div><div class="s">Fonds · papiers · encarts</div></div>
+      </div>
+      <div class="tx-sw deep">
+        <svg class="tx-no" xmlns="http://www.w3.org/2000/svg"><filter id="n2"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.017" numOctaves="4" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#n2)" opacity="0.6"/></svg>
+        <div class="tx-lab"><div class="t">Pierre profonde</div><div class="s">Couvertures · aplats sombres</div></div>
+      </div>
+      <p class="tex-copy">La pierre de Jaumont — celle de la cathédrale de Metz — ancre la marque dans son territoire. On en retient la <strong>trame</strong> et le <strong>grain</strong>, jamais la couleur : la texture est systématiquement désaturée et déclinée en niveaux de gris. Employée par petites touches, en basse opacité, comme une matière — pas comme un décor.</p>
+    </div>
+  </section>
+
+  <!-- 06 SYSTEME -->
+  <section class="wrap">
+    <div class="sec-head">
+      <div class="l"><div class="ey"><b>07</b> &nbsp;—&nbsp; Système</div><h2>Formes &amp;<br>espacements.</h2></div>
+      <div class="note">L'écran s'arrondit, le papier reste net. Et partout : de l'air.</div>
+    </div>
+    <div class="sys">
+      <div class="c dig">
+        <div class="demo"></div>
+        <h3>Digital — coins arrondis</h3>
+        <p>Web, app, posts sociaux, signatures mail. Rayons doux pour une lecture moderne et accessible à l'écran.</p>
+        <div class="px">rayon 12–16 px · boutons pilule</div>
+      </div>
+      <div class="c">
+        <div class="demo"></div>
+        <h3>Print — angles vifs</h3>
+        <p>Plaquettes, flyers, cartes, pochettes. Angles nets, marges généreuses, tenue éditoriale haut de gamme.</p>
+        <div class="px">rayon 0 · filets 0,5 pt</div>
+      </div>
+    </div>
+    <div class="space">
+      <div class="bars">
+        <div class="col"><div class="u" style="height:24px"></div><div class="lab">8</div></div>
+        <div class="col"><div class="u" style="height:48px"></div><div class="lab">16</div></div>
+        <div class="col"><div class="u" style="height:72px"></div><div class="lab">24</div></div>
+        <div class="col"><div class="u" style="height:120px"></div><div class="lab">40</div></div>
+        <div class="col"><div class="u" style="height:180px"></div><div class="lab">64</div></div>
+        <div class="col"><div class="u" style="height:260px"></div><div class="lab">96</div></div>
+      </div>
+      <div class="tx">
+        <h4>Échelle d'espacement · base 8</h4>
+        <p>Tous les espacements sont des multiples de 8. Les marges sont volontairement larges : le vide n'est pas de la place perdue, c'est le premier signe du haut de gamme. On préfère toujours retirer que remplir.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="l">MP Finance × 56k Studio — Direction artistique v1 · N&amp;B intégral · proposition à valider<br>ORIAS n° 15 004 729 · mpfinance.fr</span>
+    <span class="r">56k.studio</span>
+  </footer>
+
+</div>
+<style>
+  .bb-pager{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:99;display:flex;gap:4px;background:rgba(14,14,14,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:999px;padding:6px;box-shadow:0 8px 30px rgba(0,0,0,.22);font-family:'JetBrains Mono','SF Mono',monospace}
+  .bb-pager a{color:rgba(255,255,255,.62);text-decoration:none;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;border-radius:999px;transition:.18s}
+  .bb-pager a:hover{color:#fff}
+  .bb-pager a.on{background:#fff;color:#0e0e0e}
+  @media print{.bb-pager{display:none}}
+</style>
+<nav class="bb-pager">
+  <a href="index.html" class="on" data-p="charte">Charte</a>
+  <a href="applications.html" data-p="applications">Applications</a>
+  <a href="specs.html" data-p="specs">Specs</a>
+</nav>
+
+</body>
+</html>

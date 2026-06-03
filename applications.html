@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>MP Finance — Applications v1 · N&B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e0e0e;--ink-soft:#262626;--g-700:#444;--g-500:#777;--g-400:#9a9a9a;
+    --g-300:#cfcfcf;--g-200:#e6e3dd;--g-100:#f1efe9;--paper:#faf8f3;--white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#c9c5bd}
+  body{font-family:'Golos Text',sans-serif;color:var(--ink);letter-spacing:-0.01em;-webkit-font-smoothing:antialiased}
+  .board{width:1600px;margin:0 auto;background:var(--paper);padding:120px 130px 96px}
+  header{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:34px;border-bottom:1px solid var(--ink)}
+  .mark{font-weight:800;font-size:24px;letter-spacing:-0.02em}
+  .mark .x{color:var(--g-400);font-weight:500;margin:0 10px}
+  .doc-meta{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--g-500)}
+  .intro{padding:72px 0 64px}
+  .intro .ey{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--g-500);margin-bottom:30px}
+  .intro h1{font-weight:800;font-size:78px;line-height:0.98;letter-spacing:-0.05em}
+  .intro h1 .thin{font-weight:300;color:var(--g-500)}
+  .intro p{margin-top:34px;max-width:720px;font-size:18px;line-height:1.7;color:var(--ink-soft)}
+
+  section.blk{padding:70px 0;border-top:1px solid var(--g-200)}
+  .blk-head{display:flex;align-items:baseline;gap:26px;margin-bottom:48px}
+  .blk-head .num{font-size:13px;font-weight:700;letter-spacing:.12em}
+  .blk-head h2{font-weight:700;font-size:32px;letter-spacing:-0.035em}
+  .blk-head .note{margin-left:auto;font-size:14px;color:var(--g-500);max-width:420px;text-align:right;line-height:1.55}
+
+  /* PLAQUETTE */
+  .plq{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .a4{aspect-ratio:1/1.414;border:1px solid var(--g-200);overflow:hidden;position:relative;background:#111}
+  .a4.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.82)}
+  .a4.cover .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.05) 40%,rgba(0,0,0,.62))}
+  .a4.cover .top{position:absolute;left:54px;top:50px;right:54px;display:flex;justify-content:space-between;align-items:flex-start}
+  .a4.cover .top img.logo{height:54px;width:auto;filter:none}
+  .a4.cover .top .corp{font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.82);text-align:right}
+  .a4.cover .bottom{position:absolute;left:54px;right:54px;bottom:58px;color:#fff}
+  .a4.cover .bottom .kick{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:22px}
+  .a4.cover .bottom h3{font-weight:800;font-size:50px;line-height:1.02;letter-spacing:-0.04em}
+  .a4.cover .bottom .sep{width:70px;height:1px;background:rgba(255,255,255,.6);margin:26px 0 16px}
+  .a4.cover .bottom .sub{font-size:15px;font-weight:400;color:rgba(255,255,255,.85);max-width:380px;line-height:1.6}
+
+  .a4.inner{background:var(--paper);padding:56px 54px;display:flex;flex-direction:column}
+  .a4.inner .il{font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--g-500);margin-bottom:30px}
+  .a4.inner h4{font-weight:700;font-size:34px;letter-spacing:-0.035em;line-height:1.08;margin-bottom:22px}
+  .a4.inner .lead{font-weight:300;font-size:18px;color:var(--ink-soft);line-height:1.5;margin-bottom:30px}
+  .a4.inner .body{font-size:14px;color:var(--g-700);line-height:1.75;margin-bottom:26px}
+  .a4.inner .rule{height:1px;background:var(--g-200);margin:6px 0 26px}
+  .a4.inner .stats{display:grid;grid-template-columns:1fr 1fr;gap:26px 18px;margin-top:auto}
+  .a4.inner .stat .n{font-weight:800;font-size:38px;letter-spacing:-0.04em;line-height:1}
+  .a4.inner .stat .l{font-size:12px;color:var(--g-500);margin-top:7px;line-height:1.4}
+  .a4.inner .ftr{margin-top:30px;padding-top:18px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;font-size:11px;letter-spacing:.06em;color:var(--g-500)}
+  .cap{margin-top:18px;font-size:13px;color:var(--g-500);letter-spacing:.02em}
+
+  /* LINKEDIN */
+  .li-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .li-card{border:1px solid var(--g-200);background:var(--white);border-radius:14px;overflow:hidden}
+  .li-top{display:flex;align-items:center;gap:14px;padding:22px 26px}
+  .li-av{width:52px;height:52px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;flex:none}
+  .li-av img{height:20px;width:auto}
+  .li-id .nm{font-weight:700;font-size:16px}
+  .li-id .mt{font-size:12.5px;color:var(--g-500);margin-top:2px}
+  .li-post{aspect-ratio:1/1;position:relative;overflow:hidden}
+  .li-post.dark{background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:54px}
+  .li-post.dark .ey{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .li-post.dark .big{font-weight:800;font-size:52px;line-height:1.02;letter-spacing:-0.04em}
+  .li-post.dark .big .thin{font-weight:300;color:rgba(255,255,255,.55)}
+  .li-post.dark .foot{display:flex;justify-content:space-between;align-items:flex-end}
+  .li-post.dark .foot img{height:30px;width:auto}
+  .li-post.dark .foot .tg{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .li-post.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(.9)}
+  .li-post.photo .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.6))}
+  .li-post.photo .lab{position:absolute;left:46px;right:46px;bottom:46px;color:#fff}
+  .li-post.photo .lab .ey{font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:16px}
+  .li-post.photo .lab h3{font-weight:800;font-size:38px;line-height:1.04;letter-spacing:-0.035em}
+  .li-post.photo .lab .src{position:absolute;left:46px;top:42px}
+  .li-post.photo .lab img{height:26px;width:auto}
+  .li-meta{padding:18px 26px 24px;font-size:13px;color:var(--g-500);line-height:1.5}
+  .li-meta .cta{display:inline-block;margin-top:14px;font-weight:600;font-size:13px;color:var(--ink);border:1px solid var(--ink);border-radius:999px;padding:9px 20px}
+
+  /* CARTE */
+  .cv-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .cv{aspect-ratio:85/55;border:1px solid var(--g-200);position:relative;overflow:hidden}
+  .cv.recto{background:var(--paper);display:flex;align-items:center;justify-content:center}
+  .cv.recto img{height:62px;width:auto}
+  .cv.recto .pin{position:absolute;left:34px;bottom:30px;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--g-500)}
+  .cv.recto .pinr{position:absolute;right:34px;bottom:30px;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--g-400)}
+  .cv.verso{background:var(--ink);color:#fff;padding:42px 46px;display:flex;flex-direction:column;justify-content:space-between}
+  .cv.verso .nm{font-weight:700;font-size:25px;letter-spacing:-0.02em}
+  .cv.verso .ro{font-size:13px;color:var(--g-400);margin-top:6px;letter-spacing:.02em}
+  .cv.verso .sep{width:54px;height:1px;background:rgba(255,255,255,.4);margin:20px 0}
+  .cv.verso .ln{font-size:13px;color:rgba(255,255,255,.85);line-height:1.85}
+  .cv.verso .br{position:absolute;right:42px;top:40px}
+  .cv.verso .br img{height:24px;width:auto}
+  .cv-note{margin-top:26px;font-size:14px;color:var(--ink-soft);line-height:1.7;max-width:1040px}
+
+  footer{margin-top:40px;padding-top:36px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;align-items:center}
+  footer .l{font-size:13px;color:var(--g-500)}
+  footer .r{font-size:13px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="board">
+
+  <header>
+    <div class="mark">56k<span class="x">×</span>MP Finance</div>
+    <div class="doc-meta">Applications · v1 · N&amp;B · à valider</div>
+  </header>
+
+  <div class="intro">
+    <div class="ey">Mises en situation</div>
+    <h1>La charte,<br><span class="thin">une fois</span> appliquée.</h1>
+    <p>Trois supports pour éprouver le système : une plaquette, un post LinkedIn et une carte de visite. Même grammaire partout — une typographie, du noir &amp; blanc, de la photographie sobre et beaucoup de vide. Maquettes indicatives ; textes et photos définitifs à valider.</p>
+  </div>
+
+  <!-- 01 PLAQUETTE -->
+  <section class="blk">
+    <div class="blk-head">
+      <span class="num">01</span>
+      <h2>Plaquette — couverture &amp; intérieur</h2>
+      <span class="note">Format A4 portrait. Couverture photographique pleine page, intérieur éditorial très aéré.</span>
+    </div>
+    <div class="plq">
+      <div>
+        <div class="a4 cover">
+          <img src="assets/mpf-team.jpg" alt="">
+          <div class="veil"></div>
+          <div class="top">
+            <img class="logo" src="assets/logo-blanc.png" alt="MP Finance">
+            <div class="corp">Courtage<br>en financement</div>
+          </div>
+          <div class="bottom">
+            <div class="kick">Crédit · Patrimoine · Assurance</div>
+            <h3>Votre projet<br>mérite mieux<br>qu'un guichet.</h3>
+            <div class="sep"></div>
+            <div class="sub">Un réseau de courtiers indépendants, à vos côtés de la première acquisition à la stratégie patrimoniale.</div>
+          </div>
+        </div>
+        <div class="cap">Couverture A4 — photographie N&amp;B, logo inversé, titre Golos 800.</div>
+      </div>
+      <div>
+        <div class="a4 inner">
+          <div class="il">Notre approche</div>
+          <h4>Un partenaire,<br>pas un intermédiaire.</h4>
+          <div class="lead">Le conseil patrimonial à hauteur d'exigence, porté par des courtiers qui s'engagent sur la durée.</div>
+          <div class="body">Chaque dossier est unique. Nous négocions auprès de l'ensemble des banques partenaires, défendons votre intérêt et restons votre interlocuteur du premier rendez-vous jusqu'à la signature — et bien après. La transparence n'est pas une option : c'est notre méthode.</div>
+          <div class="rule"></div>
+          <div class="stats">
+            <div class="stat"><div class="n">10</div><div class="l">agences en France</div></div>
+            <div class="stat"><div class="n">100%</div><div class="l">indépendants</div></div>
+            <div class="stat"><div class="n">30+</div><div class="l">banques partenaires</div></div>
+            <div class="stat"><div class="n">1</div><div class="l">interlocuteur dédié</div></div>
+          </div>
+          <div class="ftr"><span>mpfinance.fr</span><span>ORIAS n° 15 004 729</span></div>
+        </div>
+        <div class="cap">Page intérieure — hiérarchie Golos seule, filets fins, chiffres-clés.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 LINKEDIN -->
+  <section class="blk">
+    <div class="blk-head">
+      <span class="num">02</span>
+      <h2>Post LinkedIn — format carré 1080</h2>
+      <span class="note">Deux registres : la citation typographique sur fond encre, et le visuel photographique. Jamais de couleur.</span>
+    </div>
+    <div class="li-grid">
+      <div class="li-card">
+        <div class="li-top">
+          <div class="li-av"><img src="assets/logo-blanc.png" alt=""></div>
+          <div class="li-id"><div class="nm">MP Finance</div><div class="mt">Courtage en financement · 2 480 abonnés</div></div>
+        </div>
+        <div class="li-post dark">
+          <div class="ey">Le mot du courtier</div>
+          <div class="big">« Un bon taux,<br><span class="thin">c'est bien.</span><br>Le bon conseil,<br>c'est mieux. »</div>
+          <div class="foot"><img src="assets/logo-blanc.png" alt=""><span class="tg">#Courtage #Patrimoine</span></div>
+        </div>
+        <div class="li-meta">Citation typographique — pour les prises de parole &amp; conseils.<span class="cta">En savoir plus</span></div>
+      </div>
+      <div class="li-card">
+        <div class="li-top">
+          <div class="li-av"><img src="assets/logo-blanc.png" alt=""></div>
+          <div class="li-id"><div class="nm">MP Finance</div><div class="mt">Courtage en financement · 2 480 abonnés</div></div>
+        </div>
+        <div class="li-post photo">
+          <img src="assets/mpf-interior.jpg" alt="">
+          <div class="veil"></div>
+          <div class="lab">
+            <div class="src"><img src="assets/logo-blanc.png" alt=""></div>
+            <div class="ey">Nouvelle agence</div>
+            <h3>Metz nous<br>ouvre ses portes.</h3>
+          </div>
+        </div>
+        <div class="li-meta">Visuel photographique — pour les actualités &amp; le territoire.<span class="cta">Découvrir</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 CARTE DE VISITE -->
+  <section class="blk">
+    <div class="blk-head">
+      <span class="num">03</span>
+      <h2>Carte de visite — recto / verso</h2>
+      <span class="note">85 × 55 mm. Angles vifs (print), papier texturé, impression deux tons : encre &amp; blanc.</span>
+    </div>
+    <div class="cv-grid">
+      <div class="cv recto">
+        <img src="assets/logo-noir.png" alt="MP Finance">
+        <span class="pin">Courtage en financement</span>
+        <span class="pinr">Metz · Lorraine</span>
+      </div>
+      <div class="cv verso">
+        <div class="br"><img src="assets/logo-blanc.png" alt=""></div>
+        <div>
+          <div class="nm">Marie Parmentier</div>
+          <div class="ro">Courtière · Conseil patrimonial</div>
+        </div>
+        <div>
+          <div class="sep"></div>
+          <div class="ln">+33 6 00 00 00 00<br>marie@mpfinance.fr<br>12 rue Serpenoise · 57000 Metz</div>
+        </div>
+      </div>
+    </div>
+    <p class="cv-note">Recto signature pure : le logo respire au centre, deux mentions discrètes en pied. Verso fonctionnel sur fond encre — hiérarchie claire, filet fin, aucune fioriture. La carte se reconnaît à sa sobriété, pas à un artifice graphique. <em>Nom &amp; coordonnées fictifs pour la maquette.</em></p>
+  </section>
+
+  <footer>
+    <span class="l">MP Finance × 56k Studio · Applications v1 · N&amp;B intégral · proposition à valider</span>
+    <span class="r">56k.studio</span>
+  </footer>
+
+</div>
+<style>
+  .bb-pager{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:99;display:flex;gap:4px;background:rgba(14,14,14,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:999px;padding:6px;box-shadow:0 8px 30px rgba(0,0,0,.22);font-family:'JetBrains Mono','SF Mono',monospace}
+  .bb-pager a{color:rgba(255,255,255,.62);text-decoration:none;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;border-radius:999px;transition:.18s}
+  .bb-pager a:hover{color:#fff}
+  .bb-pager a.on{background:#fff;color:#0e0e0e}
+  @media print{.bb-pager{display:none}}
+</style>
+<nav class="bb-pager">
+  <a href="index.html" data-p="charte">Charte</a>
+  <a href="applications.html" class="on" data-p="applications">Applications</a>
+  <a href="specs.html" data-p="specs">Specs</a>
+</nav>
+
+</body>
+</html>

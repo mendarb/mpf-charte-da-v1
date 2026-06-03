@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>MP Finance — Specs & Tokens v1 · N&B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e0e0e;--ink-soft:#262626;--g-700:#444;--g-500:#777;--g-400:#9a9a9a;
+    --g-300:#cfcfcf;--g-200:#e6e3dd;--g-100:#f1efe9;--paper:#faf8f3;--white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#c9c5bd}
+  body{font-family:'Golos Text',sans-serif;color:var(--ink);letter-spacing:-0.01em;-webkit-font-smoothing:antialiased}
+  .board{width:1600px;margin:0 auto;background:var(--paper);padding:120px 130px 96px}
+  .mono{font-family:'JetBrains Mono',monospace;letter-spacing:0}
+  header{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:34px;border-bottom:1px solid var(--ink)}
+  .mark{font-weight:800;font-size:24px;letter-spacing:-0.02em}
+  .mark .x{color:var(--g-400);font-weight:500;margin:0 10px}
+  .doc-meta{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--g-500)}
+  .intro{padding:72px 0 60px}
+  .intro .ey{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--g-500);margin-bottom:30px}
+  .intro h1{font-weight:800;font-size:78px;line-height:0.98;letter-spacing:-0.05em}
+  .intro h1 .thin{font-weight:300;color:var(--g-500)}
+  .intro p{margin-top:32px;max-width:720px;font-size:18px;line-height:1.7;color:var(--ink-soft)}
+
+  section.blk{padding:64px 0;border-top:1px solid var(--g-200)}
+  .blk-head{display:flex;align-items:baseline;gap:26px;margin-bottom:42px}
+  .blk-head .num{font-size:13px;font-weight:700;letter-spacing:.12em}
+  .blk-head h2{font-weight:700;font-size:30px;letter-spacing:-0.035em}
+
+  /* TOKEN TABLE */
+  .tok{width:100%;border-collapse:collapse}
+  .tok th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g-500);padding:0 0 16px;border-bottom:1px solid var(--ink)}
+  .tok td{padding:17px 0;border-bottom:1px solid var(--g-200);vertical-align:middle;font-size:15px}
+  .tok td.name{font-weight:600;width:240px}
+  .tok td.val{width:200px;color:var(--g-700)}
+  .tok td.use{color:var(--g-500);font-size:14px}
+  .sw{display:inline-block;width:26px;height:26px;border-radius:5px;border:1px solid rgba(0,0,0,.12);vertical-align:-8px;margin-right:14px}
+
+  /* TYPE TABLE */
+  .ty td.prev{font-weight:600}
+  .d800{font-weight:800;font-size:30px;letter-spacing:-0.04em}
+  .d700{font-weight:700;font-size:24px;letter-spacing:-0.03em}
+  .d300{font-weight:300;font-size:21px;color:var(--ink-soft)}
+  .d400{font-weight:400;font-size:16px;color:var(--ink-soft)}
+  .d600{font-weight:600;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--g-500)}
+
+  /* SPACING */
+  .sp-grid{display:flex;align-items:flex-end;gap:26px}
+  .sp-grid .b{background:var(--ink)}
+  .sp-grid .col{text-align:center}
+  .sp-grid .lab{font-size:12px;color:var(--g-500);margin-top:10px}
+  .sp-grid .lab b{display:block;color:var(--ink);font-weight:700;font-size:14px;margin-bottom:2px}
+
+  /* RULES do/dont */
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .rule-card{border:1px solid var(--g-200);background:var(--white);padding:38px 40px}
+  .rule-card h3{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:12px}
+  .rule-card h3 .gl{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+  .rule-card.do h3 .gl{background:var(--ink);color:#fff}
+  .rule-card.dont h3 .gl{border:1.5px solid var(--ink);color:var(--ink)}
+  .rule-card ul{list-style:none;display:flex;flex-direction:column;gap:15px}
+  .rule-card li{font-size:15px;line-height:1.55;color:var(--ink-soft);padding-left:22px;position:relative}
+  .rule-card li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:1.5px;background:var(--g-400)}
+
+  /* LOGO RULES */
+  .lg-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+  .lg-card{border:1px solid var(--g-200);background:var(--white);padding:34px;text-align:center;position:relative}
+  .lg-card .stage{height:120px;display:flex;align-items:center;justify-content:center;position:relative}
+  .lg-card .stage img{height:46px;width:auto}
+  .lg-card .pad{position:absolute;inset:18px;border:1px dashed var(--g-300)}
+  .lg-card .t{font-size:13px;font-weight:700;margin-top:18px}
+  .lg-card .s{font-size:13px;color:var(--g-500);margin-top:7px;line-height:1.5}
+
+  footer{margin-top:42px;padding-top:36px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;align-items:center}
+  footer .l{font-size:13px;color:var(--g-500)}
+  footer .r{font-size:13px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="board">
+
+  <header>
+    <div class="mark">56k<span class="x">×</span>MP Finance</div>
+    <div class="doc-meta">Specs &amp; Tokens · v1 · N&amp;B · à valider</div>
+  </header>
+
+  <div class="intro">
+    <div class="ey">Fiche technique</div>
+    <h1>Les règles,<br><span class="thin">noir sur</span> blanc.</h1>
+    <p>Le système condensé en tokens : couleurs, typographie, espacements et règles d'usage du logo. De quoi cadrer la production — print comme digital — sans jamais réintroduire de couleur.</p>
+  </div>
+
+  <!-- COLOR TOKENS -->
+  <section class="blk">
+    <div class="blk-head"><span class="num">01</span><h2>Tokens couleur — niveaux de gris</h2></div>
+    <table class="tok">
+      <thead><tr><th>Token</th><th>Valeur</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td class="name"><span class="sw" style="background:#0e0e0e"></span>ink</td><td class="val mono">#0E0E0E</td><td class="use">Texte principal, aplats, logo</td></tr>
+        <tr><td class="name"><span class="sw" style="background:#262626"></span>ink-soft</td><td class="val mono">#262626</td><td class="use">Corps de texte long, chapôs</td></tr>
+        <tr><td class="name"><span class="sw" style="background:#5c5c5c"></span>gray-600</td><td class="val mono">#5C5C5C</td><td class="use">Texte secondaire</td></tr>
+        <tr><td class="name"><span class="sw" style="background:#9a9a9a"></span>gray-400</td><td class="val mono">#9A9A9A</td><td class="use">Labels, méta, légendes</td></tr>
+        <tr><td class="name"><span class="sw" style="background:#cfcfcf"></span>gray-300</td><td class="val mono">#CFCFCF</td><td class="use">Filets, séparateurs marqués</td></tr>
+        <tr><td class="name"><span class="sw" style="background:#e6e3dd"></span>gray-200</td><td class="val mono">#E6E3DD</td><td class="use">Bordures fines, lignes de section</td></tr>
+        <tr><td class="name"><span class="sw" style="background:#f1efe9"></span>gray-100</td><td class="val mono">#F1EFE9</td><td class="use">Fonds alternés, cartouches</td></tr>
+        <tr><td class="name"><span class="sw" style="background:#faf8f3"></span>paper</td><td class="val mono">#FAF8F3</td><td class="use">Fond par défaut (blanc cassé chaud)</td></tr>
+        <tr><td class="name"><span class="sw" style="background:#fff"></span>white</td><td class="val mono">#FFFFFF</td><td class="use">Cartes, surfaces surélevées</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- TYPE TOKENS -->
+  <section class="blk">
+    <div class="blk-head"><span class="num">02</span><h2>Tokens typographie — Golos Text</h2></div>
+    <table class="tok ty">
+      <thead><tr><th>Niveau</th><th>Réglage</th><th>Aperçu</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Display</td><td class="val mono">800 · 72–112 / −5%</td><td class="prev"><span class="d800">Votre projet mérite mieux</span></td></tr>
+        <tr><td class="name">Titre H2</td><td class="val mono">700 · 32–40 / −3.5%</td><td class="prev"><span class="d700">Un partenaire, pas un guichet</span></td></tr>
+        <tr><td class="name">Chapô</td><td class="val mono">300 · 21–25 / 1.45</td><td class="prev"><span class="d300">Le conseil patrimonial à hauteur d'exigence</span></td></tr>
+        <tr><td class="name">Corps</td><td class="val mono">400 · 16–17 / 1.70</td><td class="prev"><span class="d400">Chaque dossier est traité avec la même rigueur, de la première acquisition à la stratégie patrimoniale.</span></td></tr>
+        <tr><td class="name">Label / méta</td><td class="val mono">600 · 12–13 / +30%</td><td class="prev"><span class="d600">Courtage · Patrimoine · Assurance</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SPACING TOKENS -->
+  <section class="blk">
+    <div class="blk-head"><span class="num">03</span><h2>Tokens espacement — base 8</h2></div>
+    <div class="sp-grid">
+      <div class="col"><div class="b" style="width:34px;height:24px"></div><div class="lab"><b>8</b>xs</div></div>
+      <div class="col"><div class="b" style="width:34px;height:48px"></div><div class="lab"><b>16</b>sm</div></div>
+      <div class="col"><div class="b" style="width:34px;height:72px"></div><div class="lab"><b>24</b>md</div></div>
+      <div class="col"><div class="b" style="width:34px;height:120px"></div><div class="lab"><b>40</b>lg</div></div>
+      <div class="col"><div class="b" style="width:34px;height:192px"></div><div class="lab"><b>64</b>xl</div></div>
+      <div class="col"><div class="b" style="width:34px;height:264px"></div><div class="lab"><b>96</b>2xl</div></div>
+    </div>
+  </section>
+
+  <!-- LOGO RULES -->
+  <section class="blk">
+    <div class="blk-head"><span class="num">04</span><h2>Règles du logo</h2></div>
+    <div class="lg-grid">
+      <div class="lg-card">
+        <div class="stage"><span class="pad"></span><img src="assets/logo-noir.png" alt="MP Finance"></div>
+        <div class="t">Zone de protection</div>
+        <div class="s">Espace vide ≥ hauteur du « M » sur tous les côtés.</div>
+      </div>
+      <div class="lg-card">
+        <div class="stage"><img src="assets/logo-noir.png" alt="MP Finance" style="height:26px"></div>
+        <div class="t">Taille minimale</div>
+        <div class="s">28 mm de large en print · 96 px en digital.</div>
+      </div>
+      <div class="lg-card">
+        <div class="stage" style="background:var(--ink)"><img src="assets/logo-blanc.png" alt="MP Finance"></div>
+        <div class="t">Versions</div>
+        <div class="s">Noir sur clair · blanc sur foncé/photo. Rien d'autre.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DO / DONT -->
+  <section class="blk">
+    <div class="blk-head"><span class="num">05</span><h2>À faire / à éviter</h2></div>
+    <div class="rules">
+      <div class="rule-card do">
+        <h3><span class="gl">+</span> À faire</h3>
+        <ul>
+          <li>Laisser respirer : marges larges, beaucoup de vide.</li>
+          <li>Une seule police, Golos — hiérarchie par graisse &amp; échelle.</li>
+          <li>Photographie systématiquement désaturée (N&amp;B doux).</li>
+          <li>Filets fins (0,5–1 pt) pour structurer.</li>
+          <li>Arrondis à l'écran, angles vifs au print.</li>
+          <li>Texture pierre en niveaux de gris, basse opacité.</li>
+        </ul>
+      </div>
+      <div class="rule-card dont">
+        <h3><span class="gl">–</span> À éviter</h3>
+        <ul>
+          <li>Toute couleur d'accent — aucune, jamais.</li>
+          <li>Une 2ᵉ police ou une fausse italique.</li>
+          <li>Photos saturées, HDR, contrastes violents.</li>
+          <li>Ombres portées lourdes, effets, dégradés colorés.</li>
+          <li>Déformer, pivoter ou recolorer le logo.</li>
+          <li>Remplir le vide « parce qu'il en reste ».</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="l">MP Finance × 56k Studio · Specs &amp; tokens v1 · N&amp;B intégral · proposition à valider — ORIAS n° 15 004 729</span>
+    <span class="r">56k.studio</span>
+  </footer>
+
+</div>
+<style>
+  .bb-pager{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:99;display:flex;gap:4px;background:rgba(14,14,14,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:999px;padding:6px;box-shadow:0 8px 30px rgba(0,0,0,.22);font-family:'JetBrains Mono','SF Mono',monospace}
+  .bb-pager a{color:rgba(255,255,255,.62);text-decoration:none;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;border-radius:999px;transition:.18s}
+  .bb-pager a:hover{color:#fff}
+  .bb-pager a.on{background:#fff;color:#0e0e0e}
+  @media print{.bb-pager{display:none}}
+</style>
+<nav class="bb-pager">
+  <a href="index.html" data-p="charte">Charte</a>
+  <a href="applications.html" data-p="applications">Applications</a>
+  <a href="specs.html" class="on" data-p="specs">Specs</a>
+</nav>
+
+</body>
+</html>
