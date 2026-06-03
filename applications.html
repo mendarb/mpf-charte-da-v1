@@ -5,7 +5,8 @@
 <title>MP Finance — Applications v1 · N&B</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/satoshi.css">
 <style>
   :root{
     --ink:#0e0e0e;--ink-soft:#262626;--g-700:#444;--g-500:#777;--g-400:#9a9a9a;
@@ -13,15 +14,15 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{background:#c9c5bd}
-  body{font-family:'Golos Text',sans-serif;color:var(--ink);letter-spacing:-0.01em;-webkit-font-smoothing:antialiased}
+  body{font-family:'Satoshi',sans-serif;color:var(--ink);letter-spacing:-0.01em;-webkit-font-smoothing:antialiased}
   .board{width:1600px;margin:0 auto;background:var(--paper);padding:120px 130px 96px}
   header{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:34px;border-bottom:1px solid var(--ink)}
-  .mark{font-weight:800;font-size:24px;letter-spacing:-0.02em}
+  .mark{font-weight:900;font-size:24px;letter-spacing:-0.02em}
   .mark .x{color:var(--g-400);font-weight:500;margin:0 10px}
-  .doc-meta{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--g-500)}
+  .doc-meta{font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--g-500)}
   .intro{padding:72px 0 64px}
-  .intro .ey{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--g-500);margin-bottom:30px}
-  .intro h1{font-weight:800;font-size:78px;line-height:0.98;letter-spacing:-0.05em}
+  .intro .ey{font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--g-500);margin-bottom:30px}
+  .intro h1{font-weight:900;font-size:78px;line-height:0.98;letter-spacing:-0.05em}
   .intro h1 .thin{font-weight:300;color:var(--g-500)}
   .intro p{margin-top:34px;max-width:720px;font-size:18px;line-height:1.7;color:var(--ink-soft)}
 
@@ -38,21 +39,21 @@
   .a4.cover .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.05) 40%,rgba(0,0,0,.62))}
   .a4.cover .top{position:absolute;left:54px;top:50px;right:54px;display:flex;justify-content:space-between;align-items:flex-start}
   .a4.cover .top img.logo{height:54px;width:auto;filter:none}
-  .a4.cover .top .corp{font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.82);text-align:right}
+  .a4.cover .top .corp{font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.82);text-align:right}
   .a4.cover .bottom{position:absolute;left:54px;right:54px;bottom:58px;color:#fff}
-  .a4.cover .bottom .kick{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:22px}
-  .a4.cover .bottom h3{font-weight:800;font-size:50px;line-height:1.02;letter-spacing:-0.04em}
+  .a4.cover .bottom .kick{font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:22px}
+  .a4.cover .bottom h3{font-weight:900;font-size:50px;line-height:1.02;letter-spacing:-0.04em}
   .a4.cover .bottom .sep{width:70px;height:1px;background:rgba(255,255,255,.6);margin:26px 0 16px}
   .a4.cover .bottom .sub{font-size:15px;font-weight:400;color:rgba(255,255,255,.85);max-width:380px;line-height:1.6}
 
   .a4.inner{background:var(--paper);padding:56px 54px;display:flex;flex-direction:column}
-  .a4.inner .il{font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--g-500);margin-bottom:30px}
+  .a4.inner .il{font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--g-500);margin-bottom:30px}
   .a4.inner h4{font-weight:700;font-size:34px;letter-spacing:-0.035em;line-height:1.08;margin-bottom:22px}
   .a4.inner .lead{font-weight:300;font-size:18px;color:var(--ink-soft);line-height:1.5;margin-bottom:30px}
   .a4.inner .body{font-size:14px;color:var(--g-700);line-height:1.75;margin-bottom:26px}
   .a4.inner .rule{height:1px;background:var(--g-200);margin:6px 0 26px}
   .a4.inner .stats{display:grid;grid-template-columns:1fr 1fr;gap:26px 18px;margin-top:auto}
-  .a4.inner .stat .n{font-weight:800;font-size:38px;letter-spacing:-0.04em;line-height:1}
+  .a4.inner .stat .n{font-weight:900;font-size:38px;letter-spacing:-0.04em;line-height:1}
   .a4.inner .stat .l{font-size:12px;color:var(--g-500);margin-top:7px;line-height:1.4}
   .a4.inner .ftr{margin-top:30px;padding-top:18px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;font-size:11px;letter-spacing:.06em;color:var(--g-500)}
   .cap{margin-top:18px;font-size:13px;color:var(--g-500);letter-spacing:.02em}
@@ -67,29 +68,29 @@
   .li-id .mt{font-size:12.5px;color:var(--g-500);margin-top:2px}
   .li-post{aspect-ratio:1/1;position:relative;overflow:hidden}
   .li-post.dark{background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:54px}
-  .li-post.dark .ey{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-  .li-post.dark .big{font-weight:800;font-size:52px;line-height:1.02;letter-spacing:-0.04em}
+  .li-post.dark .ey{font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .li-post.dark .big{font-weight:900;font-size:52px;line-height:1.02;letter-spacing:-0.04em}
   .li-post.dark .big .thin{font-weight:300;color:rgba(255,255,255,.55)}
   .li-post.dark .foot{display:flex;justify-content:space-between;align-items:flex-end}
   .li-post.dark .foot img{height:30px;width:auto}
-  .li-post.dark .foot .tg{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .li-post.dark .foot .tg{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6)}
   .li-post.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(.9)}
   .li-post.photo .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.6))}
   .li-post.photo .lab{position:absolute;left:46px;right:46px;bottom:46px;color:#fff}
-  .li-post.photo .lab .ey{font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:16px}
-  .li-post.photo .lab h3{font-weight:800;font-size:38px;line-height:1.04;letter-spacing:-0.035em}
+  .li-post.photo .lab .ey{font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:16px}
+  .li-post.photo .lab h3{font-weight:900;font-size:38px;line-height:1.04;letter-spacing:-0.035em}
   .li-post.photo .lab .src{position:absolute;left:46px;top:42px}
   .li-post.photo .lab img{height:26px;width:auto}
   .li-meta{padding:18px 26px 24px;font-size:13px;color:var(--g-500);line-height:1.5}
-  .li-meta .cta{display:inline-block;margin-top:14px;font-weight:600;font-size:13px;color:var(--ink);border:1px solid var(--ink);border-radius:999px;padding:9px 20px}
+  .li-meta .cta{display:inline-block;margin-top:14px;font-weight:500;font-size:13px;color:var(--ink);border:1px solid var(--ink);border-radius:999px;padding:9px 20px}
 
   /* CARTE */
   .cv-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
   .cv{aspect-ratio:85/55;border:1px solid var(--g-200);position:relative;overflow:hidden}
   .cv.recto{background:var(--paper);display:flex;align-items:center;justify-content:center}
   .cv.recto img{height:62px;width:auto}
-  .cv.recto .pin{position:absolute;left:34px;bottom:30px;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--g-500)}
-  .cv.recto .pinr{position:absolute;right:34px;bottom:30px;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--g-400)}
+  .cv.recto .pin{position:absolute;left:34px;bottom:30px;font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--g-500)}
+  .cv.recto .pinr{position:absolute;right:34px;bottom:30px;font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--g-400)}
   .cv.verso{background:var(--ink);color:#fff;padding:42px 46px;display:flex;flex-direction:column;justify-content:space-between}
   .cv.verso .nm{font-weight:700;font-size:25px;letter-spacing:-0.02em}
   .cv.verso .ro{font-size:13px;color:var(--g-400);margin-top:6px;letter-spacing:.02em}
@@ -141,7 +142,7 @@
             <div class="sub">Un réseau de courtiers indépendants, à vos côtés de la première acquisition à la stratégie patrimoniale.</div>
           </div>
         </div>
-        <div class="cap">Couverture A4 — photographie N&amp;B, logo inversé, titre Golos 800.</div>
+        <div class="cap">Couverture A4 — photographie N&amp;B, logo inversé, titre Satoshi Black.</div>
       </div>
       <div>
         <div class="a4 inner">
@@ -158,7 +159,7 @@
           </div>
           <div class="ftr"><span>mpfinance.fr</span><span>ORIAS n° 15 004 729</span></div>
         </div>
-        <div class="cap">Page intérieure — hiérarchie Golos seule, filets fins, chiffres-clés.</div>
+        <div class="cap">Page intérieure — hiérarchie Satoshi seule, filets fins, chiffres-clés.</div>
       </div>
     </div>
   </section>

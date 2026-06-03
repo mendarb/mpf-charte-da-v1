@@ -5,7 +5,8 @@
 <title>MP Finance — Specs & Tokens v1 · N&B</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/satoshi.css">
 <style>
   :root{
     --ink:#0e0e0e;--ink-soft:#262626;--g-700:#444;--g-500:#777;--g-400:#9a9a9a;
@@ -13,16 +14,16 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{background:#c9c5bd}
-  body{font-family:'Golos Text',sans-serif;color:var(--ink);letter-spacing:-0.01em;-webkit-font-smoothing:antialiased}
+  body{font-family:'Satoshi',sans-serif;color:var(--ink);letter-spacing:-0.01em;-webkit-font-smoothing:antialiased}
   .board{width:1600px;margin:0 auto;background:var(--paper);padding:120px 130px 96px}
   .mono{font-family:'JetBrains Mono',monospace;letter-spacing:0}
   header{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:34px;border-bottom:1px solid var(--ink)}
-  .mark{font-weight:800;font-size:24px;letter-spacing:-0.02em}
+  .mark{font-weight:900;font-size:24px;letter-spacing:-0.02em}
   .mark .x{color:var(--g-400);font-weight:500;margin:0 10px}
-  .doc-meta{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--g-500)}
+  .doc-meta{font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--g-500)}
   .intro{padding:72px 0 60px}
-  .intro .ey{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--g-500);margin-bottom:30px}
-  .intro h1{font-weight:800;font-size:78px;line-height:0.98;letter-spacing:-0.05em}
+  .intro .ey{font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--g-500);margin-bottom:30px}
+  .intro h1{font-weight:900;font-size:78px;line-height:0.98;letter-spacing:-0.05em}
   .intro h1 .thin{font-weight:300;color:var(--g-500)}
   .intro p{margin-top:32px;max-width:720px;font-size:18px;line-height:1.7;color:var(--ink-soft)}
 
@@ -35,18 +36,18 @@
   .tok{width:100%;border-collapse:collapse}
   .tok th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g-500);padding:0 0 16px;border-bottom:1px solid var(--ink)}
   .tok td{padding:17px 0;border-bottom:1px solid var(--g-200);vertical-align:middle;font-size:15px}
-  .tok td.name{font-weight:600;width:240px}
+  .tok td.name{font-weight:500;width:240px}
   .tok td.val{width:200px;color:var(--g-700)}
   .tok td.use{color:var(--g-500);font-size:14px}
   .sw{display:inline-block;width:26px;height:26px;border-radius:5px;border:1px solid rgba(0,0,0,.12);vertical-align:-8px;margin-right:14px}
 
   /* TYPE TABLE */
-  .ty td.prev{font-weight:600}
-  .d800{font-weight:800;font-size:30px;letter-spacing:-0.04em}
+  .ty td.prev{font-weight:500}
+  .d800{font-weight:900;font-size:30px;letter-spacing:-0.04em}
   .d700{font-weight:700;font-size:24px;letter-spacing:-0.03em}
   .d300{font-weight:300;font-size:21px;color:var(--ink-soft)}
   .d400{font-weight:400;font-size:16px;color:var(--ink-soft)}
-  .d600{font-weight:600;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--g-500)}
+  .d600{font-weight:500;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--g-500)}
 
   /* SPACING */
   .sp-grid{display:flex;align-items:flex-end;gap:26px}
@@ -59,7 +60,7 @@
   .rules{display:grid;grid-template-columns:1fr 1fr;gap:30px}
   .rule-card{border:1px solid var(--g-200);background:var(--white);padding:38px 40px}
   .rule-card h3{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:12px}
-  .rule-card h3 .gl{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+  .rule-card h3 .gl{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
   .rule-card.do h3 .gl{background:var(--ink);color:#fff}
   .rule-card.dont h3 .gl{border:1.5px solid var(--ink);color:var(--ink)}
   .rule-card ul{list-style:none;display:flex;flex-direction:column;gap:15px}
@@ -115,15 +116,15 @@
 
   <!-- TYPE TOKENS -->
   <section class="blk">
-    <div class="blk-head"><span class="num">02</span><h2>Tokens typographie — Golos Text</h2></div>
+    <div class="blk-head"><span class="num">02</span><h2>Tokens typographie — Satoshi</h2></div>
     <table class="tok ty">
       <thead><tr><th>Niveau</th><th>Réglage</th><th>Aperçu</th></tr></thead>
       <tbody>
-        <tr><td class="name">Display</td><td class="val mono">800 · 72–112 / −5%</td><td class="prev"><span class="d800">Votre projet mérite mieux</span></td></tr>
-        <tr><td class="name">Titre H2</td><td class="val mono">700 · 32–40 / −3.5%</td><td class="prev"><span class="d700">Un partenaire, pas un guichet</span></td></tr>
-        <tr><td class="name">Chapô</td><td class="val mono">300 · 21–25 / 1.45</td><td class="prev"><span class="d300">Le conseil patrimonial à hauteur d'exigence</span></td></tr>
-        <tr><td class="name">Corps</td><td class="val mono">400 · 16–17 / 1.70</td><td class="prev"><span class="d400">Chaque dossier est traité avec la même rigueur, de la première acquisition à la stratégie patrimoniale.</span></td></tr>
-        <tr><td class="name">Label / méta</td><td class="val mono">600 · 12–13 / +30%</td><td class="prev"><span class="d600">Courtage · Patrimoine · Assurance</span></td></tr>
+        <tr><td class="name">Display</td><td class="val mono">Black 900 · 72–112 / −5%</td><td class="prev"><span class="d800">Votre projet mérite mieux</span></td></tr>
+        <tr><td class="name">Titre H2</td><td class="val mono">Bold 700 · 32–40 / −3.5%</td><td class="prev"><span class="d700">Un partenaire, pas un guichet</span></td></tr>
+        <tr><td class="name">Chapô</td><td class="val mono">Light 300 · 21–25 / 1.45</td><td class="prev"><span class="d300">Le conseil patrimonial à hauteur d'exigence</span></td></tr>
+        <tr><td class="name">Corps</td><td class="val mono">Regular 400 · 16–17 / 1.70</td><td class="prev"><span class="d400">Chaque dossier est traité avec la même rigueur, de la première acquisition à la stratégie patrimoniale.</span></td></tr>
+        <tr><td class="name">Label / méta</td><td class="val mono">Medium 500 · 12–13 / +30%</td><td class="prev"><span class="d600">Courtage · Patrimoine · Assurance</span></td></tr>
       </tbody>
     </table>
   </section>
@@ -171,7 +172,7 @@
         <h3><span class="gl">+</span> À faire</h3>
         <ul>
           <li>Laisser respirer : marges larges, beaucoup de vide.</li>
-          <li>Une seule police, Golos — hiérarchie par graisse &amp; échelle.</li>
+          <li>Une seule police, Satoshi — hiérarchie par graisse &amp; échelle.</li>
           <li>Photographie systématiquement désaturée (N&amp;B doux).</li>
           <li>Filets fins (0,5–1 pt) pour structurer.</li>
           <li>Arrondis à l'écran, angles vifs au print.</li>

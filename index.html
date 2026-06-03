@@ -5,7 +5,8 @@
 <title>MP Finance — Direction Artistique v1 · N&B</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/satoshi.css">
 <style>
   :root{
     --ink:#0e0e0e;--ink-soft:#2a2a28;--g-800:#1c1c1a;--g-700:#4a4a47;--g-600:#5e5e5a;
@@ -15,7 +16,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{background:#cbc7bd}
-  body{font-family:'Golos Text',sans-serif;color:var(--ink);letter-spacing:-0.011em;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+  body{font-family:'Satoshi',sans-serif;color:var(--ink);letter-spacing:-0.011em;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
   .board{width:1680px;margin:0 auto;background:var(--paper);overflow:hidden;position:relative}
   .board::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");opacity:.022;mix-blend-mode:multiply}
   .wrap{padding-left:150px;padding-right:150px}
@@ -35,10 +36,10 @@
   /* hero */
   .hero{padding:130px 150px 96px;position:relative}
   .hero .ey{margin-bottom:44px}
-  .hero h1{font-weight:800;font-size:142px;line-height:0.9;letter-spacing:-0.055em}
+  .hero h1{font-weight:900;font-size:138px;line-height:0.9;letter-spacing:-0.05em}
   .hero h1 em{font-style:normal;font-weight:300;color:var(--g-400)}
   .hero .lead{margin-left:auto;margin-top:60px;max-width:560px;font-size:19px;line-height:1.72;color:var(--ink-soft);font-weight:400}
-  .hero .lead .first{font-weight:600;color:var(--ink)}
+  .hero .lead .first{font-weight:500;color:var(--ink)}
 
   /* full-bleed photo */
   .bleed{position:relative;width:100%}
@@ -53,7 +54,7 @@
   .meta .cell:last-child{border-right:0}
   .meta .cell:not(:first-child){padding-left:40px}
   .meta .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--g-500);margin-bottom:14px}
-  .meta .v{font-size:18px;font-weight:600;letter-spacing:-0.02em}
+  .meta .v{font-size:18px;font-weight:500;letter-spacing:-0.02em}
   .meta .v small{display:block;font-weight:400;font-size:13.5px;color:var(--g-600);margin-top:6px;letter-spacing:0}
 
   /* section scaffold */
@@ -105,11 +106,11 @@
   .ty .row:first-of-type{border-top:0;padding-top:0}
   .ty .row .m .lv{font-weight:700;font-size:15px}
   .ty .row .m .sp{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--g-500);margin-top:9px;line-height:1.7}
-  .s-disp{font-weight:800;font-size:92px;letter-spacing:-0.055em;line-height:0.9}
+  .s-disp{font-weight:900;font-size:90px;letter-spacing:-0.05em;line-height:0.9}
   .s-h2{font-weight:700;font-size:46px;letter-spacing:-0.035em}
   .s-lead{font-weight:300;font-size:28px;color:var(--ink-soft);line-height:1.4;letter-spacing:-0.02em}
   .s-body{font-weight:400;font-size:18px;color:var(--ink-soft);line-height:1.75;max-width:840px}
-  .s-label{font-family:'Golos Text';font-weight:600;font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--g-600)}
+  .s-label{font-family:'Satoshi';font-weight:500;font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--g-600)}
 
   /* 04 photo composition */
   .photo-comp{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:repeat(2,330px);gap:18px}
@@ -155,7 +156,7 @@
 
   footer{padding:60px 150px 70px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;align-items:center}
   footer .l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--g-500);max-width:900px;line-height:1.7}
-  footer .r{font-weight:800;font-size:15px;letter-spacing:-0.02em}
+  footer .r{font-weight:900;font-size:15px;letter-spacing:-0.02em}
 </style>
 </head>
 <body>
@@ -185,7 +186,7 @@
   <div class="wrap">
     <div class="meta">
       <div class="cell"><div class="k">Référence</div><div class="v">milimalis.com<small>épure éditoriale</small></div></div>
-      <div class="cell"><div class="k">Typographie</div><div class="v">Golos Text<small>une seule famille</small></div></div>
+      <div class="cell"><div class="k">Typographie</div><div class="v">Satoshi<small>une seule famille</small></div></div>
       <div class="cell"><div class="k">Couleur</div><div class="v">Aucune<small>noir &amp; blanc intégral</small></div></div>
       <div class="cell"><div class="k">Matière</div><div class="v">Pierre de Jaumont<small>texture désaturée</small></div></div>
     </div>
@@ -260,15 +261,15 @@
   <!-- 03 TYPO -->
   <section class="wrap">
     <div class="sec-head">
-      <div class="l"><div class="ey"><b>04</b> &nbsp;—&nbsp; Typographie</div><h2>Golos Text,<br>seule en scène.</h2></div>
-      <div class="note">Une seule famille. Toute la hiérarchie naît de la graisse, de l'échelle et de la casse — jamais d'une 2ᵉ police.</div>
+      <div class="l"><div class="ey"><b>04</b> &nbsp;—&nbsp; Typographie</div><h2>Satoshi,<br>seule en scène.</h2></div>
+      <div class="note">Une seule famille — Satoshi (Fontshare). Toute la hiérarchie naît de la graisse, de l'échelle et de la casse — jamais d'une 2ᵉ police.</div>
     </div>
     <div class="ty">
-      <div class="row"><div class="m"><div class="lv">Display</div><div class="sp">Golos 800<br>72–142 px · −5,5 %</div></div><div class="s-disp">Votre projet mérite mieux.</div></div>
-      <div class="row"><div class="m"><div class="lv">Titre</div><div class="sp">Golos 700<br>40–52 px · −3,5 %</div></div><div class="s-h2">Un partenaire, pas un guichet.</div></div>
-      <div class="row"><div class="m"><div class="lv">Chapô</div><div class="sp">Golos 300<br>26–28 px · 1.4</div></div><div class="s-lead">Le conseil patrimonial à hauteur d'exigence, porté par un réseau de courtiers indépendants.</div></div>
-      <div class="row"><div class="m"><div class="lv">Corps</div><div class="sp">Golos 400<br>16–18 px · 1.75</div></div><div class="s-body">MP Finance accompagne particuliers et professionnels sur l'ensemble de leurs projets de financement. De la première acquisition à la stratégie patrimoniale, chaque dossier est traité avec la même rigueur.</div></div>
-      <div class="row"><div class="m"><div class="lv">Label</div><div class="sp">Golos 600<br>13–14 px · +28 %</div></div><div class="s-label">Courtage · Patrimoine · Assurance</div></div>
+      <div class="row"><div class="m"><div class="lv">Display</div><div class="sp">Satoshi Black · 900<br>72–138 px · −5 %</div></div><div class="s-disp">Votre projet mérite mieux.</div></div>
+      <div class="row"><div class="m"><div class="lv">Titre</div><div class="sp">Satoshi Bold · 700<br>40–52 px · −3,5 %</div></div><div class="s-h2">Un partenaire, pas un guichet.</div></div>
+      <div class="row"><div class="m"><div class="lv">Chapô</div><div class="sp">Satoshi Light · 300<br>26–28 px · 1.4</div></div><div class="s-lead">Le conseil patrimonial à hauteur d'exigence, porté par un réseau de courtiers indépendants.</div></div>
+      <div class="row"><div class="m"><div class="lv">Corps</div><div class="sp">Satoshi Regular · 400<br>16–18 px · 1.75</div></div><div class="s-body">MP Finance accompagne particuliers et professionnels sur l'ensemble de leurs projets de financement. De la première acquisition à la stratégie patrimoniale, chaque dossier est traité avec la même rigueur.</div></div>
+      <div class="row"><div class="m"><div class="lv">Label</div><div class="sp">Satoshi Medium · 500<br>13–14 px · +28 %</div></div><div class="s-label">Courtage · Patrimoine · Assurance</div></div>
     </div>
   </section>
 
