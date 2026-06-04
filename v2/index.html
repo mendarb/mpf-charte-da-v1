@@ -339,38 +339,74 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
 .app-block .lbl .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--text-faint);margin-bottom:14px}
 .app-block .lbl h4{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-bottom:14px}
 .app-block .lbl p{font-size:13.5px;line-height:1.55;color:var(--text-muted)}
-.app-canvas{display:flex;gap:24px;flex-wrap:wrap}
-/* plaquette */
-.a4{width:300px;aspect-ratio:1/1.414;border:1px solid var(--line);overflow:hidden;position:relative;background:#111}
-.a4.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(.78)}
-.a4.cover .vl{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.05) 42%,rgba(0,0,0,.66))}
-.a4.cover .top{position:absolute;left:30px;right:30px;top:30px;display:flex;justify-content:space-between;align-items:flex-start}
-.a4.cover .top img{height:30px}
-.a4.cover .top .c{font-family:var(--mono);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);text-align:right;line-height:1.5}
-.a4.cover .bot{position:absolute;left:30px;right:30px;bottom:34px;color:#fff}
-.a4.cover .bot .k{font-family:var(--mono);font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:14px}
-.a4.cover .bot h5{font-weight:700;font-size:27px;line-height:1.04;letter-spacing:-0.03em}
-.a4.inner{background:var(--bg);padding:34px 30px;display:flex;flex-direction:column}
-.a4.inner .il{font-family:var(--mono);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint);margin-bottom:18px}
-.a4.inner h5{font-weight:700;font-size:22px;letter-spacing:-0.025em;line-height:1.1;margin-bottom:14px}
-.a4.inner p{font-size:11px;line-height:1.65;color:var(--text-muted);margin-bottom:18px}
-.a4.inner .stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:auto;border-top:1px solid var(--line);padding-top:18px}
-.a4.inner .stat .n{font-weight:900;font-size:26px;letter-spacing:-0.03em;line-height:1}
-.a4.inner .stat .l{font-size:9px;color:var(--text-faint);margin-top:5px}
-/* linkedin */
+.app-canvas{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+/* —— plaquette A4 : rendu spread, fidélité production (en-tête courant, folio, légales, marges base-8) —— */
+.spread{display:flex;gap:0;box-shadow:0 24px 60px -28px rgba(14,14,14,.35)}
+.spread .a4:first-child{border-right:0}
+.spread .fold{width:1px;align-self:stretch;background:linear-gradient(90deg,rgba(14,14,14,.16),rgba(14,14,14,.04))}
+.a4{width:348px;aspect-ratio:1/1.414;border:1px solid var(--line);overflow:hidden;position:relative;background:#111}
+.a4.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:38% 24%;filter:grayscale(1) contrast(.96) brightness(.74)}
+.a4.cover .vl{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,.04) 40%,rgba(0,0,0,.70))}
+.a4.cover .top{position:absolute;left:32px;right:32px;top:32px;display:flex;justify-content:space-between;align-items:flex-start}
+.a4.cover .top img{height:28px}
+.a4.cover .top .c{font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.82);text-align:right;line-height:1.6}
+.a4.cover .bot{position:absolute;left:32px;right:32px;bottom:48px;color:#fff}
+.a4.cover .bot .k{font-family:var(--mono);font-size:8px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:18px}
+.a4.cover .bot h5{font-weight:700;font-size:30px;line-height:1.02;letter-spacing:-0.035em}
+.a4.cover .bot .rule{width:36px;height:2px;background:#fff;margin-top:22px;opacity:.9}
+.a4.cover .legal{position:absolute;left:32px;right:32px;bottom:20px;font-family:var(--mono);
+  font-size:6.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.a4.inner{background:var(--bg);padding:32px 32px 24px;display:flex;flex-direction:column}
+.a4.inner .rh{display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:32px}
+.a4.inner .rh img{height:15px}
+.a4.inner .rh .s{font-family:var(--mono);font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-faint)}
+.a4.inner .il{font-family:var(--mono);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint);margin-bottom:16px}
+.a4.inner h5{font-weight:700;font-size:23px;letter-spacing:-0.03em;line-height:1.08;margin-bottom:16px}
+.a4.inner p{font-size:11px;line-height:1.7;color:var(--text-muted);margin-bottom:14px}
+.a4.inner .pq{font-size:13px;line-height:1.5;color:var(--text);font-weight:500;
+  border-left:2px solid var(--ink);padding-left:14px;margin:6px 0 4px}
+.a4.inner .stats{display:grid;grid-template-columns:1fr 1fr;margin-top:auto;
+  border-top:1px solid var(--line-strong)}
+.a4.inner .stat{padding:18px 16px 0 0}
+.a4.inner .stat:nth-child(odd){border-right:1px solid var(--line)}
+.a4.inner .stat:nth-child(odd){padding-right:18px}
+.a4.inner .stat:nth-child(even){padding-left:18px}
+.a4.inner .stat .n{font-weight:900;font-size:27px;letter-spacing:-0.04em;line-height:1}
+.a4.inner .stat .l{font-size:8.5px;letter-spacing:.04em;color:var(--text-faint);margin-top:6px;line-height:1.3}
+.a4.inner .folio{display:flex;justify-content:space-between;margin-top:20px;
+  font-family:var(--mono);font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint)}
+/* —— LinkedIn : carousel 3 slides (1080), fidélité production —— */
+.licar{display:flex;gap:18px;flex-wrap:wrap}
 .li{width:300px;height:300px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.li .idx{position:absolute;top:26px;right:28px;z-index:3;font-family:var(--mono);
+  font-size:9px;letter-spacing:.18em}
+.li .swipe{position:absolute;bottom:26px;right:28px;z-index:3;font-family:var(--mono);
+  font-size:8px;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
 .li.dark{background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:34px}
+.li.dark .idx,.li.dark .swipe{color:rgba(255,255,255,.55)}
 .li.dark .k{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.55)}
-.li.dark .big{font-weight:700;font-size:28px;line-height:1.08;letter-spacing:-0.03em}
+.li.dark .big{font-weight:700;font-size:27px;line-height:1.1;letter-spacing:-0.035em}
 .li.dark .big .lt{font-weight:300;color:rgba(255,255,255,.5)}
-.li.dark .ft{display:flex;justify-content:space-between;align-items:center}
-.li.dark .ft img{height:18px}
-.li.dark .ft .h{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:rgba(255,255,255,.55)}
-.li.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.03) brightness(.86)}
-.li.ph .vl{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.62))}
-.li.ph .lab{position:absolute;left:30px;right:30px;bottom:30px;color:#fff}
-.li.ph .lab .k{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:12px}
-.li.ph .lab h5{font-weight:700;font-size:24px;line-height:1.06;letter-spacing:-0.03em}
+.li.dark .ft{display:flex;justify-content:space-between;align-items:flex-end}
+.li.dark .ft img{height:17px}
+.li.dark .ft .h{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:rgba(255,255,255,.55)}
+.li.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(.98) brightness(.8)}
+.li.ph .vl{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.04) 38%,rgba(0,0,0,.72))}
+.li.ph .idx,.li.ph .swipe{color:rgba(255,255,255,.8)}
+.li.ph .lab{position:absolute;left:32px;right:32px;bottom:30px;color:#fff;z-index:2}
+.li.ph .lab .k{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:14px}
+.li.ph .lab h5{font-weight:700;font-size:25px;line-height:1.06;letter-spacing:-0.035em}
+.li.ph .lab .big{font-weight:700;font-size:46px;line-height:.96;letter-spacing:-0.04em}
+.li.ph .lab .big .u{font-size:14px;font-weight:500;display:block;margin-top:10px;color:rgba(255,255,255,.78);letter-spacing:0}
+.li.cta{background:var(--bg);color:var(--ink);display:flex;flex-direction:column;justify-content:space-between;padding:34px}
+.li.cta .idx,.li.cta .swipe{color:var(--text-faint)}
+.li.cta .k{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--text-faint)}
+.li.cta .big{font-weight:700;font-size:30px;line-height:1.04;letter-spacing:-0.035em}
+.li.cta .big .lt{font-weight:300;color:var(--p-400)}
+.li.cta .ft{display:flex;justify-content:space-between;align-items:flex-end}
+.li.cta .ft img{height:17px}
+.li.cta .ft .h{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--text-faint)}
 /* carte */
 .cv{width:300px;aspect-ratio:85/55;border:1px solid var(--line);position:relative;overflow:hidden}
 .cv.recto{display:flex;align-items:center;justify-content:center;background:var(--bg)}
@@ -710,40 +746,60 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
     </div>
     <div class="apps">
       <div class="app-block">
-        <div class="lbl"><div class="n">01</div><h4>Plaquette A4</h4><p>Couverture photographique pleine page, intérieur éditorial très aéré.</p></div>
+        <div class="lbl"><div class="n">01</div><h4>Plaquette A4</h4><p>Couverture photographique pleine page, double-page éditoriale aérée. En-tête courant, folio et mentions légales — prête à imprimer.</p></div>
         <div class="app-canvas">
-          <div class="a4 cover">
-            <img src="../assets/mpf-team-portrait.jpg" alt="" style="object-position:center 28%">
-            <div class="vl"></div>
-            <div class="top"><img src="../assets/logo-blanc.png" alt="MP Finance"><div class="c">Courtage<br>en financement</div></div>
-            <div class="bot"><div class="k">Crédit · Patrimoine · Assurance</div><h5>Votre projet mérite mieux qu’un guichet.</h5></div>
-          </div>
-          <div class="a4 inner">
-            <div class="il">Notre approche</div>
-            <h5>Un partenaire, pas un intermédiaire.</h5>
-            <p>Chaque dossier est unique. Nous négocions auprès de l’ensemble des banques partenaires et restons votre interlocuteur jusqu’à la signature — et bien après.</p>
-            <div class="stats">
-              <div class="stat"><div class="n">10</div><div class="l">agences en France</div></div>
-              <div class="stat"><div class="n">100 %</div><div class="l">indépendants</div></div>
-              <div class="stat"><div class="n">30+</div><div class="l">banques partenaires</div></div>
-              <div class="stat"><div class="n">1</div><div class="l">interlocuteur dédié</div></div>
+          <div class="spread">
+            <div class="a4 cover">
+              <img src="../assets/mpf-team-portrait.jpg" alt="">
+              <div class="vl"></div>
+              <div class="top"><img src="../assets/logo-blanc.png" alt="MP Finance"><div class="c">Courtage<br>en financement</div></div>
+              <div class="bot"><div class="k">Crédit · Patrimoine · Assurance</div><h5>Votre projet mérite mieux qu’un guichet.</h5><div class="rule"></div></div>
+              <div class="legal">ORIAS n° 15 004 729 · mpfinance.fr</div>
+            </div>
+            <div class="fold"></div>
+            <div class="a4 inner">
+              <div class="rh"><img src="../assets/logo-noir.png" alt="MP Finance"><span class="s">Notre approche</span></div>
+              <div class="il">Le métier</div>
+              <h5>Un partenaire, pas un intermédiaire.</h5>
+              <p>Chaque dossier est unique. Nous négocions auprès de l’ensemble de nos banques partenaires et restons votre seul interlocuteur, du premier rendez-vous à la signature — et bien après.</p>
+              <p class="pq">« On s’occupe du financement. Vous, du projet. »</p>
+              <div class="stats">
+                <div class="stat"><div class="n">10</div><div class="l">agences en France</div></div>
+                <div class="stat"><div class="n">100 %</div><div class="l">indépendants</div></div>
+                <div class="stat"><div class="n">30+</div><div class="l">banques partenaires</div></div>
+                <div class="stat"><div class="n">1</div><div class="l">interlocuteur dédié</div></div>
+              </div>
+              <div class="folio"><span>MP Finance</span><span>02 — 03</span></div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="app-block">
-        <div class="lbl"><div class="n">02</div><h4>Posts LinkedIn</h4><p>Format carré 1080. Deux registres : citation typographique, ou visuel photographique. Jamais de couleur.</p></div>
+        <div class="lbl"><div class="n">02</div><h4>Carousel LinkedIn</h4><p>Trois vues carrées 1080 — accroche, preuve, invitation. Une seule grammaire : typographie, noir &amp; blanc, vide. Jamais de couleur.</p></div>
         <div class="app-canvas">
-          <div class="li dark">
-            <div class="k">Le mot du courtier</div>
-            <div class="big">« Un bon taux,<br><span class="lt">c’est bien.</span><br>Le bon conseil,<br>c’est mieux. »</div>
-            <div class="ft"><img src="../assets/logo-blanc.png" alt="MP Finance"><span class="h">#Courtage</span></div>
-          </div>
-          <div class="li ph">
-            <img src="../assets/mpf-interior.jpg" alt="">
-            <div class="vl"></div>
-            <div class="lab"><div class="k">Nouvelle agence</div><h5>Metz nous ouvre ses portes.</h5></div>
+          <div class="licar">
+            <div class="li dark">
+              <span class="idx">01 / 03</span>
+              <div class="k">Le mot du courtier</div>
+              <div class="big">« Un bon taux,<br><span class="lt">c’est bien.</span><br>Le bon conseil,<br>c’est mieux. »</div>
+              <div class="ft"><img src="../assets/logo-blanc.png" alt="MP Finance"><span class="h">glissez →</span></div>
+            </div>
+            <div class="li ph">
+              <img src="../assets/mpf-interior.jpg" alt="">
+              <div class="vl"></div>
+              <span class="idx">02 / 03</span>
+              <div class="lab">
+                <div class="k">Notre force</div>
+                <div class="big">30<span class="u">banques consultées. Un seul interlocuteur : le vôtre.</span></div>
+              </div>
+            </div>
+            <div class="li cta">
+              <span class="idx">03 / 03</span>
+              <div class="k">Parlons-en</div>
+              <div class="big">Votre projet<br>mérite mieux<br><span class="lt">qu’un guichet.</span></div>
+              <div class="ft"><img src="../assets/logo-noir.png" alt="MP Finance"><span class="h">mpfinance.fr</span></div>
+            </div>
           </div>
         </div>
       </div>
