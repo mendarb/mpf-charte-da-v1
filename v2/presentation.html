@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MP Finance — Présentation de la direction artistique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/fonts/satoshi.css">
+<style>
+/* ============================================================
+   MP FINANCE — DECK DE PRÉSENTATION (mêmes tokens que le brandbook)
+   ============================================================ */
+:root{
+  --ink:#0E0E0E; --ink-90:#2A2A28; --g700:#4A4A47; --g600:#5E5E5A;
+  --g500:#7C7C77; --g400:#9B9B95; --g300:#C7C4BC; --g200:#E3E0D8;
+  --g100:#EEEBE3; --paper:#FAF8F3; --white:#FFFFFF;
+  --bg:var(--paper); --text:var(--ink); --muted:var(--g600); --faint:var(--g500);
+  --line:#DEDAD0; --line-strong:var(--ink);
+  --font:'Satoshi',-apple-system,system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --pad: clamp(40px, 7vw, 132px);
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:var(--font); background:var(--ink); color:var(--text);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow:hidden;
+}
+.no-sel{user-select:none}
+
+/* ---------- DECK SHELL ---------- */
+.deck{position:fixed;inset:0;overflow:hidden;background:var(--ink)}
+.track{display:flex;height:100%;width:100%;
+  transition:transform .72s var(--ease);will-change:transform}
+.slide{position:relative;flex:0 0 100vw;height:100vh;overflow:hidden;
+  background:var(--bg);display:flex;flex-direction:column}
+.slide.dark{background:var(--ink);color:var(--paper)}
+.slide.dark .eyebrow,.slide.dark .kicker{color:rgba(250,248,243,.55)}
+.slide.dark .hair{background:rgba(250,248,243,.18)}
+
+/* grain */
+.slide::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:5;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");}
+
+/* inner padding frame */
+.frame{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;
+  padding:var(--pad);min-height:0}
+
+/* top chrome on each slide */
+.chrome{position:absolute;top:clamp(24px,3.4vw,48px);left:var(--pad);right:var(--pad);
+  display:flex;justify-content:space-between;align-items:center;z-index:6}
+.chrome .mk{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.slide.dark .chrome .mk{color:rgba(250,248,243,.5)}
+.chrome .mk b{font-weight:500;color:var(--text)}
+.slide.dark .chrome .mk b{color:var(--paper)}
+
+/* typography atoms */
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--faint);display:flex;align-items:center;gap:16px}
+.eyebrow .ln{display:inline-block;width:54px;height:1px;background:currentColor;opacity:.5}
+h1.display{font-weight:900;letter-spacing:-0.035em;line-height:.96;
+  font-size:clamp(44px,7.4vw,118px)}
+h2.title{font-weight:700;letter-spacing:-0.03em;line-height:1.02;
+  font-size:clamp(34px,4.8vw,74px)}
+.lead{font-weight:300;font-size:clamp(18px,1.7vw,27px);line-height:1.5;color:var(--text-soft,var(--ink-90));max-width:24ch}
+.muted{color:var(--muted)}
+.thin{font-weight:300}
+em{font-style:normal;font-weight:900}
+
+/* helpers */
+.spacer{flex:1}
+.row{display:flex;gap:var(--pad)}
+.center{align-items:center}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:16px}
+
+/* ===== slide-specific ===== */
+/* cover */
+.cover .frame{justify-content:center}
+.cover .meta{display:flex;gap:clamp(28px,4vw,72px);margin-top:clamp(36px,5vw,72px);flex-wrap:wrap}
+.cover .meta .m .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.cover .meta .m .v{font-size:16px;font-weight:500}
+.cover .logo{height:34px;width:auto;filter:brightness(0) invert(1);opacity:.92}
+
+/* statement */
+.statement h2{font-weight:300;font-size:clamp(30px,4.4vw,68px);line-height:1.12;letter-spacing:-0.02em;max-width:18ch}
+
+/* decisions list */
+.decisions{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(40px,5vw,90px);
+  border-top:1px solid var(--line);margin-top:clamp(28px,4vw,56px)}
+.decisions .d{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.decisions .d .n{font-family:var(--mono);font-size:12px;color:var(--faint);flex:0 0 auto}
+.decisions .d .t{font-size:clamp(15px,1.25vw,18px);line-height:1.4}
+.decisions .d .t b{font-weight:700}
+
+/* pillars (4) */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:auto}
+.pillars .p{padding:clamp(22px,2.4vw,40px) clamp(20px,1.8vw,32px) 0 0;border-right:1px solid var(--line)}
+.pillars .p:last-child{border-right:0;padding-right:0}
+.pillars .p .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--faint);margin-bottom:18px}
+.pillars .p h4{font-size:clamp(18px,1.55vw,23px);font-weight:700;letter-spacing:-0.02em;margin-bottom:12px}
+.pillars .p p{font-size:14px;line-height:1.55;color:var(--muted)}
+
+/* split: text + visual */
+.split{display:grid;grid-template-columns:1fr 1fr;flex:1;min-height:0}
+.split .tx{display:flex;flex-direction:column;justify-content:center;padding-right:clamp(30px,4vw,72px)}
+.split .vz{position:relative;border-left:1px solid var(--line);margin:calc(var(--pad)*-1) calc(var(--pad)*-1) calc(var(--pad)*-1) 0;overflow:hidden}
+.slide.dark .split .vz{border-left-color:rgba(250,248,243,.16)}
+.split .vz img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split .vz.ink{background:var(--ink)}
+.split .vz .vlogo{position:absolute;left:40px;top:40px;height:26px;filter:brightness(0) invert(1);z-index:2}
+/* logo centré dans le panneau encre (slide logo) */
+.split .vz.logostage{display:flex;align-items:center;justify-content:center}
+.split .vz.logostage img{position:static;inset:auto;width:52%;height:auto;object-fit:contain;
+  filter:brightness(0) invert(1);transform:none}
+.slide.active .split .vz.logostage img{transform:none}
+
+/* color slide ramp */
+.ramp{display:grid;grid-template-columns:repeat(8,1fr);height:clamp(120px,16vh,200px);border:1px solid var(--line-strong);margin-top:clamp(24px,3vw,44px)}
+.ramp i{display:block}
+.cinfo{display:flex;gap:48px;margin-top:24px;flex-wrap:wrap}
+.cinfo .ci .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.cinfo .ci .v{font-size:17px;font-weight:500}
+.cinfo .ci .v small{font-family:var(--mono);font-size:13px;color:var(--muted);font-weight:400}
+
+/* type specimen */
+.spec{display:flex;align-items:baseline;gap:clamp(20px,3vw,56px);flex-wrap:wrap;margin-top:auto}
+.spec .big{font-weight:900;font-size:clamp(120px,22vw,360px);line-height:.8;letter-spacing:-0.04em}
+.spec .scale{display:flex;flex-direction:column;gap:14px}
+.spec .scale .r{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.spec .scale .r .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--faint);width:64px;flex:0 0 auto}
+.spec .scale .r .w300{font-weight:300}.spec .scale .r .w400{font-weight:400}
+.spec .scale .r .w500{font-weight:500}.spec .scale .r .w700{font-weight:700}.spec .scale .r .w900{font-weight:900}
+.spec .scale .r .sm{font-size:20px}
+
+/* voice */
+.voice{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,4vw,80px);margin-top:auto}
+.voice .col h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.voice .col p{font-size:clamp(16px,1.5vw,21px);line-height:1.5;margin-bottom:16px}
+.voice .col.dont p{color:var(--g400)}
+.voice .col.dont p::before{content:"× ";color:var(--g300)}
+.voice .col.say p::before{content:"« ";}
+.voice .col.say p::after{content:" »";}
+
+/* apps grid */
+.appsg{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:clamp(16px,1.6vw,28px);flex:1;min-height:0;margin-top:clamp(20px,2.5vw,40px)}
+.appsg .ap{position:relative;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.appsg .ap .cap{position:absolute;left:16px;bottom:14px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;z-index:3;mix-blend-mode:difference}
+.appsg .ap img{width:100%;height:100%;object-fit:cover}
+.appsg .ap.card{background:var(--ink);align-items:center;justify-content:center}
+.appsg .ap.card img{width:46%;height:auto;object-fit:contain;filter:brightness(0) invert(1)}
+.appsg .ap.li{background:var(--ink);color:var(--paper);padding:clamp(20px,2vw,34px);justify-content:center}
+.appsg .ap.li .q{font-weight:700;font-size:clamp(18px,1.7vw,26px);line-height:1.15;letter-spacing:-0.02em}
+.appsg .ap.li .q .lt{color:var(--g400)}
+
+/* next steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:auto}
+.steps .st{padding:clamp(24px,3vw,48px) clamp(22px,2vw,40px) clamp(10px,2vw,20px) 0;border-right:1px solid var(--line)}
+.steps .st:last-child{border-right:0;padding-right:0}
+.steps .st .n{font-family:var(--mono);font-size:13px;color:var(--ink);margin-bottom:20px;font-weight:500}
+.slide.dark .steps .st .n{color:var(--paper)}
+.steps .st h4{font-size:clamp(19px,1.7vw,26px);font-weight:700;letter-spacing:-0.02em;margin-bottom:12px}
+.steps .st p{font-size:14.5px;line-height:1.55;color:var(--muted)}
+.slide.dark .steps{border-top-color:rgba(250,248,243,.18)}
+.slide.dark .steps .st{border-right-color:rgba(250,248,243,.16)}
+.slide.dark .steps .st p{color:var(--g400)}
+
+/* closing */
+.closing .frame{justify-content:center;align-items:flex-start}
+.closing .logo{height:46px;filter:brightness(0) invert(1);margin-bottom:clamp(36px,5vw,64px)}
+.closing a{color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(250,248,243,.4);font-family:var(--mono);font-size:14px;letter-spacing:.06em;padding-bottom:3px}
+.closing a:hover{border-color:var(--paper)}
+
+/* ---------- NAV / HUD ---------- */
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--ink);z-index:50;transition:width .72s var(--ease)}
+.hud{position:fixed;bottom:clamp(20px,2.6vw,40px);left:var(--pad);right:var(--pad);z-index:40;
+  display:flex;justify-content:space-between;align-items:flex-end;pointer-events:none;mix-blend-mode:difference}
+.hud *{color:#fff}
+.hud .label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;max-width:50ch}
+.hud .count{font-family:var(--mono);font-size:11px;letter-spacing:.14em}
+.hud .count b{font-size:13px}
+.arrows{position:fixed;bottom:clamp(18px,2.4vw,38px);right:var(--pad);z-index:45;display:flex;gap:10px;mix-blend-mode:difference}
+.arrows button{pointer-events:auto;width:42px;height:42px;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;
+  border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.arrows button:hover{background:#fff;color:#000;border-color:#fff}
+.arrows button svg{width:15px;height:15px}
+.hint{position:fixed;bottom:calc(clamp(18px,2.4vw,38px) + 56px);right:var(--pad);z-index:45;
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;mix-blend-mode:difference;opacity:.6;
+  transition:opacity .4s}
+.hint.hide{opacity:0}
+
+/* ---------- entrance animations ---------- */
+[data-r]{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.slide.active [data-r]{opacity:1;transform:none}
+.slide.active [data-r="1"]{transition-delay:.12s}
+.slide.active [data-r="2"]{transition-delay:.22s}
+.slide.active [data-r="3"]{transition-delay:.34s}
+.slide.active [data-r="4"]{transition-delay:.46s}
+.slide.active [data-r="5"]{transition-delay:.58s}
+.slide.active [data-r="6"]{transition-delay:.70s}
+.split .vz img,.appsg img{transform:scale(1.06);transition:transform 1.2s var(--ease)}
+.slide.active .split .vz img,.slide.active .appsg img{transform:scale(1)}
+
+@media (max-width:820px){
+  :root{--pad:32px}
+  .split,.voice,.appsg{grid-template-columns:1fr}
+  .decisions{grid-template-columns:1fr}
+  .pillars,.steps{grid-template-columns:1fr 1fr}
+  .split .vz{display:none}
+  .appsg .ap.li{display:none}
+}
+
+/* ---------- print → PDF (one slide per page) ---------- */
+@media print{
+  body{overflow:visible;background:#fff}
+  .deck,.track{display:block;position:static;height:auto;transform:none!important}
+  .slide{flex:none;width:100%;height:100vh;page-break-after:always;break-after:page}
+  .slide [data-r]{opacity:1!important;transform:none!important}
+  .progress,.hud,.arrows,.hint{display:none!important}
+  .split .vz img,.appsg img{transform:none!important}
+}
+</style>
+</head>
+<body class="no-sel">
+
+<div class="progress" id="progress"></div>
+
+<div class="deck">
+  <div class="track" id="track">
+
+    <!-- 01 · COVER -->
+    <section class="slide cover dark" data-label="Direction artistique — proposition v2">
+      <div class="chrome"><span class="mk"><b>MP&nbsp;Finance</b> × 56k&nbsp;Studio</span><span class="mk">Direction artistique</span></div>
+      <div class="frame">
+        <div class="eyebrow" data-r="1"><span class="ln"></span>Refonte de l’identité · 2026</div>
+        <h1 class="display" data-r="2" style="margin-top:28px">L’épure<br>comme preuve<br><span class="thin" style="color:var(--g400)">de sérieux.</span></h1>
+        <div class="meta" data-r="3">
+          <div class="m"><div class="k">Document</div><div class="v">Présentation DA</div></div>
+          <div class="m"><div class="k">Direction</div><div class="v">N&amp;B · photo couleur</div></div>
+          <div class="m"><div class="k">Typographie</div><div class="v">Satoshi</div></div>
+          <div class="m"><div class="k">Édition</div><div class="v">Juin 2026</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · CONTEXTE -->
+    <section class="slide" data-label="Le point de départ">
+      <div class="chrome"><span class="mk"><b>01</b> · Contexte</span><span class="mk">MP&nbsp;Finance</span></div>
+      <div class="frame">
+        <div class="spacer"></div>
+        <div class="eyebrow" data-r="1"><span class="ln"></span>Pourquoi cette refonte</div>
+        <div class="statement" data-r="2" style="margin-top:28px">
+          <h2>MP Finance grandit : un réseau, une fédération, une exigence. <em>L’image doit tenir ce niveau</em>, sans jamais perdre l’humain.</h2>
+        </div>
+        <p class="lead muted" data-r="3" style="margin-top:36px;max-width:52ch">Objectif : une identité claire, durable et facile à décliner par toute l’équipe — du courtier en agence à la communication nationale.</p>
+        <div class="spacer"></div>
+      </div>
+    </section>
+
+    <!-- 03 · DÉCISIONS ACTÉES -->
+    <section class="slide" data-label="Ce qui a été acté ensemble">
+      <div class="chrome"><span class="mk"><b>02</b> · Décisions actées</span><span class="mk">Atelier 28/05</span></div>
+      <div class="frame">
+        <div class="eyebrow" data-r="1"><span class="ln"></span>Le cadre validé ensemble</div>
+        <h2 class="title" data-r="2" style="margin-top:20px;max-width:16ch">Une base claire,<br>partagée.</h2>
+        <div class="decisions" data-r="3">
+          <div class="d"><span class="n">01</span><span class="t"><b>Noir &amp; blanc intégral.</b> Zéro couleur d’accent : l’épure comme signature.</span></div>
+          <div class="d"><span class="n">02</span><span class="t"><b>Une seule typographie</b> pour toute la marque : Satoshi.</span></div>
+          <div class="d"><span class="n">03</span><span class="t"><b>La couleur ne vient que de la photographie</b> — humaine, authentique.</span></div>
+          <div class="d"><span class="n">04</span><span class="t"><b>Logo conservé</b> + tagline pour distinguer MP Finance / MP Finance Pro.</span></div>
+          <div class="d"><span class="n">05</span><span class="t"><b>Matière : pierre de Jaumont</b> (Metz), par touches subtiles.</span></div>
+          <div class="d"><span class="n">06</span><span class="t"><b>Ton chaleureux et humain,</b> porté par une élégance institutionnelle.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · LE SYSTÈME -->
+    <section class="slide" data-label="Le système en un coup d’œil">
+      <div class="chrome"><span class="mk"><b>03</b> · Le système</span><span class="mk">Vue d’ensemble</span></div>
+      <div class="frame">
+        <div class="eyebrow" data-r="1"><span class="ln"></span>Quatre piliers, une cohérence</div>
+        <h2 class="title" data-r="2" style="margin-top:20px;max-width:18ch">Tout tient dans<br>quatre éléments.</h2>
+        <div class="pillars">
+          <div class="p" data-r="3"><div class="n">01 · Logo</div><h4>Une signature</h4><p>Le logo conservé, cadré par une zone de protection nette. MP Finance &amp; MP Finance Pro.</p></div>
+          <div class="p" data-r="4"><div class="n">02 · Couleur</div><h4>Noir &amp; blanc</h4><p>Une échelle d’encre chaude sur papier crème. Contraste AAA, lisibilité absolue.</p></div>
+          <div class="p" data-r="5"><div class="n">03 · Typographie</div><h4>Satoshi</h4><p>Une famille, cinq graisses. La hiérarchie se crée par l’échelle, pas par la décoration.</p></div>
+          <div class="p" data-r="6"><div class="n">04 · Photographie</div><h4>L’humain, en couleur</h4><p>De vrais visages, de vrais gestes. La seule couleur du système.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · LOGO -->
+    <section class="slide" data-label="Logo & signature">
+      <div class="chrome"><span class="mk"><b>04</b> · Logo</span><span class="mk">Signature</span></div>
+      <div class="split">
+        <div class="frame tx" style="flex:none;justify-content:center">
+          <div class="eyebrow" data-r="1"><span class="ln"></span>Une signature, pas un décor</div>
+          <h2 class="title" data-r="2" style="margin-top:20px">Le logo,<br>protégé.</h2>
+          <p class="lead muted" data-r="3" style="margin-top:28px;max-width:34ch">Une zone de protection égale sur les quatre côtés (1×), une taille minimale, des versions encre et papier. Jamais déformé, jamais habillé.</p>
+        </div>
+        <div class="vz ink logostage" data-r="2">
+          <img src="../assets/logo-blanc.png" alt="Logo MP Finance">
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · COULEUR -->
+    <section class="slide" data-label="Couleur — noir, blanc, nuances">
+      <div class="chrome"><span class="mk"><b>05</b> · Couleur</span><span class="mk">Système N&amp;B</span></div>
+      <div class="frame">
+        <div class="eyebrow" data-r="1"><span class="ln"></span>Aucune couleur d’accent</div>
+        <h2 class="title" data-r="2" style="margin-top:20px;max-width:18ch">Noir, blanc,<br>nuances.</h2>
+        <div class="ramp" data-r="3">
+          <i style="background:#0E0E0E"></i><i style="background:#2A2A28"></i><i style="background:#4A4A47"></i><i style="background:#7C7C77"></i><i style="background:#9B9B95"></i><i style="background:#C7C4BC"></i><i style="background:#E3E0D8"></i><i style="background:#FAF8F3"></i>
+        </div>
+        <div class="cinfo" data-r="4">
+          <div class="ci"><div class="k">Encre</div><div class="v">#0E0E0E <small>· K100</small></div></div>
+          <div class="ci"><div class="k">Papier</div><div class="v">#FAF8F3 <small>· crème chaud</small></div></div>
+          <div class="ci"><div class="k">Contraste</div><div class="v">17.4 : 1 <small>· AAA</small></div></div>
+          <div class="ci"><div class="k">Couleur</div><div class="v">photographie <small>· uniquement</small></div></div>
+        </div>
+        <div class="spacer"></div>
+      </div>
+    </section>
+
+    <!-- 07 · TYPOGRAPHIE -->
+    <section class="slide" data-label="Typographie — Satoshi">
+      <div class="chrome"><span class="mk"><b>06</b> · Typographie</span><span class="mk">Satoshi</span></div>
+      <div class="frame">
+        <div class="eyebrow" data-r="1"><span class="ln"></span>Une seule famille</div>
+        <h2 class="title" data-r="2" style="margin-top:20px">Satoshi,<br>seule en scène.</h2>
+        <div class="spec">
+          <div class="big" data-r="2">Aa</div>
+          <div class="scale" data-r="3">
+            <div class="r"><span class="lab">Black 900</span><span class="w900 sm">Votre projet mérite mieux.</span></div>
+            <div class="r"><span class="lab">Bold 700</span><span class="w700 sm">Un partenaire, pas un guichet.</span></div>
+            <div class="r"><span class="lab">Light 300</span><span class="w300 sm">Le conseil à hauteur d’exigence.</span></div>
+            <div class="r"><span class="lab">Regular 400</span><span class="w400 sm">Un seul interlocuteur, du début à la fin.</span></div>
+            <div class="r" style="border-bottom:0"><span class="lab">Medium 500</span><span class="w500 sm" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em">COURTAGE · PATRIMOINE</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · PHOTOGRAPHIE -->
+    <section class="slide" data-label="Photographie — l’humain en couleur">
+      <div class="chrome"><span class="mk"><b>07</b> · Photographie</span><span class="mk">L’humain au centre</span></div>
+      <div class="split">
+        <div class="frame tx" style="flex:none;justify-content:center">
+          <div class="eyebrow" data-r="1"><span class="ln"></span>La seule couleur du système</div>
+          <h2 class="title" data-r="2" style="margin-top:20px">De vrais<br>visages.</h2>
+          <p class="lead muted" data-r="3" style="margin-top:28px;max-width:34ch">Lumière naturelle, gestes spontanés, vrais collaborateurs. La photographie incarne l’accompagnement — pas l’abstraction financière.</p>
+        </div>
+        <div class="vz" data-r="2"><img src="../assets/ph-marie.jpg" alt="Marie Pierrat, dirigeante MP Finance" style="object-position:center 22%"></div>
+      </div>
+    </section>
+
+    <!-- 09 · TON DE VOIX -->
+    <section class="slide dark" data-label="Ton de voix — proche, jamais bavard">
+      <div class="chrome"><span class="mk"><b>08</b> · Ton de voix</span><span class="mk">Proche, jamais bavard</span></div>
+      <div class="frame">
+        <div class="eyebrow" data-r="1"><span class="ln"></span>On parle comme un conseiller de confiance</div>
+        <h2 class="title" data-r="2" style="margin-top:20px;max-width:16ch">Proche,<br>jamais bavard.</h2>
+        <div class="voice">
+          <div class="col say" data-r="3">
+            <h4>On dit</h4>
+            <p>Parlons de votre projet, on s’occupe du reste.</p>
+            <p>Un seul interlocuteur, du premier rendez-vous à la signature.</p>
+            <p>On négocie pour vous auprès de 30 banques.</p>
+          </div>
+          <div class="col dont" data-r="4">
+            <h4>On ne dit pas</h4>
+            <p>La solution n°1 incontournable du marché.</p>
+            <p>Profitez vite de nos offres exceptionnelles !</p>
+            <p>Optimisation de votre stratégie multi-canal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · APPLICATIONS -->
+    <section class="slide" data-label="Applications — la marque en situation">
+      <div class="chrome"><span class="mk"><b>09</b> · Applications</span><span class="mk">En situation</span></div>
+      <div class="frame">
+        <div class="eyebrow" data-r="1"><span class="ln"></span>La même grammaire partout</div>
+        <h2 class="title" data-r="2" style="margin-top:20px">Le système,<br>en situation.</h2>
+        <div class="appsg">
+          <div class="ap" data-r="3"><img src="../assets/ph-equipe.jpg" alt="Plaquette" style="object-position:center 40%"><span class="cap">Plaquette</span></div>
+          <div class="ap li" data-r="4"><div class="q">« Un bon taux,<br><span class="lt">c’est bien.</span><br>Le bon conseil,<br>c’est mieux. »</div></div>
+          <div class="ap card" data-r="5"><img src="../assets/logo-noir.png" alt="Carte de visite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · PROCHAINES ÉTAPES -->
+    <section class="slide dark" data-label="Prochaines étapes">
+      <div class="chrome"><span class="mk"><b>10</b> · La suite</span><span class="mk">Feuille de route</span></div>
+      <div class="frame">
+        <div class="eyebrow" data-r="1"><span class="ln"></span>Une fois la direction validée</div>
+        <h2 class="title" data-r="2" style="margin-top:20px;max-width:16ch">Les prochaines<br>étapes.</h2>
+        <div class="steps">
+          <div class="st" data-r="3"><div class="n">01</div><h4>Shooting photo</h4><p>Un vrai reportage MP Finance (équipe, agences, gestes de conseil) pour remplacer les visuels actuels par votre propre matière.</p></div>
+          <div class="st" data-r="4"><div class="n">02</div><h4>Design system Figma</h4><p>Les composants, tokens et gabarits livrés en Figma — prêts à l’emploi pour toute l’équipe.</p></div>
+          <div class="st" data-r="5"><div class="n">03</div><h4>Déclinaisons</h4><p>Plaquette, réseaux sociaux, signatures, papeterie : la charte appliquée à tous vos supports.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · CLOSING -->
+    <section class="slide closing dark" data-label="Merci">
+      <div class="chrome"><span class="mk"><b>MP&nbsp;Finance</b> × 56k&nbsp;Studio</span><span class="mk">Juin 2026</span></div>
+      <div class="frame">
+        <img class="logo" src="../assets/logo-blanc.png" alt="MP Finance" data-r="1">
+        <h1 class="display" data-r="2">Une marque<br>qui se tient.</h1>
+        <p class="lead" data-r="3" style="margin-top:32px;color:var(--g300)">Brandbook complet, navigable :</p>
+        <a href="./index.html" data-r="4" style="margin-top:14px;display:inline-block">mendarb.github.io/mpf-charte-da-v1/v2/ →</a>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- HUD -->
+<div class="hud">
+  <span class="label" id="hudLabel"></span>
+  <span class="count"><b id="cur">01</b> / <span id="tot">12</span></span>
+</div>
+<div class="hint" id="hint">← → pour naviguer</div>
+<div class="arrows">
+  <button id="prev" aria-label="Précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button id="next" aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+</div>
+
+<script>
+(function(){
+  const track=document.getElementById('track');
+  const slides=[...document.querySelectorAll('.slide')];
+  const progress=document.getElementById('progress');
+  const cur=document.getElementById('cur'),tot=document.getElementById('tot');
+  const hudLabel=document.getElementById('hudLabel');
+  const hint=document.getElementById('hint');
+  let i=0, locked=false;
+  tot.textContent=String(slides.length).padStart(2,'0');
+
+  function pad(n){return String(n+1).padStart(2,'0');}
+  function render(){
+    track.style.transform='translateX('+(-i*100)+'vw)';
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    progress.style.width=((i)/(slides.length-1)*100)+'%';
+    cur.textContent=pad(i);
+    hudLabel.textContent=slides[i].dataset.label||'';
+  }
+  function go(n){
+    if(locked)return;
+    const t=Math.max(0,Math.min(slides.length-1,n));
+    if(t===i)return;
+    i=t;locked=true;render();
+    setTimeout(()=>locked=false,740);
+  }
+  document.getElementById('next').onclick=()=>go(i+1);
+  document.getElementById('prev').onclick=()=>go(i-1);
+
+  window.addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1);hideHint();}
+    else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1);hideHint();}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(slides.length-1);}
+  });
+  // wheel (debounced)
+  let wlock=false;
+  window.addEventListener('wheel',e=>{
+    if(wlock)return; if(Math.abs(e.deltaY)<24 && Math.abs(e.deltaX)<24)return;
+    wlock=true; const d=(e.deltaY||e.deltaX); go(i+(d>0?1:-1)); hideHint();
+    setTimeout(()=>wlock=false,820);
+  },{passive:true});
+  // touch
+  let sx=0,sy=0;
+  window.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  window.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){go(i+(dx<0?1:-1));hideHint();}
+  },{passive:true});
+
+  function hideHint(){hint.classList.add('hide');}
+  setTimeout(hideHint,4200);
+  render();
+})();
+</script>
+</body>
+</html>
