@@ -92,13 +92,22 @@ a{color:inherit;text-decoration:none}
 /* full-bleed cover photo */
 .coverphoto{position:relative;height:600px;overflow:hidden;border-top:1px solid var(--line-strong)}
 .coverphoto img{width:100%;height:100%;object-fit:cover;
-  filter:grayscale(1) contrast(.9) brightness(1.07) saturate(0)}
-/* dégradé bas : profondeur + ancrage de la légende, sans casser le N&B */
+  filter:contrast(1.04) brightness(1.03) saturate(.88)}
+/* dégradé bas : profondeur + ancrage de la légende */
 .coverphoto::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,rgba(14,14,14,.10) 0%,rgba(14,14,14,0) 26%,rgba(14,14,14,0) 60%,rgba(14,14,14,.44) 100%)}
 .coverphoto .cap{position:absolute;left:var(--gutter);bottom:30px;z-index:2;font-family:var(--mono);
   font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.9)}
 .coverphoto .fig{display:none}
+
+/* bande photo pleine largeur (respiration éditoriale entre sections) */
+.photoband{position:relative;height:460px;overflow:hidden;border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong)}
+.photoband img{width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:contrast(1.03) brightness(1.0) saturate(.9)}
+.photoband::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(14,14,14,.46) 0%,rgba(14,14,14,.05) 42%,rgba(14,14,14,0) 100%)}
+.photoband .q{position:absolute;left:var(--gutter);bottom:48px;z-index:2;max-width:560px;color:#fff}
+.photoband .q .qk{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:16px}
+.photoband .q .qt{font-weight:700;font-size:30px;line-height:1.16;letter-spacing:-0.028em}
 
 /* ============================================================ SOMMAIRE */
 .toc{padding:110px var(--gutter);border-bottom:1px solid var(--line-strong)}
@@ -152,16 +161,17 @@ section.blk{padding:130px 0;border-bottom:1px solid var(--line-strong)}
 
 /* construction */
 .construct{display:grid;grid-template-columns:1.25fr 1fr;border-bottom:1px solid var(--line)}
-.construct .stage{position:relative;padding:80px 60px;border-right:1px solid var(--line);background:var(--p-100)}
-.construct .stage .frame{position:relative;background:var(--bg);border:1px solid var(--ink);
-  padding:64px;display:flex;align-items:center;justify-content:center}
-.construct .stage .frame::before,.construct .stage .frame::after{content:"";position:absolute;
-  border:1px dashed var(--p-400)}
-.construct .stage .frame::before{inset:32px}            /* clear space ring = 1X */
-.construct .stage img{height:62px;position:relative;z-index:2}
-.construct .stage .x{position:absolute;font-family:var(--mono);font-size:11px;color:var(--text-faint);background:var(--bg);padding:2px 6px}
-.construct .stage .x.x1{left:50%;top:14px;transform:translateX(-50%)}
-.construct .stage .x.x2{left:14px;top:50%;transform:translateY(-50%)}
+.construct .stage{position:relative;padding:80px 60px;border-right:1px solid var(--line);background:var(--p-100);
+  display:flex;align-items:center;justify-content:center}
+/* la frame épouse le logo : clear space = 1X identique sur les 4 côtés (pas de stretch responsive) */
+.construct .stage .frame{position:relative;width:max-content;background:var(--bg);border:1px solid var(--ink);
+  padding:52px;display:flex;align-items:center;justify-content:center}
+/* anneau pointillé = bord exact du logo ; l'espace frame↔anneau = la zone de protection 1X */
+.construct .stage .frame::before{content:"";position:absolute;inset:52px;border:1px dashed var(--p-400)}
+.construct .stage img{height:52px;position:relative;z-index:2;display:block}
+.construct .stage .x{position:absolute;z-index:3;font-family:var(--mono);font-size:10px;color:var(--text-faint);background:var(--bg);padding:1px 5px}
+.construct .stage .x.x1{left:50%;top:20px;transform:translate(-50%,-50%)}
+.construct .stage .x.x2{left:26px;top:50%;transform:translate(-50%,-50%)}
 .construct .notes{padding:54px 60px}
 .construct .notes h4{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px}
 .construct .notes .row{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--line);font-size:14px}
@@ -283,10 +293,11 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
 
 /* ============================================================ 06 PHOTO */
 .photo{padding:0 var(--gutter)}
-.photo-grid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:300px 300px;gap:16px}
+.photo-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:300px 220px;gap:14px}
 .photo-grid .pf{position:relative;overflow:hidden;background:var(--p-200)}
 .photo-grid .pf.tall{grid-row:1/3}
-.photo-grid .pf img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.03) brightness(1.02)}
+.photo-grid .pf.wide{grid-column:2/4}
+.photo-grid .pf img{width:100%;height:100%;object-fit:cover;filter:contrast(1.03) brightness(1.03) saturate(.9)}
 .photo-grid .pf .t{position:absolute;left:18px;bottom:16px;font-family:var(--mono);font-size:10px;
   letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.95);background:rgba(14,14,14,.55);padding:4px 8px}
 .photo-rules{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-strong);margin-top:56px}
@@ -354,7 +365,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
 .spread .a4:first-child{border-right:0}
 .spread .fold{width:1px;align-self:stretch;background:linear-gradient(90deg,rgba(14,14,14,.16),rgba(14,14,14,.04))}
 .a4{width:348px;aspect-ratio:1/1.414;border:1px solid var(--line);overflow:hidden;position:relative;background:#111}
-.a4.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:38% 24%;filter:grayscale(1) contrast(.96) brightness(.74)}
+.a4.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:38% 24%;filter:contrast(1.0) brightness(.82) saturate(.85)}
 .a4.cover .vl{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,.04) 40%,rgba(0,0,0,.70))}
 .a4.cover .top{position:absolute;left:32px;right:32px;top:32px;display:flex;justify-content:space-between;align-items:flex-start}
 .a4.cover .top img{height:28px;width:auto;flex:0 0 auto}
@@ -400,7 +411,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
 .li.dark .ft{display:flex;justify-content:space-between;align-items:flex-end}
 .li.dark .ft img{height:17px}
 .li.dark .ft .h{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:rgba(255,255,255,.55)}
-.li.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(.98) brightness(.8)}
+.li.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.0) brightness(.86) saturate(.88)}
 .li.ph .vl{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.04) 38%,rgba(0,0,0,.72))}
 .li.ph .idx,.li.ph .swipe{color:rgba(255,255,255,.8)}
 .li.ph .lab{position:absolute;left:32px;right:32px;bottom:30px;color:#fff;z-index:2}
@@ -452,15 +463,15 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
     <div class="meta">
       <div class="m"><div class="mk">Document</div><div class="mv">Brand guidelines v2</div></div>
       <div class="m"><div class="mk">Typographie</div><div class="mv">Satoshi</div></div>
-      <div class="m"><div class="mk">Couleur</div><div class="mv">Noir &amp; blanc intégral</div></div>
+      <div class="m"><div class="mk">Couleur</div><div class="mv">Système N&amp;B · photo couleur</div></div>
       <div class="m"><div class="mk">Édition</div><div class="mv">Juin 2026</div></div>
     </div>
     <p class="lead"><span class="first">Une marque ne se crie pas, elle se tient.</span> Tout MP Finance tient dans une seule typographie, une photographie sobre et la justesse des espaces. Un système, pas une décoration.</p>
   </div>
 
   <div class="coverphoto">
-    <img src="../assets/mpf-team-portrait.jpg" alt="Conseillères MP Finance en échange" style="object-position:34% 26%">
-    <span class="cap">L’accompagnement, d’abord · photographie à shooter (placeholder)</span>
+    <img src="../assets/ph-conseil.jpg" alt="Conseillères MP Finance en échange" style="object-position:center 30%">
+    <span class="cap">L’accompagnement, d’abord · l’humain au centre</span>
   </div>
 
   <!-- SOMMAIRE -->
@@ -472,7 +483,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <a class="toc-item" href="#couleur"><span class="no">03</span><span><span class="ti">Couleur</span><span class="ds">Système N&amp;B, HEX / RGB / CMYK, ratios d’usage, accessibilité.</span></span><span class="pg">p.03</span></a>
       <a class="toc-item" href="#typo"><span class="no">04</span><span><span class="ti">Typographie</span><span class="ds">Satoshi : échelle complète, graisses, pairing, spécimen.</span></span><span class="pg">p.04</span></a>
       <a class="toc-item" href="#grille"><span class="no">05</span><span><span class="ti">Grille &amp; mise en page</span><span class="ds">Colonnes, marges, base 8, filets.</span></span><span class="pg">p.05</span></a>
-      <a class="toc-item" href="#photo"><span class="no">06</span><span><span class="ti">Photographie &amp; matière</span><span class="ds">Direction N&amp;B, pierre de Jaumont.</span></span><span class="pg">p.06</span></a>
+      <a class="toc-item" href="#photo"><span class="no">06</span><span><span class="ti">Photographie &amp; matière</span><span class="ds">Direction couleur douce, pierre de Jaumont.</span></span><span class="pg">p.06</span></a>
       <a class="toc-item" href="#voix"><span class="no">07</span><span><span class="ti">Ton de voix</span><span class="ds">Personnalité, voice chart, registres.</span></span><span class="pg">p.07</span></a>
       <a class="toc-item" href="#applications"><span class="no">08</span><span><span class="ti">Applications</span><span class="ds">Plaquette, LinkedIn, carte, signature.</span></span><span class="pg">p.08</span></a>
     </div>
@@ -489,7 +500,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <div class="pillars">
         <div class="pillar"><div class="pn">01 · Promesse</div><h4>Le conseil à hauteur d’exigence</h4><p>Chaque dossier est traité avec la même rigueur, de la première acquisition à la stratégie patrimoniale.</p></div>
         <div class="pillar"><div class="pn">02 · Posture</div><h4>Indépendance &amp; transparence</h4><p>Un réseau de courtiers indépendants qui défendent l’intérêt du client, et restent son interlocuteur dans la durée.</p></div>
-        <div class="pillar"><div class="pn">03 · Style</div><h4>L’épure comme signature</h4><p>Noir &amp; blanc, une typographie, beaucoup de vide. La sobriété dit le haut de gamme mieux qu’un artifice.</p></div>
+        <div class="pillar"><div class="pn">03 · Style</div><h4>L’épure comme signature</h4><p>Un système noir &amp; blanc, une typographie, beaucoup de vide. La couleur, seule la photographie l’apporte.</p></div>
       </div>
       <div class="tone">
         <p class="tone-lead">Le ton se tient sur deux appuis : <em>d’abord chaleureux et humain</em>, toujours porté par une élégance institutionnelle.</p>
@@ -500,6 +511,12 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       </div>
     </div>
   </section>
+
+  <!-- BANDE PHOTO -->
+  <div class="photoband">
+    <img src="../assets/ph-equipe.jpg" alt="L’équipe MP Finance">
+    <div class="q"><div class="qk">La marque, incarnée</div><div class="qt">Derrière chaque dossier, des conseillers qui s’engagent.</div></div>
+  </div>
 
   <!-- 02 LOGO -->
   <section class="blk" id="logo">
@@ -566,7 +583,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
   <section class="blk" id="couleur">
     <div class="sec-head">
       <div class="l"><div class="eyebrow"><b>03</b><span class="ln"></span>Couleur</div><h2>Noir, blanc,<br>nuances.</h2></div>
-      <div class="intro">Aucune couleur d’accent, jamais. Une seule échelle d’encre chaude, du plus profond au papier crème. Le contraste et le vide font tout le travail. Spécifié pour l’écran (RGB / HEX) et le print (K%).</div>
+      <div class="intro">Le système graphique n’a aucune couleur d’accent : une seule échelle d’encre chaude, du plus profond au papier crème. Le contraste et le vide font tout le travail. La couleur ne vient que de la photographie. Spécifié pour l’écran (RGB / HEX) et le print (K%).</div>
     </div>
     <div class="col">
       <div class="ramp">
@@ -667,26 +684,27 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
   <section class="blk" id="photo">
     <div class="sec-head">
       <div class="l"><div class="eyebrow"><b>06</b>Photographie &amp; matière</div><h2>L’humain,<br>en lumière douce.</h2></div>
-      <div class="intro">Des visages, des gestes de conseil, de vrais lieux : la marque incarne l’accompagnement, pas l’abstraction financière. Noir &amp; blanc doux, jamais saturé.</div>
+      <div class="intro">Des visages, des gestes de conseil, de vrais lieux : la marque incarne l’accompagnement, pas l’abstraction financière. Couleur naturelle, lumière douce, tons justes, jamais criarde.</div>
     </div>
     <div class="photo">
       <div class="photo-grid">
-        <div class="pf tall"><img src="../assets/mpf-team-portrait.jpg" alt="Conseillères en échange" style="object-position:center 30%"><span class="t">Échange · écoute</span></div>
-        <div class="pf"><img src="../assets/mpf-desk.jpg" alt="Mains, signature"><span class="t">Geste · conseil</span></div>
-        <div class="pf"><img src="../assets/mpf-interior.jpg" alt="Conseil au bureau"><span class="t">Au bureau · proximité</span></div>
+        <div class="pf tall"><img src="../assets/ph-marie.jpg" alt="Marie Pierrat, dirigeante" style="object-position:center 22%"><span class="t">Le regard · la confiance</span></div>
+        <div class="pf"><img src="../assets/ph-conseil.jpg" alt="Conseil au bureau" style="object-position:center 35%"><span class="t">Au bureau</span></div>
+        <div class="pf"><img src="../assets/ph-signature.jpg" alt="Mains, signature"><span class="t">Le geste</span></div>
+        <div class="pf wide"><img src="../assets/ph-equipe.jpg" alt="L’équipe MP Finance en réunion" style="object-position:center 42%"><span class="t">Le collectif · l’écoute</span></div>
       </div>
       <div class="photo-rules">
         <div class="pr"><h4>À faire</h4><ul>
           <li>Lumière naturelle, douce, latérale.</li>
           <li>Vrais collaborateurs, gestes spontanés.</li>
           <li>De l’air autour du sujet pour le texte.</li>
-          <li>N&amp;B doux : noirs ouverts, grain léger.</li>
+          <li>Couleur naturelle, tons justes, lumière douce.</li>
         </ul></div>
         <div class="pr"><h4>À éviter</h4><ul>
           <li>Poses figées, sourires forcés.</li>
           <li>Poignée de main « business » en plan large.</li>
           <li>Groupe de dos face à l’horizon (cliché stock).</li>
-          <li>HDR, contrastes violents, virages de couleur.</li>
+          <li>HDR, contrastes violents, couleurs criardes.</li>
         </ul></div>
       </div>
       <div class="matiere">
@@ -699,7 +717,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
           <div class="ml"><div class="t">Pierre profonde</div><div class="s">Couvertures · aplats sombres</div></div>
         </div>
       </div>
-      <p class="photo-foot">Matière : la pierre de Jaumont (celle de la cathédrale de Metz) ancre la marque dans son territoire. On en garde la trame et le grain (jamais la teinte dorée), en niveaux de gris, par petites touches. <strong>Note :</strong> les visuels actuels sont des placeholders ; un shoot dédié MP Finance est prévu (cf. brief de shooting).</p>
+      <p class="photo-foot">Matière : la pierre de Jaumont (celle de la cathédrale de Metz) ancre la marque dans son territoire. On en garde la trame, le grain et sa teinte chaude, par petites touches. <strong>Photographies :</strong> images authentiques MP Finance, en couleur naturelle. Pour les déclinaisons, conserver cette direction (lumière douce, vrais collaborateurs, tons justes).</p>
     </div>
   </section>
 
@@ -707,7 +725,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
   <section class="blk" id="voix">
     <div class="sec-head">
       <div class="l"><div class="eyebrow"><b>07</b>Ton de voix</div><h2>Proche,<br>jamais bavard.</h2></div>
-      <div class="intro">70 % chaleureux &amp; humain, 30 % élégant &amp; institutionnel. On parle comme un conseiller de confiance : clair, posé, sans jargon ni survente.</div>
+      <div class="intro">D’abord chaleureux et humain, toujours porté par une élégance institutionnelle. On parle comme un conseiller de confiance : clair, posé, sans jargon ni survente.</div>
     </div>
     <div class="voix">
       <div class="vgroup">
@@ -754,7 +772,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
   <section class="blk" id="applications">
     <div class="sec-head">
       <div class="l"><div class="eyebrow"><b>08</b>Applications</div><h2>Le système,<br>en situation.</h2></div>
-      <div class="intro">Même grammaire partout : une typographie, du noir &amp; blanc, de la photographie sobre, du vide. Maquettes indicatives ; textes &amp; visuels définitifs à valider.</div>
+      <div class="intro">Même grammaire partout : une typographie, un système noir &amp; blanc, de la photographie en couleur, du vide. Maquettes indicatives ; textes &amp; visuels définitifs à valider.</div>
     </div>
     <div class="apps">
       <div class="app-block">
@@ -762,11 +780,11 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
         <div class="app-canvas">
           <div class="spread">
             <div class="a4 cover">
-              <img src="../assets/mpf-team-portrait.jpg" alt="">
+              <img src="../assets/ph-marie.jpg" alt="" style="object-position:center 22%">
               <div class="vl"></div>
               <div class="top"><img src="../assets/logo-blanc.png" alt="MP Finance"><div class="c">Courtage<br>en financement</div></div>
               <div class="bot"><div class="k">Crédit · Patrimoine · Assurance</div><h5>Votre projet mérite mieux qu’un guichet.</h5><div class="rule"></div></div>
-              <div class="legal">ORIAS n° 15 004 729 · mpfinance.fr</div>
+              <div class="legal">ORIAS n° 15 004 729 · mp-finance.com</div>
             </div>
             <div class="fold"></div>
             <div class="a4 inner">
@@ -788,7 +806,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       </div>
 
       <div class="app-block">
-        <div class="lbl"><div class="n">02</div><h4>Carousel LinkedIn</h4><p>Trois vues carrées 1080 : accroche, preuve, invitation. Une seule grammaire : typographie, noir &amp; blanc, vide. Jamais de couleur.</p></div>
+        <div class="lbl"><div class="n">02</div><h4>Carousel LinkedIn</h4><p>Trois vues carrées 1080 : accroche, preuve, invitation. Système noir &amp; blanc ; la couleur, seule la photo l’apporte.</p></div>
         <div class="app-canvas">
           <div class="licar">
             <div class="li dark">
@@ -797,7 +815,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
               <div class="ft"><img src="../assets/logo-blanc.png" alt="MP Finance"><span class="h">glissez →</span></div>
             </div>
             <div class="li ph">
-              <img src="../assets/mpf-interior.jpg" alt="">
+              <img src="../assets/ph-signature.jpg" alt="" style="object-position:center 45%">
               <div class="vl"></div>
               <div class="lab">
                 <div class="k">Notre force</div>
@@ -807,7 +825,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
             <div class="li cta">
               <div class="k">Parlons-en</div>
               <div class="big">Votre projet<br>mérite mieux<br><span class="lt">qu’un guichet.</span></div>
-              <div class="ft"><img src="../assets/logo-noir.png" alt="MP Finance"><span class="h">mpfinance.fr</span></div>
+              <div class="ft"><img src="../assets/logo-noir.png" alt="MP Finance"><span class="h">mp-finance.com</span></div>
             </div>
           </div>
         </div>
@@ -819,7 +837,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
           <div class="cv recto"><img src="../assets/logo-noir.png" alt="MP Finance"><span class="p">Courtage en financement · Metz</span></div>
           <div class="cv verso">
             <div><div class="nm">Marie Pierrat</div><div class="ro">Courtière · Conseil patrimonial</div></div>
-            <div class="ln">+33 6 00 00 00 00<br>marie@mpfinance.fr<br>12 rue Serpenoise · 57000 Metz</div>
+            <div class="ln">+33 6 00 00 00 00<br>marie@mp-finance.com<br>17 rue Robert Schuman · 57000 Metz</div>
           </div>
         </div>
       </div>
@@ -832,7 +850,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
               <img src="../assets/logo-noir.png" alt="MP Finance">
               <div class="bar"></div>
               <div><div class="nm">Marie Pierrat</div><div class="ro">Courtière · Conseil patrimonial</div>
-              <div class="ct">+33 6 00 00 00 00 · marie@mpfinance.fr · mpfinance.fr</div></div>
+              <div class="ct">+33 6 00 00 00 00 · marie@mp-finance.com · mp-finance.com</div></div>
             </div>
           </div>
         </div>
@@ -841,7 +859,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
   </section>
 
   <footer>
-    <span class="l">MP Finance × 56k Studio · Brand guidelines v2 · noir &amp; blanc intégral · proposition de direction à valider<br>ORIAS n° 15 004 729 · mpfinance.fr</span>
+    <span class="l">MP Finance × 56k Studio · Brand guidelines v2 · système N&amp;B + photo couleur · proposition de direction à valider<br>ORIAS n° 15 004 729 · mp-finance.com</span>
     <span class="r">56k.studio</span>
   </footer>
 
