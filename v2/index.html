@@ -299,26 +299,34 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
 .photo-foot{margin-top:32px;font-size:14.5px;line-height:1.65;color:var(--text-muted);max-width:80ch}
 
 /* ============================================================ 07 VOIX */
+/* aligné sur la même grille 12 col que 01/05/06 : groupes labellisés,
+   filets de séparation, splits sur lignes de grille (6/6 et 3/6/3), espaces base-8 */
 .voix{padding:0 var(--gutter)}
-.spectrum{display:grid;grid-template-columns:1fr 1fr;gap:48px 80px;margin-bottom:72px}
+.vgroup{border-top:1px solid var(--line);padding-top:40px;margin-top:64px}
+.vgroup:first-child{border-top:0;margin-top:0;padding-top:0}
+.vgroup > .vlabel{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text-faint);margin-bottom:40px}
+.spectrum{display:grid;grid-template-columns:1fr 1fr;gap:48px 64px}
 .sp-row .sl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:12px}
 .sp-row .track{position:relative;height:1px;background:var(--line)}
 .sp-row .track .dot{position:absolute;top:50%;width:11px;height:11px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%)}
-.vchart{width:100%;border-collapse:collapse;margin-bottom:64px}
+.vchart{width:100%;table-layout:fixed;border-collapse:collapse}
 .vchart th{text-align:left;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--text-faint);padding:0 20px 16px 0;border-bottom:1px solid var(--line-strong)}
-.vchart td{padding:20px 20px 20px 0;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top;line-height:1.5}
-.vchart td.trait{font-weight:700;width:170px}
+  text-transform:uppercase;color:var(--text-faint);padding:0 32px 16px 0;border-bottom:1px solid var(--line-strong)}
+.vchart th:last-child,.vchart td:last-child{padding-right:0}
+.vchart td{padding:22px 32px 22px 0;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top;line-height:1.55}
+.vchart td.trait{font-weight:700;letter-spacing:-0.01em}
 .vchart td.no{color:var(--text-faint)}
 .vchart td.no::before{content:"≠ ";font-family:var(--mono)}
 .voice-cols{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line-strong)}
 .voice-cols .vc{padding:40px 44px;border-right:1px solid var(--line)}
 .voice-cols .vc:last-child{border-right:0}
-.voice-cols .vc h4{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px}
-.voice-cols .vc p{font-size:16px;line-height:1.7;color:var(--text-soft);margin-bottom:14px}
+.voice-cols .vc h4{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:24px;color:var(--text-faint)}
+.voice-cols .vc p{font-size:16px;line-height:1.7;color:var(--text-soft);margin-bottom:16px}
+.voice-cols .vc p:last-child{margin-bottom:0}
 .voice-cols .vc.dont p{color:var(--text-muted)}
-.voice-cols .vc .q{font-weight:500}
+.voice-cols .vc .q{font-weight:500;color:var(--text)}
 
 /* ============================================================ 08 APPLICATIONS */
 .apps{padding:0 var(--gutter)}
@@ -650,31 +658,41 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <div class="intro">70 % chaleureux &amp; humain, 30 % élégant &amp; institutionnel. On parle comme un conseiller de confiance : clair, posé, sans jargon ni survente.</div>
     </div>
     <div class="voix">
-      <div class="spectrum">
-        <div class="sp-row"><div class="sl"><span>Formel</span><span>Proche</span></div><div class="track"><span class="dot" style="left:70%"></span></div></div>
-        <div class="sp-row"><div class="sl"><span>Sobre</span><span>Expressif</span></div><div class="track"><span class="dot" style="left:34%"></span></div></div>
-        <div class="sp-row"><div class="sl"><span>Simple</span><span>Expert</span></div><div class="track"><span class="dot" style="left:56%"></span></div></div>
-        <div class="sp-row"><div class="sl"><span>Distant</span><span>Chaleureux</span></div><div class="track"><span class="dot" style="left:72%"></span></div></div>
-      </div>
-      <table class="vchart">
-        <thead><tr><th>Trait</th><th>Ce que ça veut dire</th><th>On évite</th></tr></thead>
-        <tbody>
-          <tr><td class="trait">Chaleureux</td><td>On s’adresse à une personne, pas à un dossier. Le « vous » est attentionné.</td><td class="no">la familiarité forcée</td></tr>
-          <tr><td class="trait">Clair</td><td>Phrases courtes, mots simples. On explique le crédit, on ne l’obscurcit pas.</td><td class="no">le jargon bancaire</td></tr>
-          <tr><td class="trait">Exigeant</td><td>On promet ce qu’on tient. Des faits, des chiffres justes, jamais d’esbroufe.</td><td class="no">les superlatifs creux</td></tr>
-          <tr><td class="trait">Posé</td><td>Confiance tranquille. On rassure sans vendre, on conseille sans presser.</td><td class="no">l’urgence artificielle</td></tr>
-        </tbody>
-      </table>
-      <div class="voice-cols">
-        <div class="vc"><h4>On dit</h4>
-          <p class="q">« Parlons de votre projet — on s’occupe du reste. »</p>
-          <p class="q">« Un seul interlocuteur, du premier rendez-vous à la signature. »</p>
-          <p class="q">« On négocie pour vous auprès de 30 banques. »</p>
+      <div class="vgroup">
+        <div class="vlabel">Registres — où l’on se place</div>
+        <div class="spectrum">
+          <div class="sp-row"><div class="sl"><span>Formel</span><span>Proche</span></div><div class="track"><span class="dot" style="left:70%"></span></div></div>
+          <div class="sp-row"><div class="sl"><span>Sobre</span><span>Expressif</span></div><div class="track"><span class="dot" style="left:34%"></span></div></div>
+          <div class="sp-row"><div class="sl"><span>Simple</span><span>Expert</span></div><div class="track"><span class="dot" style="left:56%"></span></div></div>
+          <div class="sp-row"><div class="sl"><span>Distant</span><span>Chaleureux</span></div><div class="track"><span class="dot" style="left:72%"></span></div></div>
         </div>
-        <div class="vc dont"><h4>On ne dit pas</h4>
-          <p>« La solution n°1 incontournable du marché. »</p>
-          <p>« Profitez vite de nos offres exceptionnelles ! »</p>
-          <p>« Optimisation de votre stratégie de financement multi-canal. »</p>
+      </div>
+      <div class="vgroup">
+        <div class="vlabel">Caractère — quatre traits, et leur revers</div>
+        <table class="vchart">
+          <colgroup><col style="width:25%"><col style="width:50%"><col style="width:25%"></colgroup>
+          <thead><tr><th>Trait</th><th>Ce que ça veut dire</th><th>On évite</th></tr></thead>
+          <tbody>
+            <tr><td class="trait">Chaleureux</td><td>On s’adresse à une personne, pas à un dossier. Le « vous » est attentionné.</td><td class="no">la familiarité forcée</td></tr>
+            <tr><td class="trait">Clair</td><td>Phrases courtes, mots simples. On explique le crédit, on ne l’obscurcit pas.</td><td class="no">le jargon bancaire</td></tr>
+            <tr><td class="trait">Exigeant</td><td>On promet ce qu’on tient. Des faits, des chiffres justes, jamais d’esbroufe.</td><td class="no">les superlatifs creux</td></tr>
+            <tr><td class="trait">Posé</td><td>Confiance tranquille. On rassure sans vendre, on conseille sans presser.</td><td class="no">l’urgence artificielle</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="vgroup">
+        <div class="vlabel">Formulations — la voix, au mot près</div>
+        <div class="voice-cols">
+          <div class="vc"><h4>On dit</h4>
+            <p class="q">« Parlons de votre projet — on s’occupe du reste. »</p>
+            <p class="q">« Un seul interlocuteur, du premier rendez-vous à la signature. »</p>
+            <p class="q">« On négocie pour vous auprès de 30 banques. »</p>
+          </div>
+          <div class="vc dont"><h4>On ne dit pas</h4>
+            <p>« La solution n°1 incontournable du marché. »</p>
+            <p>« Profitez vite de nos offres exceptionnelles ! »</p>
+            <p>« Optimisation de votre stratégie de financement multi-canal. »</p>
+          </div>
         </div>
       </div>
     </div>
