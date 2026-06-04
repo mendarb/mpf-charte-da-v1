@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MP Finance — Brand Guidelines v2 · Direction artistique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/fonts/satoshi.css">
+<style>
+/* ============================================================
+   MP FINANCE — DESIGN TOKENS (primitive → semantic → component)
+   ============================================================ */
+:root{
+  /* — PRIMITIVE — échelle d'encre chaude, N&B intégral */
+  --p-ink:#0E0E0E;       /* K100 */
+  --p-ink-90:#2A2A28;    /* K90  */
+  --p-700:#4A4A47;       /* K78  */
+  --p-600:#5E5E5A;       /* K66  */
+  --p-500:#7C7C77;       /* K58  */
+  --p-400:#9B9B95;       /* K45  */
+  --p-300:#C7C4BC;       /* K28  */
+  --p-200:#E3E0D8;       /* K14  */
+  --p-100:#EEEBE3;       /* K8   */
+  --p-paper:#FAF8F3;     /* stock */
+  --p-white:#FFFFFF;
+
+  /* — SEMANTIC — rôles */
+  --bg:var(--p-paper);
+  --surface:var(--p-white);
+  --ink:var(--p-ink);
+  --text:var(--p-ink);
+  --text-soft:var(--p-ink-90);
+  --text-muted:var(--p-600);
+  --text-faint:var(--p-500);
+  --line:#DEDAD0;          /* hairline */
+  --line-strong:var(--p-ink);
+
+  /* — COMPONENT — */
+  --rail-w:300px;
+  --gutter:80px;
+  --maxw:1640px;
+
+  /* — TYPE — */
+  --font:'Satoshi',-apple-system,system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+
+  /* — SPACE base 8 — */
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:64px;--s7:96px;--s8:128px;--s9:160px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);background:var(--bg);color:var(--text);
+  letter-spacing:-0.011em;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;
+}
+.mono{font-family:var(--mono);letter-spacing:0}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+  opacity:.02;mix-blend-mode:multiply}
+
+.shell{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.wrap{padding:0 var(--gutter)}
+
+/* ——— eyebrow ——— */
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--text-faint);display:flex;align-items:center;gap:14px}
+.eyebrow b{color:var(--ink);font-weight:500}
+.eyebrow .ln{flex:1;height:1px;background:var(--line)}
+
+/* ——— masthead ——— */
+.mast{display:flex;justify-content:space-between;align-items:center;
+  padding:30px var(--gutter);border-bottom:1px solid var(--line-strong)}
+.mast .mk{font-family:var(--mono);font-size:12px;letter-spacing:.04em;font-weight:500}
+.mast .mk .x{color:var(--p-400);margin:0 7px}
+.mast .rt{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-faint)}
+
+/* ============================================================ COVER */
+.cover{padding:150px var(--gutter) 110px;position:relative}
+.cover .tag{margin-bottom:54px}
+.cover h1{font-weight:900;font-size:150px;line-height:.86;letter-spacing:-0.055em;max-width:13ch}
+.cover h1 .lt{font-weight:300;color:var(--p-400)}
+.cover .meta{display:flex;gap:64px;margin-top:72px;flex-wrap:wrap}
+.cover .meta .m{}
+.cover .meta .mk{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-faint);margin-bottom:10px}
+.cover .meta .mv{font-size:17px;font-weight:500;letter-spacing:-0.01em}
+.cover .lead{position:absolute;right:var(--gutter);bottom:120px;max-width:430px;font-size:17px;
+  line-height:1.7;color:var(--text-soft)}
+.cover .lead .first{font-weight:500}
+
+/* full-bleed cover photo */
+.coverphoto{position:relative;height:560px;overflow:hidden;border-top:1px solid var(--line-strong)}
+.coverphoto img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(1.02)}
+.coverphoto .cap{position:absolute;left:var(--gutter);bottom:28px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.92);mix-blend-mode:difference}
+.coverphoto .fig{position:absolute;right:var(--gutter);top:28px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;color:rgba(255,255,255,.92);mix-blend-mode:difference}
+
+/* ============================================================ SOMMAIRE */
+.toc{padding:110px var(--gutter);border-bottom:1px solid var(--line-strong)}
+.toc .eyebrow{margin-bottom:64px}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 100px}
+.toc-item{display:grid;grid-template-columns:64px 1fr auto;align-items:baseline;gap:24px;
+  padding:26px 0;border-top:1px solid var(--line)}
+.toc-item .no{font-family:var(--mono);font-size:13px;color:var(--text-faint)}
+.toc-item .ti{font-size:24px;font-weight:700;letter-spacing:-0.025em}
+.toc-item .ds{font-size:13px;color:var(--text-muted);grid-column:2;margin-top:7px;line-height:1.5;max-width:42ch}
+.toc-item .pg{font-family:var(--mono);font-size:12px;color:var(--text-faint)}
+
+/* ============================================================ SECTION scaffold */
+section.blk{padding:130px 0;border-bottom:1px solid var(--line-strong)}
+.sec-head{padding:0 var(--gutter);display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:70px;
+  align-items:end;margin-bottom:90px}
+.sec-head .eyebrow{margin-bottom:30px}
+.sec-head h2{font-weight:900;font-size:84px;line-height:.92;letter-spacing:-0.045em}
+.sec-head .intro{font-size:17px;line-height:1.65;color:var(--text-soft);padding-bottom:12px}
+
+/* ============================================================ FONDATIONS */
+.found{padding:0 var(--gutter)}
+.found .statement{font-weight:300;font-size:46px;line-height:1.18;letter-spacing:-0.025em;
+  max-width:24ch;color:var(--text);margin-bottom:90px}
+.found .statement em{font-style:normal;font-weight:900}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-strong)}
+.pillar{padding:44px 40px 48px 0;border-right:1px solid var(--line)}
+.pillar:last-child{border-right:0;padding-right:0}
+.pillar:not(:first-child){padding-left:40px}
+.pillar .pn{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--text-faint);margin-bottom:22px}
+.pillar h4{font-size:23px;font-weight:700;letter-spacing:-0.025em;margin-bottom:14px}
+.pillar p{font-size:15px;line-height:1.65;color:var(--text-muted)}
+.posbar{display:flex;align-items:center;gap:0;margin-top:80px;border:1px solid var(--line-strong)}
+.posbar .seg{padding:30px 36px;font-size:14px;line-height:1.5}
+.posbar .seg.a{flex:0 0 70%;background:var(--ink);color:var(--p-paper)}
+.posbar .seg.b{flex:1;color:var(--text-muted)}
+.posbar .seg .pc{font-family:var(--mono);font-size:11px;letter-spacing:.16em;opacity:.7;display:block;margin-bottom:8px}
+.posbar .seg .pt{font-size:16px;font-weight:600;letter-spacing:-0.01em}
+
+/* ============================================================ LOGO */
+.logo-hero{position:relative;background:var(--ink);height:420px;display:flex;align-items:center;
+  justify-content:center;margin-bottom:0}
+.logo-hero img{height:96px;filter:none}
+.logo-hero .lbl{position:absolute;left:var(--gutter);bottom:30px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.logo-hero .lbr{position:absolute;right:var(--gutter);top:30px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.16em;color:rgba(255,255,255,.5)}
+
+/* construction */
+.construct{display:grid;grid-template-columns:1.25fr 1fr;border-bottom:1px solid var(--line)}
+.construct .stage{position:relative;padding:70px 60px;border-right:1px solid var(--line);
+  background:
+    linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 40px,
+    linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/40px 100%;
+  background-color:var(--p-100)}
+.construct .stage .frame{position:relative;background:var(--bg);border:1px solid var(--ink);
+  padding:64px;display:flex;align-items:center;justify-content:center}
+.construct .stage .frame::before,.construct .stage .frame::after{content:"";position:absolute;
+  border:1px dashed var(--p-400)}
+.construct .stage .frame::before{inset:32px}            /* clear space ring = 1X */
+.construct .stage img{height:62px;position:relative;z-index:2}
+.construct .stage .x{position:absolute;font-family:var(--mono);font-size:11px;color:var(--text-faint);background:var(--bg);padding:2px 6px}
+.construct .stage .x.x1{left:50%;top:14px;transform:translateX(-50%)}
+.construct .stage .x.x2{left:14px;top:50%;transform:translateY(-50%)}
+.construct .notes{padding:54px 60px}
+.construct .notes h4{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px}
+.construct .notes .row{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--line);font-size:14px}
+.construct .notes .row:first-of-type{border-top:0}
+.construct .notes .row .k{color:var(--text-muted)}
+.construct .notes .row .v{font-family:var(--mono);font-size:12.5px;text-align:right}
+
+/* logo versions */
+.versions{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--line)}
+.versions .v{padding:64px 48px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:30px;min-height:280px;border-right:1px solid var(--line);text-align:center}
+.versions .v:last-child{border-right:0}
+.versions .v.dark{background:var(--ink)}
+.versions .v img{height:46px}
+.versions .v .vl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint)}
+.versions .v.dark .vl{color:rgba(255,255,255,.5)}
+
+/* entities MP / MP Pro */
+.entities{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.entities .e{padding:54px 48px 56px 0;border-right:1px solid var(--line)}
+.entities .e:last-child{border-right:0;padding-left:48px;padding-right:0}
+.entities .lk{display:flex;align-items:flex-end;gap:12px;margin-bottom:26px}
+.entities .lk img{height:40px}
+.entities .lk .pro{font-weight:700;font-size:13px;letter-spacing:.2em;color:var(--p-400);padding-bottom:4px}
+.entities .en{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:13px}
+.entities p{font-size:15px;line-height:1.62;color:var(--text-muted);max-width:44ch}
+
+/* misuse */
+.misuse{padding:54px var(--gutter) 0}
+.misuse h4{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:30px}
+.misuse-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.dont{}
+.dont .box{aspect-ratio:1.6/1;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;background:var(--surface)}
+.dont .box img{height:30px}
+.dont .box .ban{position:absolute;right:12px;top:12px;width:18px;height:18px;border-radius:50%;
+  border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center}
+.dont .box .ban::after{content:"";width:11px;height:1.5px;background:var(--ink);transform:rotate(45deg)}
+.dont .cap{font-size:12.5px;color:var(--text-muted);margin-top:13px;line-height:1.4}
+
+/* ============================================================ COULEUR */
+.col{padding:0 var(--gutter)}
+.ramp{display:grid;grid-template-columns:repeat(10,1fr);border:1px solid var(--line-strong)}
+.ramp .c{height:170px;position:relative;display:flex;align-items:flex-end;padding:14px 12px}
+.ramp .c span{font-family:var(--mono);font-size:10px;letter-spacing:.02em}
+.ramp .c+.c{border-left:1px solid rgba(0,0,0,.06)}
+.coltable{width:100%;border-collapse:collapse;margin-top:64px}
+.coltable th{text-align:left;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-faint);padding:0 16px 16px 0;border-bottom:1px solid var(--line-strong)}
+.coltable td{padding:16px 16px 16px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:middle}
+.coltable td.tok{font-weight:600;width:150px}
+.coltable td .sw{display:inline-block;width:22px;height:22px;border-radius:4px;border:1px solid rgba(0,0,0,.12);
+  vertical-align:-6px;margin-right:12px}
+.coltable td.m{font-family:var(--mono);font-size:12.5px;color:var(--text-muted);white-space:nowrap}
+.coltable td.use{color:var(--text-muted);font-size:13.5px}
+.contrast{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.cc{border:1px solid var(--line);padding:0}
+.cc .demo{height:120px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;letter-spacing:-0.02em}
+.cc .info{padding:18px 22px;border-top:1px solid var(--line)}
+.cc .ratio{font-family:var(--mono);font-size:22px;font-weight:500;letter-spacing:-0.01em}
+.cc .grade{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);margin-top:6px}
+.cc .ctx{font-size:13px;color:var(--text-muted);margin-top:4px}
+
+/* ============================================================ TYPO */
+.typo{padding:0 var(--gutter)}
+.specimen{border:1px solid var(--line-strong);padding:60px;margin-bottom:64px;background:var(--surface)}
+.specimen .aa{font-weight:900;font-size:200px;line-height:.85;letter-spacing:-0.05em}
+.specimen .glyphs{font-family:var(--font);font-weight:500;font-size:30px;letter-spacing:.04em;
+  color:var(--text-soft);margin-top:30px;line-height:1.5}
+.specimen .meta{display:flex;gap:40px;margin-top:40px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--text-muted)}
+.scale-row{display:grid;grid-template-columns:200px 1fr;gap:50px;align-items:baseline;
+  padding:40px 0;border-top:1px solid var(--line)}
+.scale-row:first-of-type{border-top:0;padding-top:0}
+.scale-row .sp .lv{font-size:14px;font-weight:700}
+.scale-row .sp .d{font-family:var(--mono);font-size:11.5px;color:var(--text-faint);margin-top:8px;line-height:1.7}
+.t-display{font-weight:900;font-size:96px;letter-spacing:-0.05em;line-height:.9}
+.t-h1{font-weight:900;font-size:64px;letter-spacing:-0.04em;line-height:.95}
+.t-h2{font-weight:700;font-size:44px;letter-spacing:-0.035em}
+.t-h3{font-weight:700;font-size:28px;letter-spacing:-0.03em}
+.t-lead{font-weight:300;font-size:27px;line-height:1.4;letter-spacing:-0.02em;color:var(--text-soft)}
+.t-body{font-weight:400;font-size:17px;line-height:1.7;color:var(--text-soft);max-width:62ch}
+.t-label{font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted)}
+.pairing{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-strong);margin-top:64px}
+.pairing .p{padding:44px 48px;border-right:1px solid var(--line)}
+.pairing .p:last-child{border-right:0}
+.pairing .p .pk{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:20px}
+.pairing .p .pv{font-size:18px;line-height:1.55}
+.pairing .p.mono .pv{font-family:var(--mono);font-size:14px;color:var(--text-muted);line-height:1.9}
+
+/* ============================================================ FOOTER */
+footer{padding:64px var(--gutter) 80px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+footer .l{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--text-faint);line-height:1.8;max-width:60ch}
+footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
+
+.draft-flag{position:fixed;left:0;top:0;z-index:9;background:var(--ink);color:var(--p-paper);
+  font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:7px 14px}
+</style>
+</head>
+<body>
+<div class="draft-flag">Draft v2 · nouvelle direction · à valider</div>
+<div class="shell">
+
+  <!-- MASTHEAD -->
+  <div class="mast">
+    <div class="mk">56k<span class="x">×</span>MP Finance</div>
+    <div class="rt">Brand Guidelines — v2 · proposition de direction</div>
+  </div>
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="tag eyebrow"><b>00</b><span class="ln"></span>Charte de marque · cabinet patrimonial</div>
+    <h1>L’épure<br>comme preuve<br><span class="lt">de sérieux.</span></h1>
+    <div class="meta">
+      <div class="m"><div class="mk">Document</div><div class="mv">Brand guidelines v2</div></div>
+      <div class="m"><div class="mk">Typographie</div><div class="mv">Satoshi</div></div>
+      <div class="m"><div class="mk">Couleur</div><div class="mv">Noir &amp; blanc intégral</div></div>
+      <div class="m"><div class="mk">Édition</div><div class="mv">Juin 2026</div></div>
+    </div>
+    <p class="lead"><span class="first">Une marque ne se crie pas, elle se tient.</span> Tout MP Finance tient dans une seule typographie, une photographie sobre et la justesse des espaces — un système, pas une décoration.</p>
+  </div>
+
+  <div class="coverphoto">
+    <img src="../assets/mpf-team.jpg" alt="Équipe MP Finance">
+    <span class="cap">MP Finance · l’accompagnement avant tout</span>
+    <span class="fig">Fig. 00 — Photographie de marque</span>
+  </div>
+
+  <!-- SOMMAIRE -->
+  <div class="toc">
+    <div class="eyebrow"><b>—</b><span class="ln"></span>Sommaire</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="#fondations"><span class="no">01</span><span><span class="ti">Fondations</span><span class="ds">Positionnement, promesse, piliers, équilibre de ton.</span></span><span class="pg">p.01</span></a>
+      <a class="toc-item" href="#logo"><span class="no">02</span><span><span class="ti">Logo</span><span class="ds">Construction, zone de protection, tailles, versions, MP Finance / Pro, misuse.</span></span><span class="pg">p.02</span></a>
+      <a class="toc-item" href="#couleur"><span class="no">03</span><span><span class="ti">Couleur</span><span class="ds">Système N&amp;B, HEX / RGB / CMYK, ratios d’usage, accessibilité.</span></span><span class="pg">p.03</span></a>
+      <a class="toc-item" href="#typo"><span class="no">04</span><span><span class="ti">Typographie</span><span class="ds">Satoshi : échelle complète, graisses, pairing, spécimen.</span></span><span class="pg">p.04</span></a>
+      <a class="toc-item" href="#"><span class="no">05</span><span><span class="ti">Grille &amp; mise en page</span><span class="ds">Colonnes, marges, base 8, filets. <em>— à venir</em></span></span><span class="pg">—</span></a>
+      <a class="toc-item" href="#"><span class="no">06</span><span><span class="ti">Photographie &amp; matière</span><span class="ds">Direction N&amp;B, pierre de Jaumont. <em>— à venir</em></span></span><span class="pg">—</span></a>
+      <a class="toc-item" href="#"><span class="no">07</span><span><span class="ti">Ton de voix</span><span class="ds">Personnalité, voice chart, registres. <em>— à venir</em></span></span><span class="pg">—</span></a>
+      <a class="toc-item" href="#"><span class="no">08</span><span><span class="ti">Applications</span><span class="ds">Plaquette, LinkedIn, carte, signature. <em>— à venir</em></span></span><span class="pg">—</span></a>
+    </div>
+  </div>
+
+  <!-- 01 FONDATIONS -->
+  <section class="blk" id="fondations">
+    <div class="sec-head">
+      <div class="l"><div class="eyebrow"><b>01</b><span class="ln"></span>Fondations</div><h2>Pourquoi<br>cette marque.</h2></div>
+      <div class="intro">MP Finance accompagne particuliers et professionnels sur l’ensemble de leurs projets de financement. La marque doit incarner l’exigence d’un cabinet patrimonial — sans froideur.</div>
+    </div>
+    <div class="found">
+      <p class="statement">Un partenaire qui <em>s’engage</em>, pas un guichet qui <em>oriente</em>.</p>
+      <div class="pillars">
+        <div class="pillar"><div class="pn">01 — Promesse</div><h4>Le conseil à hauteur d’exigence</h4><p>Chaque dossier est traité avec la même rigueur, de la première acquisition à la stratégie patrimoniale.</p></div>
+        <div class="pillar"><div class="pn">02 — Posture</div><h4>Indépendance &amp; transparence</h4><p>Un réseau de courtiers indépendants qui défendent l’intérêt du client, et restent son interlocuteur dans la durée.</p></div>
+        <div class="pillar"><div class="pn">03 — Style</div><h4>L’épure comme signature</h4><p>Noir &amp; blanc, une typographie, beaucoup de vide. La sobriété dit le haut de gamme mieux qu’un artifice.</p></div>
+      </div>
+      <div class="posbar">
+        <div class="seg a"><span class="pc">70 %</span><span class="pt">Chaleureux &amp; humain</span></div>
+        <div class="seg b"><span class="pc">30 %</span><span class="pt">Élégant &amp; institutionnel</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 LOGO -->
+  <section class="blk" id="logo">
+    <div class="sec-head">
+      <div class="l"><div class="eyebrow"><b>02</b><span class="ln"></span>Logo</div><h2>Une signature,<br>pas un décor.</h2></div>
+      <div class="intro">Le logo est inchangé. La distinction des entités passe par la tagline — jamais par un second logo, ni par une couleur. Il respire, il ne se déforme jamais.</div>
+    </div>
+
+    <div class="logo-hero">
+      <img src="../assets/logo-blanc.png" alt="MP Finance">
+      <span class="lbl">Lockup principal · version inversée (fond foncé / photo)</span>
+      <span class="lbr">02.1 — Le logo</span>
+    </div>
+
+    <div class="construct">
+      <div class="stage">
+        <div class="frame">
+          <img src="../assets/logo-noir.png" alt="MP Finance">
+          <span class="x x1">1X</span>
+          <span class="x x2">1X</span>
+        </div>
+      </div>
+      <div class="notes">
+        <h4>Zone de protection &amp; construction</h4>
+        <div class="row"><span class="k">Unité de référence</span><span class="v">X = hauteur du « M »</span></div>
+        <div class="row"><span class="k">Zone de protection</span><span class="v">≥ 1X sur les 4 côtés</span></div>
+        <div class="row"><span class="k">Taille min. — print</span><span class="v">28 mm de large</span></div>
+        <div class="row"><span class="k">Taille min. — digital</span><span class="v">96 px de large</span></div>
+        <div class="row"><span class="k">Alignement</span><span class="v">optique, centré sur la hauteur d’x</span></div>
+      </div>
+    </div>
+
+    <div class="versions">
+      <div class="v"><img src="../assets/logo-noir.png" alt="MP Finance"><span class="vl">Principal · encre sur papier</span></div>
+      <div class="v dark"><img src="../assets/logo-blanc.png" alt="MP Finance"><span class="vl">Inversé · papier sur encre</span></div>
+      <div class="v"><img src="../assets/logo-noir.png" alt="MP Finance" style="height:26px"><span class="vl">Taille réduite · ≥ 96 px</span></div>
+    </div>
+
+    <div class="entities">
+      <div class="e">
+        <div class="lk"><img src="../assets/logo-noir.png" alt="MP Finance"></div>
+        <div class="en">MP Finance · Particuliers</div>
+        <p>Entité grand public. Tagline orientée accompagnement : crédit immobilier, rachat, assurance, gestion de patrimoine.</p>
+      </div>
+      <div class="e">
+        <div class="lk"><img src="../assets/logo-noir.png" alt="MP Finance"><span class="pro">PRO</span></div>
+        <div class="en">MP Finance Pro · Professionnels</div>
+        <p>Même logo, même filet. Seules la mention « Pro » et la tagline changent. Une marque, deux adresses.</p>
+      </div>
+    </div>
+
+    <div class="misuse">
+      <h4>À ne jamais faire</h4>
+      <div class="misuse-grid">
+        <div class="dont"><div class="box"><img src="../assets/logo-noir.png" alt="" style="transform:rotate(-9deg)"><span class="ban"></span></div><div class="cap">Pivoter ou incliner.</div></div>
+        <div class="dont"><div class="box"><img src="../assets/logo-noir.png" alt="" style="transform:scaleX(1.5)"><span class="ban"></span></div><div class="cap">Étirer ou déformer.</div></div>
+        <div class="dont"><div class="box" style="background:var(--p-400)"><img src="../assets/logo-noir.png" alt=""><span class="ban"></span></div><div class="cap">Contraste insuffisant.</div></div>
+        <div class="dont"><div class="box"><img src="../assets/logo-noir.png" alt="" style="filter:drop-shadow(3px 4px 2px rgba(0,0,0,.4))"><span class="ban"></span></div><div class="cap">Ombre ou effet.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 COULEUR -->
+  <section class="blk" id="couleur">
+    <div class="sec-head">
+      <div class="l"><div class="eyebrow"><b>03</b><span class="ln"></span>Couleur</div><h2>Noir, blanc,<br>nuances.</h2></div>
+      <div class="intro">Aucune couleur d’accent — jamais. Une seule échelle d’encre chaude, du plus profond au papier crème. Le contraste et le vide font tout le travail. Spécifié pour l’écran (RGB / HEX) et le print (K%).</div>
+    </div>
+    <div class="col">
+      <div class="ramp">
+        <div class="c" style="background:#0E0E0E"><span style="color:#fff">#0E0E0E</span></div>
+        <div class="c" style="background:#2A2A28"><span style="color:#fff">#2A2A28</span></div>
+        <div class="c" style="background:#4A4A47"><span style="color:#fff">#4A4A47</span></div>
+        <div class="c" style="background:#5E5E5A"><span style="color:#fff">#5E5E5A</span></div>
+        <div class="c" style="background:#7C7C77"><span style="color:#fff">#7C7C77</span></div>
+        <div class="c" style="background:#9B9B95"><span style="color:#fff">#9B9B95</span></div>
+        <div class="c" style="background:#C7C4BC"><span style="color:#2A2A28">#C7C4BC</span></div>
+        <div class="c" style="background:#E3E0D8"><span style="color:#2A2A28">#E3E0D8</span></div>
+        <div class="c" style="background:#EEEBE3"><span style="color:#2A2A28">#EEEBE3</span></div>
+        <div class="c" style="background:#FAF8F3"><span style="color:#2A2A28">#FAF8F3</span></div>
+      </div>
+
+      <table class="coltable">
+        <thead><tr><th>Token</th><th>HEX</th><th>RGB</th><th>Print (K)</th><th>Usage</th></tr></thead>
+        <tbody>
+          <tr><td class="tok"><span class="sw" style="background:#0E0E0E"></span>ink</td><td class="m">#0E0E0E</td><td class="m">14 · 14 · 14</td><td class="m">K 100</td><td class="use">Texte, aplats, logo. Aplat large : rich black 60/40/40/100.</td></tr>
+          <tr><td class="tok"><span class="sw" style="background:#2A2A28"></span>ink-soft</td><td class="m">#2A2A28</td><td class="m">42 · 42 · 40</td><td class="m">K 90</td><td class="use">Corps de texte long, chapôs.</td></tr>
+          <tr><td class="tok"><span class="sw" style="background:#4A4A47"></span>gray-700</td><td class="m">#4A4A47</td><td class="m">74 · 74 · 71</td><td class="m">K 78</td><td class="use">Texte secondaire, sous-titres.</td></tr>
+          <tr><td class="tok"><span class="sw" style="background:#7C7C77"></span>gray-500</td><td class="m">#7C7C77</td><td class="m">124 · 124 · 119</td><td class="m">K 58</td><td class="use">Méta, légendes (grand corps).</td></tr>
+          <tr><td class="tok"><span class="sw" style="background:#9B9B95"></span>gray-400</td><td class="m">#9B9B95</td><td class="m">155 · 155 · 149</td><td class="m">K 45</td><td class="use">Labels discrets, états désactivés.</td></tr>
+          <tr><td class="tok"><span class="sw" style="background:#C7C4BC"></span>gray-300</td><td class="m">#C7C4BC</td><td class="m">199 · 196 · 188</td><td class="m">K 28</td><td class="use">Séparateurs marqués.</td></tr>
+          <tr><td class="tok"><span class="sw" style="background:#E3E0D8"></span>gray-200</td><td class="m">#E3E0D8</td><td class="m">227 · 224 · 216</td><td class="m">K 14</td><td class="use">Filets, bordures fines.</td></tr>
+          <tr><td class="tok"><span class="sw" style="background:#EEEBE3"></span>gray-100</td><td class="m">#EEEBE3</td><td class="m">238 · 235 · 227</td><td class="m">K 8</td><td class="use">Fonds alternés, cartouches.</td></tr>
+          <tr><td class="tok"><span class="sw" style="background:#FAF8F3"></span>paper</td><td class="m">#FAF8F3</td><td class="m">250 · 248 · 243</td><td class="m">stock</td><td class="use">Fond par défaut (blanc cassé chaud).</td></tr>
+          <tr><td class="tok"><span class="sw" style="background:#fff"></span>white</td><td class="m">#FFFFFF</td><td class="m">255 · 255 · 255</td><td class="m">K 0</td><td class="use">Surfaces surélevées, cartes.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="contrast">
+        <div class="cc"><div class="demo" style="background:#FAF8F3;color:#0E0E0E">Aa</div><div class="info"><div class="ratio">17.4 : 1</div><div class="grade">AAA · WCAG 2.1</div><div class="ctx">Encre sur papier — combinaison principale.</div></div></div>
+        <div class="cc"><div class="demo" style="background:#0E0E0E;color:#FAF8F3">Aa</div><div class="info"><div class="ratio">17.4 : 1</div><div class="grade">AAA · inversé</div><div class="ctx">Papier sur encre — couvertures, posts.</div></div></div>
+        <div class="cc"><div class="demo" style="background:#FAF8F3;color:#7C7C77">Aa</div><div class="info"><div class="ratio">3.9 : 1</div><div class="grade">AA · grand corps</div><div class="ctx">Gris 500 : méta &amp; légendes ≥ 18 px uniquement.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 TYPO -->
+  <section class="blk" id="typo">
+    <div class="sec-head">
+      <div class="l"><div class="eyebrow"><b>04</b><span class="ln"></span>Typographie</div><h2>Satoshi,<br>seule en scène.</h2></div>
+      <div class="intro">Une seule famille — Satoshi (Fontshare). Toute la hiérarchie naît de la graisse, de l’échelle et de la casse. Le monospace (JetBrains Mono) reste réservé aux annotations techniques du document.</div>
+    </div>
+    <div class="typo">
+      <div class="specimen">
+        <div class="aa">Aa</div>
+        <div class="glyphs">ABCDEFGHIJKLMNOPQRSTUVWXYZ&nbsp; abcdefghijklmnopqrstuvwxyz&nbsp; 0123456789&nbsp; €&nbsp;%&nbsp;·&nbsp;—</div>
+        <div class="meta"><span>Satoshi · Fontshare</span><span>Light 300 · Regular 400 · Medium 500 · Bold 700 · Black 900</span><span>Grotesque géométrique</span></div>
+      </div>
+
+      <div class="scale-row"><div class="sp"><div class="lv">Display</div><div class="d">Black · 900<br>96–150 px<br>tracking −5 %<br>line-height 0.9</div></div><div class="t-display">Votre projet mérite mieux.</div></div>
+      <div class="scale-row"><div class="sp"><div class="lv">H1</div><div class="d">Black · 900<br>56–72 px<br>tracking −4 %</div></div><div class="t-h1">L’épure comme preuve.</div></div>
+      <div class="scale-row"><div class="sp"><div class="lv">H2</div><div class="d">Bold · 700<br>40–48 px<br>tracking −3,5 %</div></div><div class="t-h2">Un partenaire, pas un guichet.</div></div>
+      <div class="scale-row"><div class="sp"><div class="lv">H3</div><div class="d">Bold · 700<br>26–30 px<br>tracking −3 %</div></div><div class="t-h3">Indépendance &amp; transparence.</div></div>
+      <div class="scale-row"><div class="sp"><div class="lv">Chapô</div><div class="d">Light · 300<br>24–27 px<br>line-height 1.4</div></div><div class="t-lead">Le conseil patrimonial à hauteur d’exigence, porté par un réseau de courtiers indépendants.</div></div>
+      <div class="scale-row"><div class="sp"><div class="lv">Corps</div><div class="d">Regular · 400<br>16–17 px<br>line-height 1.7</div></div><div class="t-body">MP Finance accompagne particuliers et professionnels sur l’ensemble de leurs projets de financement. De la première acquisition à la stratégie patrimoniale, chaque dossier est traité avec la même rigueur.</div></div>
+      <div class="scale-row"><div class="sp"><div class="lv">Label</div><div class="d">Medium · 500<br>12–13 px<br>tracking +22 %<br>capitales</div></div><div class="t-label">Courtage · Patrimoine · Assurance</div></div>
+
+      <div class="pairing">
+        <div class="p"><div class="pk">Règle de pairing — texte</div><div class="pv">Une famille, cinq graisses. Le contraste se crée par l’échelle et la graisse (Black ↔ Light), jamais par une seconde police ni une fausse italique.</div></div>
+        <div class="p mono"><div class="pk">Exception — chrome technique</div><div class="pv">JetBrains Mono 400/500<br>Légendes · numéros · specs · 56k×MP&nbsp;Finance<br>Jamais dans la communication de marque.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="l">MP Finance × 56k Studio — Brand guidelines v2 · noir &amp; blanc intégral · proposition de direction à valider<br>ORIAS n° 15 004 729 · mpfinance.fr</span>
+    <span class="r">56k.studio</span>
+  </footer>
+
+</div>
+</body>
+</html>
