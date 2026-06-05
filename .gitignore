@@ -1,0 +1,4 @@
+dist/
+out/
+assets/_backup_ph/
+*.log
