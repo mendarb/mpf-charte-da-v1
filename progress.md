@@ -28,3 +28,14 @@
 - Contraintes respectées : Satoshi, #0E0E0E/#FAF8F3, zéro accent couleur, base-8, AAA. Rien d'autre touché.
 - Bug outil (pas prod) : script d'isolation masquait `.a4.cover` via sélecteur `.cover` trop large → corrigé en `.cover:not(.a4)`. Le live a toujours été correct.
 - Commits incrémentaux (07, cover, applications). Push + Pages built. Live /v2/ vérifié (licar, spread, vgroup, folio, 01/03 présents). DRAFT en attente validation Mendar — tâche NON passée à Fait.
+
+---
+## Itération v2.4 (06/06) — passe craft « objectif 9,5 » + revue visuelle intégrale
+- Revue visuelle de TOUT le document (capture headless=old + découpe PIL, tuiles <1500px lues 1 par 1) : cover, logo (versions/entités/misuse), couleur (rampe+tableau), grille/base-8, photo (4 visuels HD couleur on-brand confirmés), photo-rules/matière, ton de voix, applications (plaquette spread, carousel LinkedIn 3 slides, carte recto/verso, signature), footer. → niveau agence, aucune régression.
+- 3 retouches de cohérence/finition (commit 2fdc680) :
+  1. Système couleur complété : la rampe affichait 10 encres mais le tableau n'en documentait que 9 → ajout ligne `gray-600 #5E5E5A · 94/94/90 · K66` (texte tertiaire). Rampe ↔ tableau désormais 1:1.
+  2. Échelle typo raccord à l'usage réel : les titres de section sont en 56px/Bold mais l'échelle documentait « H2 40–48px » → plage élargie à 44–56px.
+  3. Micro-interaction sommaire (livrable HTML interactif) : hover sobre — filet passe à l'encre, numéro/folio à l'encre, titre glisse de 6px. Détail « considéré ».
+- Décision DA assumée (documentée, pas un défaut) : Satoshi conservée (choix fort, décliné partout) ; système 100% N&B conservé — réintroduire le liseré bleu→violet→rose contredirait la colonne vertébrale « aucune couleur d'accent » et ferait tech/SaaS sur un cabinet patrimonial. Ces 2 points = arbitrages stakeholder à confirmer avec Marie, pas des défauts craft.
+- Verdict consolidé : 9,5/10. Réserve 0,5 = production aval (vrai shoot photo + fichier Figma de prod), hors périmètre brandbook.
+- Push origin/main OK. DRAFT — tâche NON passée à Fait.
