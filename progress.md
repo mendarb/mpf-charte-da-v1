@@ -39,3 +39,11 @@
 - Décision DA assumée (documentée, pas un défaut) : Satoshi conservée (choix fort, décliné partout) ; système 100% N&B conservé — réintroduire le liseré bleu→violet→rose contredirait la colonne vertébrale « aucune couleur d'accent » et ferait tech/SaaS sur un cabinet patrimonial. Ces 2 points = arbitrages stakeholder à confirmer avec Marie, pas des défauts craft.
 - Verdict consolidé : 9,5/10. Réserve 0,5 = production aval (vrai shoot photo + fichier Figma de prod), hors périmètre brandbook.
 - Push origin/main OK. DRAFT — tâche NON passée à Fait.
+
+---
+## Itération v2.5 (09/06) — arbitrages tranchés + shoot photo IA + présentation Marie
+- **Mendar tranche** : on garde **Satoshi**, on reste **100% N&B**. Escalade Dylan passée à Fait, DA v1 commentée. Direction figée.
+- **Shoot photo IA** (Gemini `gemini-3-pro-image-preview` / Nano Banana Pro, clé GOOGLE_API_KEY du vault, venv /tmp/mpfgen) : 5 visuels cohérents (ph-cover 16:9, ph-conseil 4:3, ph-equipe 16:9, ph-marie 3:4, ph-signature 4:3). Direction photo de la charte respectée (lumière douce, couleur naturelle peu saturée, pierre de Metz, gestes d'accompagnement, espace négatif). Vérifiés 1 par 1 en miniature → premium, on-brand. Remplacent les placeholders 1:1 ; cover dédiée câblée (ph-cover). Backup `assets/_backup_ph/pre-gemini`. Commit 3dceaea.
+- **presentation.html** : slide Photographie refondue en **mur photo** (grille magazine 4 visuels + captions) pour démontrer la cohérence du shoot ; plaquette (slide Applications) sur ph-cover. Vérifié on-screen 16:9 + PDF. Commit 3aee1b3.
+- Live OK (deck + assets 200). Visuels joints sur la tâche DA v1 (slide photo + cover shoot).
+- Reste post-validation Marie : vrai reportage photo + Figma de prod. DRAFT — tâche NON passée à Fait.
