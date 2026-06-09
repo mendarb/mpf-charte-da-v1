@@ -375,9 +375,51 @@ em{font-style:normal;font-weight:900}
       </div>
     </section>
 
+    <!-- 08 · FOND SIGNATURE -->
+    <section class="slide dark" id="sig-slide" data-label="Fond signature — la pierre de Jaumont">
+      <style>
+        #sig-slide .sg{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,4vw,72px);flex:1;align-items:center}
+        #sig-slide .sg-txt h2{font-weight:700;letter-spacing:-0.03em;line-height:1.0;font-size:clamp(34px,4.6vw,66px);margin:16px 0 22px}
+        #sig-slide .sg-txt h2 .lt{font-weight:300;color:rgba(250,248,243,.5)}
+        #sig-slide .sg-txt p{font-weight:300;font-size:clamp(15px,1.4vw,21px);line-height:1.55;color:rgba(250,248,243,.78);max-width:40ch}
+        #sig-slide .sg-vis{position:relative;height:min(60vh,500px);border:1px solid rgba(250,248,243,.16);overflow:hidden}
+        #sig-slide .sg-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+        #sig-slide .sg-vis::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.10),rgba(14,14,14,.52))}
+        #sig-slide .sg-vis .lab{position:absolute;left:24px;bottom:22px;z-index:2}
+        #sig-slide .sg-vis .lab .k{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,248,243,.72)}
+        #sig-slide .sg-vis .lab .t{font-weight:700;font-size:clamp(22px,2.4vw,34px);letter-spacing:-0.02em;margin-top:8px}
+        #sig-slide .opts{display:flex;gap:14px;margin-top:28px}
+        #sig-slide .opt{display:flex;align-items:center;gap:12px;border:1px solid rgba(250,248,243,.16);padding:10px 14px;flex:1}
+        #sig-slide .opt.reco{border-color:var(--paper)}
+        #sig-slide .opt .sw{width:44px;height:30px;flex:none;background-size:cover;background-position:center;filter:grayscale(1)}
+        #sig-slide .opt .nm{font-size:12.5px;font-weight:600}
+        #sig-slide .opt .tg{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,248,243,.5);margin-top:3px}
+        #sig-slide .opt.reco .tg{color:var(--paper)}
+      </style>
+      <div class="chrome"><span class="mk"><b>08</b> · Fond signature</span><span class="mk">La matière de marque</span></div>
+      <div class="frame">
+        <div class="sg">
+          <div class="sg-txt">
+            <div class="eyebrow" data-r="1"><span class="ln"></span>La matière de marque</div>
+            <h2 data-r="2">La pierre,<br><span class="lt">pour signature.</span></h2>
+            <p data-r="3">La pierre de Jaumont — celle dont sont bâties la cathédrale et la gare de Metz — devient le fond de la marque. Un ancrage qu’aucun concurrent ne peut copier, gardé en noir &amp; blanc chaud.</p>
+            <div class="opts" data-r="4">
+              <div class="opt reco"><div class="sw" style="background-image:url(../assets/sig-jaumont-pale.png)"></div><div><div class="nm">Monochrome</div><div class="tg">● Recommandé</div></div></div>
+              <div class="opt"><div class="sw" style="background-image:url(../assets/sig-jaumont-or.png);filter:none"></div><div><div class="nm">Teinte dorée</div><div class="tg">Audacieux</div></div></div>
+              <div class="opt"><div class="sw" style="background-image:url(../assets/sig-guilloche.png)"></div><div><div class="nm">Guilloché</div><div class="tg">Réserve</div></div></div>
+            </div>
+          </div>
+          <div class="sg-vis" data-r="3">
+            <img src="../assets/sig-jaumont-deep.png" alt="Pierre de Jaumont">
+            <div class="lab"><div class="k">Fond signature</div><div class="t">Pierre de Jaumont</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 09 · TON DE VOIX -->
     <section class="slide dark" data-label="Ton de voix — proche, jamais bavard">
-      <div class="chrome"><span class="mk"><b>08</b> · Ton de voix</span><span class="mk">Proche, jamais bavard</span></div>
+      <div class="chrome"><span class="mk"><b>09</b> · Ton de voix</span><span class="mk">Proche, jamais bavard</span></div>
       <div class="frame">
         <div class="eyebrow" data-r="1"><span class="ln"></span>On parle comme un conseiller de confiance</div>
         <h2 class="title" data-r="2" style="margin-top:20px;max-width:16ch">Proche,<br>jamais bavard.</h2>
@@ -400,7 +442,7 @@ em{font-style:normal;font-weight:900}
 
     <!-- 10 · APPLICATIONS -->
     <section class="slide" data-label="Applications — la marque en situation">
-      <div class="chrome"><span class="mk"><b>09</b> · Applications</span><span class="mk">En situation</span></div>
+      <div class="chrome"><span class="mk"><b>10</b> · Applications</span><span class="mk">En situation</span></div>
       <div class="frame">
         <div class="eyebrow" data-r="1"><span class="ln"></span>La même grammaire partout</div>
         <h2 class="title" data-r="2" style="margin-top:20px">Le système,<br>en situation.</h2>
@@ -414,7 +456,7 @@ em{font-style:normal;font-weight:900}
 
     <!-- 11 · PROCHAINES ÉTAPES -->
     <section class="slide dark" data-label="Prochaines étapes">
-      <div class="chrome"><span class="mk"><b>10</b> · La suite</span><span class="mk">Feuille de route</span></div>
+      <div class="chrome"><span class="mk"><b>11</b> · La suite</span><span class="mk">Feuille de route</span></div>
       <div class="frame">
         <div class="eyebrow" data-r="1"><span class="ln"></span>Une fois la direction validée</div>
         <h2 class="title" data-r="2" style="margin-top:20px;max-width:16ch">Les prochaines<br>étapes.</h2>
