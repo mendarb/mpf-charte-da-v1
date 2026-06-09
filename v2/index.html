@@ -489,6 +489,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <a class="toc-item" href="#photo"><span class="no">06</span><span><span class="ti">Photographie &amp; matière</span><span class="ds">Direction couleur douce, pierre de Jaumont.</span></span><span class="pg">p.06</span></a>
       <a class="toc-item" href="#voix"><span class="no">07</span><span><span class="ti">Ton de voix</span><span class="ds">Personnalité, voice chart, registres.</span></span><span class="pg">p.07</span></a>
       <a class="toc-item" href="#applications"><span class="no">08</span><span><span class="ti">Applications</span><span class="ds">Plaquette, LinkedIn, carte, signature.</span></span><span class="pg">p.08</span></a>
+      <a class="toc-item" href="#signature"><span class="no">09</span><span><span class="ti">Fond signature</span><span class="ds">Pierre de Jaumont, matière de marque, usages &amp; alternatives.</span></span><span class="pg">p.09</span></a>
     </div>
   </div>
 
@@ -857,6 +858,197 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
               <div class="ct">+33 6 00 00 00 00 · marie@mp-finance.com · mp-finance.com</div></div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 FOND SIGNATURE -->
+  <style>
+    #signature .sig-hero{position:relative;margin-top:56px;height:440px;overflow:hidden;border:1px solid var(--line-strong)}
+    #signature .sig-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(1.02)}
+    #signature .sig-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,14,14,.62) 0%,rgba(14,14,14,.30) 34%,rgba(14,14,14,0) 60%)}
+    #signature .sig-hero-txt{position:absolute;left:48px;bottom:44px;z-index:2;color:#fff;max-width:560px}
+    #signature .sig-hero-txt .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:16px}
+    #signature .sig-hero-txt .t{font-weight:700;font-size:46px;line-height:1.0;letter-spacing:-0.03em}
+    #signature .sig-hero-txt .s{margin-top:18px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.86);max-width:440px}
+
+    #signature .sig-why{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:24px;border:1px solid var(--line);border-bottom:none}
+    #signature .sw{padding:28px 28px 30px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+    #signature .sw:last-child{border-right:none}
+    #signature .sw .n{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--text-faint)}
+    #signature .sw h4{font-size:18px;font-weight:700;letter-spacing:-0.02em;margin:14px 0 8px}
+    #signature .sw p{font-size:13px;line-height:1.55;color:var(--text-muted)}
+
+    #signature .sig-sub{margin-top:72px;display:flex;align-items:baseline;gap:18px}
+    #signature .sig-sub .e{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint)}
+    #signature .sig-sub h3{font-size:26px;font-weight:700;letter-spacing:-0.025em}
+
+    #signature .sig-uses{display:grid;grid-template-columns:0.86fr 1.28fr 0.86fr;gap:16px;margin-top:28px}
+    #signature .u{border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;overflow:hidden}
+    #signature .u .ucap{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);padding:14px 16px;border-top:1px solid var(--line)}
+
+    /* mockup : couverture plaquette sur pierre profonde */
+    #signature .mk-cover{position:relative;flex:1;min-height:300px;overflow:hidden;background:#1c1c1a}
+    #signature .mk-cover img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.92)}
+    #signature .mk-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.30),rgba(14,14,14,.04) 36%,rgba(14,14,14,.62))}
+    #signature .mk-cover .in{position:absolute;inset:0;z-index:2;padding:26px;display:flex;flex-direction:column;color:#fff}
+    #signature .mk-cover .lg{font-weight:700;font-size:17px;letter-spacing:.01em}
+    #signature .mk-cover .lg span{font-weight:300;color:rgba(255,255,255,.6)}
+    #signature .mk-cover .ttl{margin-top:auto;font-weight:700;font-size:23px;line-height:1.12;letter-spacing:-0.025em}
+    #signature .mk-cover .rl{width:46px;height:2px;background:#fff;margin:16px 0 12px}
+    #signature .mk-cover .lq{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+
+    /* mockup : ouverture de section sur pierre claire */
+    #signature .mk-open{position:relative;flex:1;min-height:300px;overflow:hidden;background:var(--p-paper)}
+    #signature .mk-open img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;filter:grayscale(1)}
+    #signature .mk-open .in{position:relative;z-index:2;padding:34px;height:100%;display:flex;flex-direction:column}
+    #signature .mk-open .e{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint)}
+    #signature .mk-open .big{margin-top:auto;font-weight:700;font-size:52px;line-height:.94;letter-spacing:-0.035em}
+    #signature .mk-open .big .lt{font-weight:300;color:var(--p-400)}
+    #signature .mk-open .dk{margin-top:14px;font-size:13.5px;color:var(--text-muted);max-width:34ch;line-height:1.55}
+
+    /* mockup : carte + signature mail */
+    #signature .mk-stack{flex:1;display:flex;flex-direction:column;gap:14px;padding:18px;background:var(--p-100)}
+    #signature .mk-card{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:1.62/1;background:#1c1c1a;box-shadow:0 8px 24px rgba(14,14,14,.16)}
+    #signature .mk-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.9)}
+    #signature .mk-card::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(14,14,14,.55),rgba(14,14,14,.12))}
+    #signature .mk-card .in{position:absolute;inset:0;z-index:2;padding:18px;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+    #signature .mk-card .nm{font-weight:700;font-size:14px}
+    #signature .mk-card .nm span{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:5px;font-weight:400}
+    #signature .mk-card .lg{font-weight:700;font-size:13px;align-self:flex-end}
+    #signature .mk-sig{background:#fff;border:1px solid var(--line);border-radius:2px;padding:14px 16px;display:flex;gap:14px;align-items:center}
+    #signature .mk-sig .av{width:42px;height:42px;border-radius:50%;overflow:hidden;flex:none;background:#ddd}
+    #signature .mk-sig .av img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+    #signature .mk-sig .si .n{font-weight:700;font-size:12.5px}
+    #signature .mk-sig .si .r{font-size:10.5px;color:var(--text-muted);margin-top:2px}
+    #signature .mk-sig .si .c{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--text-faint);margin-top:6px}
+    #signature .mk-sig .bar{width:3px;align-self:stretch;background:var(--ink)}
+
+    #signature .sig-rules{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:18px;border:1px solid var(--line)}
+    #signature .sr{padding:20px 22px;border-right:1px solid var(--line)}
+    #signature .sr:last-child{border-right:none}
+    #signature .sr .h{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:9px}
+    #signature .sr p{font-size:12.5px;line-height:1.55;color:var(--text-soft)}
+
+    #signature .sig-alts{display:grid;grid-template-columns:1.18fr 1fr 1fr;gap:16px;margin-top:28px}
+    #signature .alt{border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+    #signature .alt.reco{border-color:var(--ink)}
+    #signature .alt .sw-img{position:relative;height:150px;overflow:hidden;background:#eee}
+    #signature .alt .sw-img img{width:100%;height:100%;object-fit:cover}
+    #signature .alt.reco .sw-img img{filter:grayscale(1) contrast(1.04)}
+    #signature .alt .bd{padding:20px 22px 22px}
+    #signature .alt .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;color:var(--text-faint)}
+    #signature .alt.reco .tag{color:var(--ink)}
+    #signature .alt h4{font-size:18px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px}
+    #signature .alt p{font-size:12.5px;line-height:1.55;color:var(--text-muted)}
+    #signature .alt .verdict{margin-top:12px;font-size:11.5px;line-height:1.5;color:var(--text-soft);padding-top:12px;border-top:1px solid var(--line)}
+    #signature .alt.reco .verdict{color:var(--ink);font-weight:500}
+    @media(max-width:900px){#signature .sig-why{grid-template-columns:1fr 1fr}#signature .sig-uses,#signature .sig-alts,#signature .sig-rules{grid-template-columns:1fr}}
+  </style>
+  <section class="blk" id="signature">
+    <div class="sec-head">
+      <div class="l"><div class="eyebrow"><b>09</b>Fond signature</div><h2>La pierre,<br>pour signature.</h2></div>
+      <div class="intro">Une marque ancrée a besoin d’une matière. La nôtre existe déjà : la <strong>pierre de Jaumont</strong>, celle dont Metz est bâtie. On en fait le fond signature de MP&nbsp;Finance — traité en noir &amp; blanc chaud, fidèle au système, par petites touches.</div>
+    </div>
+
+    <div class="sig-hero">
+      <img src="../assets/sig-jaumont-deep.png" alt="Pierre de Jaumont — matière de marque">
+      <div class="sig-hero-txt">
+        <div class="k">Le fond signature · matière de marque</div>
+        <div class="t">Pierre de Jaumont</div>
+        <div class="s">La cathédrale Saint-Étienne, la gare, les façades du centre : un seul matériau, une lumière dorée. Le territoire de Metz devient le fond de la marque — gardé en monochrome chaud.</div>
+      </div>
+    </div>
+
+    <div class="sig-why">
+      <div class="sw"><div class="n">01 · Ancrage</div><h4>Inimitable</h4><p>C’est le sol même du territoire. Un concurrent peut copier une couleur, pas la pierre d’une ville.</p></div>
+      <div class="sw"><div class="n">02 · Patrimoine</div><h4>La durée</h4><p>Une matière qui traverse les siècles : exactement ce qu’on attend d’un partenaire de financement.</p></div>
+      <div class="sw"><div class="n">03 · Chaleur</div><h4>Jamais froid</h4><p>Le grain et la teinte chaude réchauffent un système N&amp;B, sans jamais le trahir.</p></div>
+      <div class="sw"><div class="n">04 · Système</div><h4>Fidèle</h4><p>Traitée en noir &amp; blanc chaud, la pierre respecte le « zéro accent couleur ». La matière, pas la teinte.</p></div>
+    </div>
+
+    <div class="sig-sub"><span class="e">En situation</span><h3>Le fond, du grand format au détail.</h3></div>
+    <div class="sig-uses">
+      <div class="u">
+        <div class="mk-cover">
+          <img class="bg" src="../assets/sig-jaumont-deep.png" alt="">
+          <div class="in">
+            <div class="lg">MP Finance</div>
+            <div class="ttl">Votre projet mérite mieux qu’un guichet.</div>
+            <div class="rl"></div>
+            <div class="lq">Crédit · Patrimoine · Assurance</div>
+          </div>
+        </div>
+        <div class="ucap">Couverture · aplat pierre profonde</div>
+      </div>
+      <div class="u">
+        <div class="mk-open">
+          <img class="bg" src="../assets/sig-jaumont-pale.png" alt="">
+          <div class="in">
+            <div class="e">· Section 03</div>
+            <div class="big">Noir, blanc,<br><span class="lt">nuances.</span></div>
+            <div class="dk">Le fond signature ouvre une section : la pierre claire, en filigrane, pose le ton sans charger la page.</div>
+          </div>
+        </div>
+        <div class="ucap">Ouverture de section · pierre claire en filigrane</div>
+      </div>
+      <div class="u">
+        <div class="mk-stack">
+          <div class="mk-card">
+            <img class="bg" src="../assets/sig-jaumont-deep.png" alt="">
+            <div class="in">
+              <div class="nm">Marie Pierrat<span>Dirigeante · MP Finance</span></div>
+              <div class="lg">MP Finance</div>
+            </div>
+          </div>
+          <div class="mk-sig">
+            <div class="bar"></div>
+            <div class="av"><img src="../assets/ph-marie.jpg" alt=""></div>
+            <div class="si">
+              <div class="n">Marie Pierrat</div>
+              <div class="r">Dirigeante — MP Finance</div>
+              <div class="c">mp-finance.com · ORIAS 15 004 729</div>
+            </div>
+          </div>
+        </div>
+        <div class="ucap">Carte de visite &amp; signature e-mail</div>
+      </div>
+    </div>
+
+    <div class="sig-rules">
+      <div class="sr"><div class="h">Où l’employer</div><p>Couvertures, ouvertures de section, dos de carte, fonds de citation. Jamais sous un long texte courant.</p></div>
+      <div class="sr"><div class="h">Comment</div><p>Toujours désaturée (N&amp;B chaud). Pierre profonde pour les aplats sombres, pierre claire en filigrane (≈ 50 % d’opacité) sur le papier.</p></div>
+      <div class="sr"><div class="h">Le réflexe</div><p>Par petites touches. La pierre soutient le propos, elle ne le couvre pas : le vide reste la règle, la matière l’exception.</p></div>
+    </div>
+
+    <div class="sig-sub"><span class="e">Décision</span><h3>Une direction, deux variantes.</h3></div>
+    <div class="sig-alts">
+      <div class="alt reco">
+        <div class="sw-img"><img src="../assets/sig-jaumont-pale.png" alt="Jaumont monochrome"></div>
+        <div class="bd">
+          <div class="tag">● Direction recommandée</div>
+          <h4>Jaumont, monochrome chaud</h4>
+          <p>La pierre traitée en noir &amp; blanc chaud. Tout le sens (l’ancrage messin, le patrimoine) sans casser le système 100 % N&amp;B déjà validé.</p>
+          <div class="verdict">→ Cohérent avec la charte. Aucun arbitrage couleur à rouvrir. Notre reco pour la v1.</div>
+        </div>
+      </div>
+      <div class="alt">
+        <div class="sw-img"><img src="../assets/sig-jaumont-or.png" alt="Jaumont or"></div>
+        <div class="bd">
+          <div class="tag">Variante audacieuse</div>
+          <h4>Jaumont, teinte dorée</h4>
+          <p>La vraie couleur de la pierre comme unique signature chromatique. Très distinctif, très chaleureux.</p>
+          <div class="verdict">→ Suppose de rouvrir le « zéro accent couleur ». À n’envisager que comme parti-pris assumé avec Marie.</div>
+        </div>
+      </div>
+      <div class="alt">
+        <div class="sw-img"><img src="../assets/sig-guilloche.png" alt="Guilloché"></div>
+        <div class="bd">
+          <div class="tag">Variante alternative</div>
+          <h4>Guilloché patrimonial</h4>
+          <p>Un motif gravé fin, façon titre financier. 100 % N&amp;B, registre sécurité &amp; patrimoine plutôt qu’ancrage local.</p>
+          <div class="verdict">→ Élégant et sûr, mais générique : il ne raconte pas Metz. À garder en réserve.</div>
         </div>
       </div>
     </div>
