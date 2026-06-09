@@ -156,6 +156,18 @@ em{font-style:normal;font-weight:900}
 .appsg .ap.li .q{font-weight:700;font-size:clamp(18px,1.7vw,26px);line-height:1.15;letter-spacing:-0.02em}
 .appsg .ap.li .q .lt{color:var(--g400)}
 
+/* photo wall (slide Photographie) */
+.shoot{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:1fr 1fr;
+  gap:clamp(10px,1.2vw,18px);flex:1;min-height:0;margin-top:clamp(18px,2.4vw,38px)}
+.shoot .g{position:relative;overflow:hidden;background:var(--g200)}
+.shoot .g.tall{grid-row:1/3}
+.shoot .g.wide{grid-column:2/4}
+.shoot .g img{width:100%;height:100%;object-fit:cover}
+.shoot .g .t{position:absolute;left:14px;bottom:12px;z-index:2;font-family:var(--mono);
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(14,14,14,.5);padding:4px 8px}
+.slide.active .shoot .g img{transform:scale(1)}
+.shoot .g img{transform:scale(1.06);transition:transform 1.2s var(--ease)}
+
 /* next steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:auto}
 .steps .st{padding:clamp(24px,3vw,48px) clamp(22px,2vw,40px) clamp(10px,2vw,20px) 0;border-right:1px solid var(--line)}
@@ -348,13 +360,20 @@ em{font-style:normal;font-weight:900}
     <!-- 08 · PHOTOGRAPHIE -->
     <section class="slide" data-label="Photographie — l’humain en couleur">
       <div class="chrome"><span class="mk"><b>07</b> · Photographie</span><span class="mk">L’humain au centre</span></div>
-      <div class="split">
-        <div class="frame tx" style="flex:none;justify-content:center">
-          <div class="eyebrow" data-r="1"><span class="ln"></span>La seule couleur du système</div>
-          <h2 class="title" data-r="2" style="margin-top:20px">De vrais<br>visages.</h2>
-          <p class="lead muted" data-r="3" style="margin-top:28px;max-width:34ch">Lumière naturelle, gestes spontanés, vrais collaborateurs. La photographie incarne l’accompagnement — pas l’abstraction financière.</p>
+      <div class="frame">
+        <div class="row center" style="justify-content:space-between;gap:clamp(24px,4vw,80px);flex:none">
+          <div>
+            <div class="eyebrow" data-r="1"><span class="ln"></span>La seule couleur du système</div>
+            <h2 class="title" data-r="2" style="margin-top:16px">De vrais<br>visages.</h2>
+          </div>
+          <p class="lead muted" data-r="3" style="max-width:42ch">Lumière naturelle, gestes spontanés, vrais collaborateurs. La photographie incarne l’accompagnement — pas l’abstraction financière. Un seul univers : lumière douce, couleur naturelle, pierre de Metz.</p>
         </div>
-        <div class="vz" data-r="2"><img src="../assets/ph-marie.jpg" alt="Marie Pierrat, dirigeante MP Finance" style="object-position:center 22%"></div>
+        <div class="shoot" data-r="4">
+          <div class="g tall"><img src="../assets/ph-marie.jpg" alt="Portrait conseillère" style="object-position:center 18%"><span class="t">Le regard · la confiance</span></div>
+          <div class="g"><img src="../assets/ph-conseil.jpg" alt="Conseil au bureau" style="object-position:center 42%"><span class="t">Au bureau</span></div>
+          <div class="g"><img src="../assets/ph-signature.jpg" alt="Signature" style="object-position:center 55%"><span class="t">Le geste</span></div>
+          <div class="g wide"><img src="../assets/ph-equipe.jpg" alt="L’équipe" style="object-position:center 38%"><span class="t">Le collectif · l’écoute</span></div>
+        </div>
       </div>
     </section>
 
@@ -388,7 +407,7 @@ em{font-style:normal;font-weight:900}
         <div class="eyebrow" data-r="1"><span class="ln"></span>La même grammaire partout</div>
         <h2 class="title" data-r="2" style="margin-top:20px">Le système,<br>en situation.</h2>
         <div class="appsg">
-          <div class="ap" data-r="3"><img src="../assets/ph-equipe.jpg" alt="Plaquette" style="object-position:center 40%"><span class="cap">Plaquette</span></div>
+          <div class="ap" data-r="3"><img src="../assets/ph-cover.jpg" alt="Plaquette" style="object-position:center 36%"><span class="cap">Plaquette</span></div>
           <div class="ap li" data-r="4"><div class="q">« Un bon taux,<br><span class="lt">c’est bien.</span><br>Le bon conseil,<br>c’est mieux. »</div></div>
           <div class="ap card" data-r="5"><img src="../assets/logo-noir.png" alt="Carte de visite"></div>
         </div>
