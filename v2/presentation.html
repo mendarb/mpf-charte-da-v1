@@ -447,30 +447,54 @@ em{font-style:normal;font-weight:900}
       </div>
     </section>
 
-    <!-- 10 · APPLICATIONS -->
-    <section class="slide" id="apps-slide" data-label="Applications — la marque en situation">
+    <!-- 10 · APPLICATIONS (3 slides) -->
+    <section class="slide app-slide" id="apps-a" data-label="Applications — la plaquette">
       <style>
-        #apps-slide h2.title{font-size:clamp(28px,3vw,46px)}
-        #apps-slide .ag{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.4vw,22px) clamp(20px,2.4vw,40px);flex:1;min-height:0;margin-top:clamp(16px,2vw,30px)}
-        #apps-slide .am{display:flex;flex-direction:column;min-height:0;margin:0}
-        #apps-slide .am .pv{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
-        #apps-slide .am .pv img{max-width:100%;max-height:100%;object-fit:contain}
-        #apps-slide .am figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-top:8px;flex:none}
+        .app-slide h2.title{font-size:clamp(28px,3vw,46px)}
+        .app-slide .big-pv{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:clamp(14px,1.8vw,26px)}
+        .app-slide .big-pv img{width:100%;height:100%;object-fit:contain}
+        .app-slide .pv-cap{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);padding-top:10px;flex:none}
+        .app-slide .stack{flex:1;min-height:0;display:flex;flex-direction:column;gap:clamp(10px,1.2vw,18px);margin-top:clamp(14px,1.8vw,26px)}
+        .app-slide .stack .srow{flex:1;min-height:0;display:flex;flex-direction:column}
+        .app-slide .stack .srow .im{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        .app-slide .stack .srow img{width:100%;height:100%;object-fit:contain}
       </style>
-      <div class="chrome"><span class="mk"><b>10</b> · Applications</span><span class="mk">En situation</span></div>
+      <div class="chrome"><span class="mk"><b>10</b> · Applications</span><span class="mk">Print</span></div>
       <div class="frame">
         <div class="row center" style="justify-content:space-between;gap:clamp(24px,4vw,80px);flex:none">
           <div>
             <div class="eyebrow" data-r="1"><span class="ln"></span>La même grammaire partout</div>
-            <h2 class="title" data-r="2" style="margin-top:14px">Le système,<br>en situation.</h2>
+            <h2 class="title" data-r="2" style="margin-top:14px">En situation :<br>la plaquette.</h2>
           </div>
-          <p class="lead muted" data-r="3" style="max-width:40ch;font-size:clamp(14px,1.3vw,18px)">Print, réseaux, papeterie, mail : mêmes règles, même tenue. Maquettes indicatives — textes et visuels définitifs à valider.</p>
+          <p class="lead muted" data-r="3" style="max-width:40ch;font-size:clamp(14px,1.3vw,18px)">Maquettes indicatives — textes et visuels définitifs à valider.</p>
         </div>
-        <div class="ag" data-r="4">
-          <figure class="am"><div class="pv"><img src="../assets/apps/app-1.png" alt="Plaquette A4"></div><figcaption>01 · Plaquette A4</figcaption></figure>
-          <figure class="am"><div class="pv"><img src="../assets/apps/app-2.png" alt="Carousel LinkedIn"></div><figcaption>02 · Carousel LinkedIn</figcaption></figure>
-          <figure class="am"><div class="pv"><img src="../assets/apps/app-3.png" alt="Carte de visite"></div><figcaption>03 · Carte de visite</figcaption></figure>
-          <figure class="am"><div class="pv"><img src="../assets/apps/app-4.png" alt="Signature mail"></div><figcaption>04 · Signature mail</figcaption></figure>
+        <div class="big-pv" data-r="4"><img src="../assets/apps/app-1.png" alt="Plaquette A4"></div>
+        <div class="pv-cap" data-r="4">01 · Plaquette A4 — couverture photo pleine page, double page éditoriale</div>
+      </div>
+    </section>
+
+    <section class="slide app-slide" id="apps-b" data-label="Applications — les réseaux">
+      <div class="chrome"><span class="mk"><b>10</b> · Applications</span><span class="mk">Réseaux sociaux</span></div>
+      <div class="frame">
+        <div>
+          <div class="eyebrow" data-r="1"><span class="ln"></span>La même grammaire partout</div>
+          <h2 class="title" data-r="2" style="margin-top:14px">En situation :<br>les réseaux.</h2>
+        </div>
+        <div class="big-pv" data-r="3"><img src="../assets/apps/app-2.png" alt="Carousel LinkedIn"></div>
+        <div class="pv-cap" data-r="3">02 · Carousel LinkedIn — accroche · preuve · contact</div>
+      </div>
+    </section>
+
+    <section class="slide app-slide" id="apps-c" data-label="Applications — papeterie &amp; mail">
+      <div class="chrome"><span class="mk"><b>10</b> · Applications</span><span class="mk">Papeterie &amp; mail</span></div>
+      <div class="frame">
+        <div>
+          <div class="eyebrow" data-r="1"><span class="ln"></span>La même grammaire partout</div>
+          <h2 class="title" data-r="2" style="margin-top:14px">En situation :<br>papeterie &amp; mail.</h2>
+        </div>
+        <div class="stack">
+          <div class="srow" data-r="3"><div class="im"><img src="../assets/apps/app-3.png" alt="Carte de visite"></div><div class="pv-cap">03 · Carte de visite — recto papier, verso encre</div></div>
+          <div class="srow" data-r="4"><div class="im"><img src="../assets/apps/app-4.png" alt="Signature mail"></div><div class="pv-cap">04 · Signature mail</div></div>
         </div>
       </div>
     </section>
