@@ -73,6 +73,9 @@ em{font-style:normal;font-weight:900}
 
 /* helpers */
 .spacer{flex:1}
+.frame.vcenter{justify-content:center}
+.vcenter .pillars,.vcenter .steps,.vcenter .voice{margin-top:clamp(36px,6vh,80px)}
+.vcenter .spec{margin-top:clamp(28px,5vh,64px)}
 .row{display:flex;gap:var(--pad)}
 .center{align-items:center}
 .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:16px}
@@ -141,8 +144,8 @@ em{font-style:normal;font-weight:900}
 .voice .col p{font-size:clamp(16px,1.5vw,21px);line-height:1.5;margin-bottom:16px}
 .voice .col.dont p{color:var(--g400)}
 .voice .col.dont p::before{content:"× ";color:var(--g300)}
-.voice .col.say p::before{content:"« ";}
-.voice .col.say p::after{content:" »";}
+.voice .col.say p::before{content:"«\00a0";}
+.voice .col.say p::after{content:"\00a0»";}
 
 /* apps grid */
 .appsg{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:clamp(16px,1.6vw,28px);flex:1;min-height:0;margin-top:clamp(20px,2.5vw,40px)}
@@ -273,7 +276,7 @@ em{font-style:normal;font-weight:900}
     <!-- 03 · DÉCISIONS ACTÉES -->
     <section class="slide" data-label="Ce qui a été acté ensemble">
       <div class="chrome"><span class="mk"><b>02</b> · Décisions actées</span><span class="mk">Atelier 28/05</span></div>
-      <div class="frame">
+      <div class="frame vcenter">
         <div class="eyebrow" data-r="1"><span class="ln"></span>Le cadre validé ensemble</div>
         <h2 class="title" data-r="2" style="margin-top:20px;max-width:16ch">Une base claire,<br>partagée.</h2>
         <div class="decisions" data-r="3">
@@ -290,7 +293,7 @@ em{font-style:normal;font-weight:900}
     <!-- 04 · LE SYSTÈME -->
     <section class="slide" data-label="Le système en un coup d’œil">
       <div class="chrome"><span class="mk"><b>03</b> · Le système</span><span class="mk">Vue d’ensemble</span></div>
-      <div class="frame">
+      <div class="frame vcenter">
         <div class="eyebrow" data-r="1"><span class="ln"></span>Le système en un coup d’œil</div>
         <h2 class="title" data-r="2" style="margin-top:20px;max-width:18ch">À chacun<br>son rôle.</h2>
         <div class="pillars">
@@ -320,7 +323,7 @@ em{font-style:normal;font-weight:900}
     <!-- 06 · COULEUR -->
     <section class="slide" data-label="Couleur — noir, blanc, nuances">
       <div class="chrome"><span class="mk"><b>05</b> · Couleur</span><span class="mk">Système N&amp;B</span></div>
-      <div class="frame">
+      <div class="frame vcenter">
         <div class="eyebrow" data-r="1"><span class="ln"></span>Aucune couleur décorative</div>
         <h2 class="title" data-r="2" style="margin-top:20px;max-width:18ch">Noir, blanc,<br>nuances.</h2>
         <p class="lead muted" data-r="3" style="margin-top:18px;max-width:56ch;font-size:clamp(14px,1.3vw,18px)">Là où le secteur sature de bleus corporate, le noir &amp; blanc affirme le calme et la durée. La vie vient de la photographie — et du doré naturel de la pierre, si elle est retenue en fond signature.</p>
@@ -333,14 +336,14 @@ em{font-style:normal;font-weight:900}
           <div class="ci"><div class="k">Contraste</div><div class="v">17.4 : 1 <small>· AAA</small></div></div>
           <div class="ci"><div class="k">Couleur</div><div class="v">photographie <small>· matière</small></div></div>
         </div>
-        <div class="spacer"></div>
+        
       </div>
     </section>
 
     <!-- 07 · TYPOGRAPHIE -->
     <section class="slide" data-label="Typographie — Satoshi">
       <div class="chrome"><span class="mk"><b>06</b> · Typographie</span><span class="mk">Satoshi</span></div>
-      <div class="frame">
+      <div class="frame vcenter">
         <div class="eyebrow" data-r="1"><span class="ln"></span>Une seule famille</div>
         <h2 class="title" data-r="2" style="margin-top:20px">Satoshi,<br>seule en scène.</h2>
         <p class="lead muted" data-r="2" style="margin-top:18px;max-width:54ch;font-size:clamp(14px,1.3vw,18px)">Géométrique mais chaleureuse, moderne sans être à la mode : une typographie qui tient l’exigence du cabinet et reste lisible partout, de l’écran au papier.</p>
@@ -426,7 +429,7 @@ em{font-style:normal;font-weight:900}
     <!-- 09 · TON DE VOIX -->
     <section class="slide dark" data-label="Ton de voix — proche, toujours clair">
       <div class="chrome"><span class="mk"><b>09</b> · Ton de voix</span><span class="mk">Proche, toujours clair</span></div>
-      <div class="frame">
+      <div class="frame vcenter">
         <div class="eyebrow" data-r="1"><span class="ln"></span>On parle comme un conseiller de confiance</div>
         <h2 class="title" data-r="2" style="margin-top:20px;max-width:16ch">Proche,<br>toujours clair.</h2>
         <p data-r="3" style="margin-top:18px;max-width:54ch;font-weight:300;font-size:clamp(14px,1.3vw,18px);line-height:1.5;color:var(--g400)">Des exemples pour donner le ton, pas des scripts : on parle métier, on promet ce qu’on tient, on laisse le jargon et la promo aux autres.</p>
@@ -502,7 +505,7 @@ em{font-style:normal;font-weight:900}
     <!-- 11 · PROCHAINES ÉTAPES -->
     <section class="slide dark" data-label="Prochaines étapes">
       <div class="chrome"><span class="mk"><b>11</b> · La suite</span><span class="mk">Feuille de route</span></div>
-      <div class="frame">
+      <div class="frame vcenter">
         <div class="eyebrow" data-r="1"><span class="ln"></span>Après l’arbitrage d’aujourd’hui</div>
         <h2 class="title" data-r="2" style="margin-top:20px;max-width:16ch">Les prochaines<br>étapes.</h2>
         <p data-r="3" style="margin-top:18px;max-width:62ch;font-weight:300;font-size:clamp(14px,1.3vw,18px);line-height:1.5;color:var(--g400)">Trois chantiers engagés — et une recommandation : un vrai reportage photo (équipe, agences, gestes de conseil) pour remplacer à terme les visuels actuels par vos propres images.</p>
