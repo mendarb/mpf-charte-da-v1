@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../assets/fonts/satoshi.css">
+<style>
+  :root{--paper:#FAF8F3;--ink:#0E0E0E;--g500:#6E6E68;--g300:#9B9B95;--font:'Satoshi',sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:786px;height:605px;overflow:hidden;background:#E9E6DE;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .board{display:flex;gap:10px;padding:14px;height:100%}
+  .page{flex:1;background:var(--paper);position:relative;overflow:hidden;box-shadow:0 1px 4px rgba(14,14,14,.10)}
+  .lbl{font-weight:500;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase}
+  /* — Couverture */
+  .cover .ph{position:absolute;inset:0}
+  .cover .ph img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+  .cover .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.30) 0%,rgba(14,14,14,.04) 38%,rgba(14,14,14,.62) 100%)}
+  .cover .top{position:absolute;top:24px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-start}
+  .cover .top img{height:34px;width:auto}
+  .cover .top .lbl{color:rgba(250,248,243,.85)}
+  .cover .bottom{position:absolute;left:26px;right:26px;bottom:24px;color:var(--paper)}
+  .cover .bottom .lbl{color:rgba(250,248,243,.75);margin-bottom:10px}
+  .cover h1{font-weight:700;font-size:31px;line-height:1.08;letter-spacing:-0.02em;max-width:11ch}
+  .cover .foot{margin-top:14px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(250,248,243,.30);padding-top:9px}
+  .cover .foot .lbl{color:rgba(250,248,243,.65)}
+  /* — Page métier */
+  .inner{padding:26px 28px;display:flex;flex-direction:column;height:100%}
+  .inner .hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:26px}
+  .inner .hd img{height:26px;width:auto}
+  .inner .hd .lbl{color:var(--g300)}
+  .eyebrow{font-weight:500;font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--g300);display:flex;align-items:center;gap:8px}
+  .eyebrow::before{content:'';width:18px;height:1px;background:var(--g300)}
+  .inner h2{font-weight:700;font-size:21px;line-height:1.12;letter-spacing:-0.015em;margin:10px 0 12px}
+  .inner p.body{font-weight:300;font-size:9.8px;line-height:1.6;color:var(--g500);max-width:42ch}
+  .quote{margin:16px 0 0;border-left:2px solid var(--ink);padding:8px 0 8px 12px;font-weight:500;font-size:10.5px;line-height:1.45;max-width:34ch}
+  .stats{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;border-top:1px solid #E3E0D8;padding-top:16px}
+  .stat .n{font-weight:900;font-size:23px;letter-spacing:-0.02em;line-height:1}
+  .stat .d{font-weight:300;font-size:8.4px;line-height:1.4;color:var(--g500);margin-top:4px;max-width:20ch}
+  .inner .ft{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #E3E0D8;margin-top:16px;padding-top:9px}
+  .inner .ft .lbl{color:var(--g300)}
+</style></head>
+<body>
+<div class="board">
+  <div class="page cover">
+    <div class="ph"><img src="../../assets/ph-cover.jpg" alt=""></div>
+    <div class="veil"></div>
+    <div class="top"><img src="../../assets/logo-blanc.png" alt="MP Finance"><span class="lbl">Metz · Cabinet</span></div>
+    <div class="bottom">
+      <div class="lbl">Crédits · Patrimoine · Assurance</div>
+      <h1>Votre projet mérite mieux qu’un guichet.</h1>
+      <div class="foot"><span class="lbl">MP Finance</span><span class="lbl">mp-finance.com</span></div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="inner">
+      <div class="hd"><img src="../../assets/logo-noir.png" alt="MP Finance"><span class="lbl">Notre approche</span></div>
+      <div class="eyebrow">Le métier</div>
+      <h2>Un partenaire,<br>pas un intermédiaire.</h2>
+      <p class="body">Chaque dossier est unique. Nous négocions auprès de l’ensemble de nos banques partenaires et restons votre seul interlocuteur, du premier rendez-vous à la signature, et bien après.</p>
+      <div class="quote">«&nbsp;On s’occupe du financement. Vous,&nbsp;du&nbsp;projet.&nbsp;»</div>
+      <div class="stats">
+        <div class="stat"><div class="n">10</div><div class="d">agences en Grand Est et au-delà</div></div>
+        <div class="stat"><div class="n">100&nbsp;%</div><div class="d">indépendants — aucun produit maison</div></div>
+        <div class="stat"><div class="n">30+</div><div class="d">banques consultées pour chaque dossier</div></div>
+        <div class="stat"><div class="n">1</div><div class="d">interlocuteur dédié, du début à la fin</div></div>
+      </div>
+      <div class="ft"><span class="lbl">MP Finance</span><span class="lbl">02 · 03</span></div>
+    </div>
+  </div>
+</div>
+</body></html>

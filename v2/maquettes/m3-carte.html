@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../assets/fonts/satoshi.css">
+<style>
+  :root{--paper:#FAF8F3;--ink:#0E0E0E;--g500:#6E6E68;--g300:#9B9B95;--font:'Satoshi',sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:660px;height:420px;overflow:hidden;background:#E9E6DE;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .board{display:flex;gap:26px;justify-content:center;align-items:center;height:100%;padding:24px}
+  /* format vertical 55×85 → 232×358 */
+  .card{width:232px;height:358px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(14,14,14,.14);display:flex;flex-direction:column}
+  .lbl{font-weight:500;font-size:7px;letter-spacing:.22em;text-transform:uppercase}
+  /* recto — papier + hongrie accentuée (direction RDV) */
+  .recto{background:#FAF8F3 url('../../assets/textures/tex-hongrie-light-accent.png') center/cover;align-items:center;justify-content:center;padding:24px}
+  .recto img{width:88px;height:auto}
+  .recto .base{position:absolute;left:0;right:0;bottom:20px;text-align:center;color:var(--g500)}
+  /* verso — encre + hongrie subtile */
+  .verso{background:#0E0E0E url('../../assets/textures/tex-hongrie-dark-sub.png') center/cover;color:var(--paper);padding:26px 22px}
+  .verso .nm{font-weight:700;font-size:16.5px;letter-spacing:-0.01em}
+  .verso .rl{font-weight:300;font-size:9.5px;color:rgba(250,248,243,.62);margin-top:4px}
+  .verso .co{margin-top:auto;font-weight:400;font-size:9px;line-height:1.85;color:rgba(250,248,243,.88)}
+  .verso .ft{border-top:1px solid rgba(250,248,243,.22);margin-top:14px;padding-top:10px;display:flex;justify-content:space-between;align-items:baseline}
+  .verso .ft .lbl{color:rgba(250,248,243,.55)}
+</style></head>
+<body>
+<div class="board">
+  <div class="card recto">
+    <img src="../../assets/logo-noir.png" alt="MP Finance">
+    <div class="base lbl">Courtage en financement · Metz</div>
+  </div>
+  <div class="card verso">
+    <div class="nm">Marie Pierrat</div>
+    <div class="rl">Courtière · Conseil patrimonial</div>
+    <div class="co">+33 6 00 00 00 00<br>marie@mp-finance.com<br>17 rue Robert Schuman · 57000 Metz</div>
+    <div class="ft"><span class="lbl">MP Finance</span><span class="lbl">mp-finance.com</span></div>
+  </div>
+</div>
+</body></html>
