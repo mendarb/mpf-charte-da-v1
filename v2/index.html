@@ -328,11 +328,12 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
 .vgroup:first-child{border-top:0;margin-top:0;padding-top:0}
 .vgroup > .vlabel{font-family:var(--font);font-weight:500;font-size:11px;font-weight:500;letter-spacing:.16em;
   text-transform:uppercase;color:var(--text-faint);margin-bottom:40px}
-.spectrum{display:grid;grid-template-columns:1fr 1fr;gap:48px 64px}
-.sp-row .sl{display:flex;justify-content:space-between;font-family:var(--font);font-weight:500;font-size:11px;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:12px}
-.sp-row .track{position:relative;height:1px;background:var(--line)}
-.sp-row .track .dot{position:absolute;top:50%;width:11px;height:11px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%)}
+.vreg{display:grid;grid-template-columns:1fr 1fr;gap:24px 64px}
+.vr{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.vr .on{font-weight:700;font-size:23px;letter-spacing:-0.02em;color:var(--ink)}
+.vr .sep{font-family:var(--font);font-weight:500;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);flex:none}
+.vr .off{font-size:15px;color:var(--text-faint);text-decoration:line-through;text-decoration-thickness:1px;text-underline-offset:2px}
+@media(max-width:760px){.vreg{grid-template-columns:1fr;gap:20px}}
 .vchart{width:100%;table-layout:fixed;border-collapse:collapse}
 .vchart th{text-align:left;font-family:var(--font);font-weight:500;font-size:10.5px;font-weight:500;letter-spacing:.14em;
   text-transform:uppercase;color:var(--text-faint);padding:0 32px 16px 0;border-bottom:1px solid var(--line-strong)}
@@ -397,8 +398,9 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
 .a4.inner .folio{display:flex;justify-content:space-between;margin-top:20px;
   font-family:var(--font);font-weight:500;font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint)}
 /* —— LinkedIn : carousel 3 slides (1080), fidélité production —— */
-.licar{display:flex;gap:18px;flex-wrap:wrap}
-.li{width:300px;height:300px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.licar{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;width:100%}
+.li{aspect-ratio:1/1;position:relative;overflow:hidden;border:1px solid var(--line);min-width:0}
+@media(max-width:720px){.licar{grid-template-columns:1fr;max-width:340px}}
 .li .idx{position:absolute;top:26px;right:28px;z-index:3;font-family:var(--font);font-weight:500;
   font-size:9px;letter-spacing:.18em}
 .li .swipe{position:absolute;bottom:26px;right:28px;z-index:3;font-family:var(--font);font-weight:500;
@@ -709,17 +711,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
           <li>HDR, contrastes violents, couleurs criardes.</li>
         </ul></div>
       </div>
-      <div class="matiere">
-        <div class="ms pale">
-          <svg class="no" xmlns="http://www.w3.org/2000/svg"><filter id="mn1"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="4" seed="7"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#mn1)" opacity="0.6"/></svg>
-          <div class="ml"><div class="t">Teinte claire</div><div class="s">Fonds · encarts · papiers</div></div>
-        </div>
-        <div class="ms deep">
-          <svg class="no" xmlns="http://www.w3.org/2000/svg"><filter id="mn2"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="4" seed="11"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#mn2)" opacity="0.6"/></svg>
-          <div class="ml"><div class="t">Teinte profonde</div><div class="s">Couvertures · aplats sombres</div></div>
-        </div>
-      </div>
-      <p class="photo-foot"><strong>Photographies : réelles uniquement</strong> — jamais de visages générés. Format <strong>paysage</strong> pour les bureaux et l’agence ; les portraits seront réalisés au shooting de l’AG de septembre. Couleur naturelle, lumière douce, vrais collaborateurs, tons justes. <strong>Matière :</strong> le fond signature pointe de Hongrie (section 09) est la seule texture du système.</p>
+      <p class="photo-foot"><strong>Photographies : réelles uniquement</strong> — jamais de visages générés. Format <strong>paysage</strong> pour les bureaux et l’agence ; les portraits seront réalisés au shooting de l’AG de septembre. Couleur naturelle, lumière douce, vrais collaborateurs, tons justes. <strong>Matière :</strong> la marque n’a qu’une seule matière — le fond signature <strong>pointe de Hongrie</strong> (section 09). Elle remplace toute autre texture ; aucun autre motif ni grain de fond n’est employé.</p>
     </div>
   </section>
 
@@ -731,12 +723,12 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
     </div>
     <div class="voix">
       <div class="vgroup">
-        <div class="vlabel">Registres de voix</div>
-        <div class="spectrum">
-          <div class="sp-row"><div class="sl"><span>Formel</span><span>Proche</span></div><div class="track"><span class="dot" style="left:70%"></span></div></div>
-          <div class="sp-row"><div class="sl"><span>Sobre</span><span>Expressif</span></div><div class="track"><span class="dot" style="left:34%"></span></div></div>
-          <div class="sp-row"><div class="sl"><span>Simple</span><span>Expert</span></div><div class="track"><span class="dot" style="left:56%"></span></div></div>
-          <div class="sp-row"><div class="sl"><span>Distant</span><span>Chaleureux</span></div><div class="track"><span class="dot" style="left:72%"></span></div></div>
+        <div class="vlabel">Registres de voix · un choix tranché, jamais l’entre-deux</div>
+        <div class="vreg">
+          <div class="vr"><span class="on">Proche</span><span class="sep">plutôt que</span><span class="off">Formel</span></div>
+          <div class="vr"><span class="on">Sobre</span><span class="sep">plutôt qu’</span><span class="off">Expressif</span></div>
+          <div class="vr"><span class="on">Simple</span><span class="sep">plutôt qu’</span><span class="off">Expert</span></div>
+          <div class="vr"><span class="on">Chaleureux</span><span class="sep">plutôt que</span><span class="off">Distant</span></div>
         </div>
       </div>
       <div class="vgroup">
@@ -774,7 +766,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
   <section class="blk" id="applications">
     <div class="sec-head">
       <div class="l"><div class="eyebrow"><b>08</b>Applications</div><h2>Le système,<br>en situation.</h2></div>
-      <div class="intro">Même grammaire partout : une typographie, un système noir &amp; blanc, de la photographie en couleur, du vide. Maquettes indicatives ; textes &amp; visuels définitifs à valider.</div>
+      <div class="intro">Même grammaire partout : une typographie, un système noir &amp; blanc, de la photographie en couleur, du vide. Maquettes indicatives ; textes &amp; visuels définitifs à valider. <strong>Les cartes de visite existantes sont conservées à l’identique</strong> — hors périmètre de refonte.</div>
     </div>
     <div class="apps">
       <div class="app-block">
@@ -834,18 +826,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       </div>
 
       <div class="app-block">
-        <div class="lbl"><div class="n">03</div><h4>Carte de visite</h4><p>85 × 55 mm, angles vifs. Recto signature, verso fonctionnel sur fond encre.</p></div>
-        <div class="app-canvas">
-          <div class="cv recto"><img src="../assets/logo-noir.png" alt="MP Finance"><span class="p">Courtage en financement · Metz</span></div>
-          <div class="cv verso">
-            <div><div class="nm">Marie Pierrat</div><div class="ro">Courtière · Conseil patrimonial</div></div>
-            <div class="ln">+33 6 00 00 00 00<br>marie@mp-finance.com<br>17 rue Robert Schuman · 57000 Metz</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="app-block">
-        <div class="lbl"><div class="n">04</div><h4>Signature mail</h4><p>Sobre, une seule graisse, un filet. Aucun visuel superflu.</p></div>
+        <div class="lbl"><div class="n">03</div><h4>Signature mail</h4><p>Sobre, une seule graisse, un filet. Aucun visuel superflu.</p></div>
         <div class="app-canvas">
           <div class="sig">
             <div class="row">
@@ -995,7 +976,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
           <div class="mk-card">
             <img class="bg" src="../assets/textures/tex-hongrie-dark-sub.png" alt="">
             <div class="in">
-              <div class="nm">Marie Pierrat<span>Dirigeante · MP Finance</span></div>
+              <div class="nm">« Votre projet mérite mieux<br>qu’un guichet. »<span>Fond de citation · aplat encre</span></div>
               <div class="lg">MP Finance</div>
             </div>
           </div>
@@ -1009,12 +990,12 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
             </div>
           </div>
         </div>
-        <div class="ucap">Carte de visite &amp; signature e-mail</div>
+        <div class="ucap">Fond de citation &amp; signature e-mail</div>
       </div>
     </div>
 
     <div class="sig-rules">
-      <div class="sr"><div class="h">Où l’employer</div><p>Couvertures, ouvertures de section, dos de carte, fonds de citation. Jamais sous un long texte courant.</p></div>
+      <div class="sr"><div class="h">Où l’employer</div><p>Couvertures, ouvertures de section, fonds de citation, papeterie. Jamais sous un long texte courant.</p></div>
       <div class="sr"><div class="h">Comment</div><p>Toujours en noir &amp; blanc, <strong>opacité 10&nbsp;%</strong>. Version encre pour les aplats sombres ; version claire sur le papier — présente, sans dominer le logo.</p></div>
       <div class="sr"><div class="h">Le réflexe</div><p>Par petites touches. La trame soutient le propos, elle ne le couvre pas : le vide reste la règle, le motif l’exception.</p></div>
     </div>
@@ -1035,7 +1016,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
         <div class="bd">
           <div class="tag">● Encre · fond sombre — retenu</div>
           <h4>Opacité 10 %</h4>
-          <p>Le pendant sombre, même discrétion : la trame en clair sur encre pour les couvertures sombres, dos de carte et fonds de citation.</p>
+          <p>Le pendant sombre, même discrétion : la trame en clair sur encre pour les couvertures sombres et les fonds de citation.</p>
           <div class="verdict">→ Réglage définitif sur aplat sombre.</div>
         </div>
       </div>
