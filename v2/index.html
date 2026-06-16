@@ -486,9 +486,11 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <a class="toc-item" href="#typo"><span class="no">04</span><span><span class="ti">Typographie</span><span class="ds">Satoshi : échelle complète, graisses, pairing, spécimen.</span></span><span class="pg">p.04</span></a>
       <a class="toc-item" href="#grille"><span class="no">05</span><span><span class="ti">Grille &amp; mise en page</span><span class="ds">Colonnes, marges, base 8, filets.</span></span><span class="pg">p.05</span></a>
       <a class="toc-item" href="#photo"><span class="no">06</span><span><span class="ti">Photographie &amp; matière</span><span class="ds">Photos réelles, couleur douce, format paysage.</span></span><span class="pg">p.06</span></a>
-      <a class="toc-item" href="#voix"><span class="no">07</span><span><span class="ti">Ton de voix</span><span class="ds">Personnalité, voice chart, registres.</span></span><span class="pg">p.07</span></a>
-      <a class="toc-item" href="#applications"><span class="no">08</span><span><span class="ti">Applications</span><span class="ds">Plaquette, LinkedIn, carte, signature.</span></span><span class="pg">p.08</span></a>
+      <a class="toc-item" href="#voix"><span class="no">07</span><span><span class="ti">Ton de voix</span><span class="ds">Registres, baseline, lexique, ton par contexte.</span></span><span class="pg">p.07</span></a>
+      <a class="toc-item" href="#applications"><span class="no">08</span><span><span class="ti">Applications</span><span class="ds">Plaquette, LinkedIn, signature mail.</span></span><span class="pg">p.08</span></a>
       <a class="toc-item" href="#signature"><span class="no">09</span><span><span class="ti">Fond signature</span><span class="ds">La pointe de Hongrie — opacité 10 % retenue.</span></span><span class="pg">p.09</span></a>
+      <a class="toc-item" href="#icones"><span class="no">10</span><span><span class="ti">Iconographie</span><span class="ds">Set maison outlined, trait 1,5 px, 24 × 24, N&amp;B.</span></span><span class="pg">p.10</span></a>
+      <a class="toc-item" href="#favicon"><span class="no">11</span><span><span class="ti">Favicon &amp; app icon</span><span class="ds">Monogramme MP sur encre, formats web &amp; app.</span></span><span class="pg">p.11</span></a>
     </div>
   </div>
 
@@ -716,6 +718,28 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
   </section>
 
   <!-- 07 TON DE VOIX -->
+  <style>
+    #voix .baseline-seal{border:1px solid var(--ink);padding:32px 34px;display:flex;flex-direction:column;gap:13px;background:var(--surface)}
+    #voix .baseline-seal .bl-main{font-weight:700;font-size:29px;letter-spacing:-0.03em;line-height:1.08}
+    #voix .baseline-seal .bl-note{font-size:13px;line-height:1.6;color:var(--text-muted);max-width:64ch}
+    #voix .lex{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
+    #voix .lex .lc{padding:24px 26px}
+    #voix .lex .lc+.lc{border-left:1px solid var(--line)}
+    #voix .lex .lh{font-family:var(--font);font-weight:500;font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+    #voix .lex .lc.no .lh{color:var(--text-faint)}
+    #voix .lex .words{display:flex;flex-wrap:wrap;gap:8px}
+    #voix .lex .w{font-size:12.5px;padding:5px 11px;border:1px solid var(--line);border-radius:2px;color:var(--text-soft)}
+    #voix .lex .lc.no .w{color:var(--text-faint);text-decoration:line-through;text-decoration-thickness:1px;text-underline-offset:2px}
+    #voix .lex .lc.yes .w{color:var(--ink);border-color:var(--ink)}
+    #voix .ctx{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
+    #voix .ctx .cx{padding:22px 24px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+    #voix .ctx .cx:nth-child(2n){border-right:none}
+    #voix .ctx .cx:nth-last-child(-n+2){border-bottom:none}
+    #voix .ctx .ck{font-family:var(--font);font-weight:500;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px}
+    #voix .ctx .cd{font-size:13px;line-height:1.55;color:var(--text-muted);margin-bottom:10px}
+    #voix .ctx .cq{font-size:14px;font-weight:500;letter-spacing:-0.01em;color:var(--ink)}
+    @media(max-width:760px){#voix .lex,#voix .ctx{grid-template-columns:1fr}#voix .lex .lc+.lc{border-left:none;border-top:1px solid var(--line)}#voix .ctx .cx{border-right:none}}
+  </style>
   <section class="blk" id="voix">
     <div class="sec-head">
       <div class="l"><div class="eyebrow"><b>07</b>Ton de voix</div><h2>Proche,<br>toujours clair.</h2></div>
@@ -745,18 +769,57 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
         </table>
       </div>
       <div class="vgroup">
+        <div class="vlabel">Baseline · la signature de marque</div>
+        <div class="baseline-seal">
+          <div class="bl-main">« Votre projet mérite mieux qu’un guichet. »</div>
+          <div class="bl-note">La signature officielle de MP Finance — une seule, jamais reformulée. Elle clôt les prises de parole de marque : couvertures, posts, annonces, pied de signature. Le mot <em>guichet</em> est le contre-point : on n’est pas un guichet, on est un partenaire.</div>
+        </div>
+      </div>
+
+      <div class="vgroup">
         <div class="vlabel">Formulations · la voix au mot près</div>
         <div class="voice-cols">
           <div class="vc"><h4>On dit</h4>
             <p class="q">« Parlons de votre projet, on s’occupe du reste. »</p>
             <p class="q">« Un seul interlocuteur, du premier rendez-vous à la signature. »</p>
             <p class="q">« On négocie pour vous auprès de 30 banques. »</p>
+            <p class="q">« On vous explique chaque ligne, sans jargon. »</p>
+            <p class="q">« Votre dossier avance — on vous tient au courant. »</p>
+            <p class="q">« Un premier rendez-vous, sans engagement. »</p>
           </div>
           <div class="vc dont"><h4>On ne dit pas</h4>
             <p>« La solution n°1 incontournable du marché. »</p>
             <p>« Profitez vite de nos offres exceptionnelles ! »</p>
             <p>« Optimisation de votre stratégie de financement multi-canal. »</p>
+            <p>« Le meilleur taux, garanti. »</p>
+            <p>« Dépêchez-vous, l’offre expire ce soir. »</p>
+            <p>« Nos experts disruptent le courtage. »</p>
           </div>
+        </div>
+      </div>
+
+      <div class="vgroup">
+        <div class="vlabel">Lexique · les mots de la marque</div>
+        <div class="lex">
+          <div class="lc yes">
+            <div class="lh">À privilégier</div>
+            <div class="words"><span class="w">accompagnement</span><span class="w">conseil</span><span class="w">interlocuteur</span><span class="w">négociation</span><span class="w">transparence</span><span class="w">projet</span><span class="w">sérénité</span><span class="w">sur-mesure</span><span class="w">indépendance</span><span class="w">clarté</span></div>
+          </div>
+          <div class="lc no">
+            <div class="lh">À proscrire</div>
+            <div class="words"><span class="w">optimisation</span><span class="w">multi-canal</span><span class="w">TAEG (brut)</span><span class="w">clé en main</span><span class="w">incontournable</span><span class="w">disruptif</span><span class="w">exceptionnel</span><span class="w">leader</span><span class="w">offre flash</span><span class="w">urgent</span></div>
+          </div>
+        </div>
+        <p style="font-size:12px;line-height:1.55;color:var(--text-faint);margin-top:12px">Les termes techniques (TAEG, hypothèque, assurance emprunteur…) ne sont pas interdits — on les <strong>explique</strong>, jamais on ne les jette bruts.</p>
+      </div>
+
+      <div class="vgroup">
+        <div class="vlabel">Le ton par contexte · une voix, quatre situations</div>
+        <div class="ctx">
+          <div class="cx"><div class="ck">Prospection</div><div class="cd">On ouvre, on rassure, on n’insiste jamais. La porte est ouverte, pas forcée.</div><div class="cq">« Parlons de votre projet — un premier échange, sans engagement. »</div></div>
+          <div class="cx"><div class="ck">Accompagnement</div><div class="cd">On informe, on explique, on tient au courant. Le client sait toujours où il en est.</div><div class="cq">« Voici où en est votre dossier, et la prochaine étape. »</div></div>
+          <div class="cx"><div class="ck">Relance</div><div class="cd">On reste disponible, jamais pressant. On rappelle qu’on est là, on ne met pas la pression.</div><div class="cq">« On reste à votre disposition, quand votre projet sera prêt. »</div></div>
+          <div class="cx"><div class="ck">Réseaux sociaux</div><div class="cd">On partage une preuve ou un conseil, ton humain et posé. Jamais de survente.</div><div class="cq">« Un bon taux, c’est bien. Le bon conseil, c’est mieux. »</div></div>
         </div>
       </div>
     </div>
@@ -1032,8 +1095,85 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
     </div>
   </section>
 
+  <!-- 10 ICONOGRAPHIE -->
+  <style>
+    #icones .ico-grid{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:28px}
+    #icones .ic{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 16px;display:flex;flex-direction:column;align-items:center;gap:15px;text-align:center}
+    #icones .ic svg{width:30px;height:30px;color:var(--ink);stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+    #icones .ic .nm{font-family:var(--font);font-weight:500;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint)}
+    #icones .ico-rules{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line);margin-top:18px}
+    #icones .ir{padding:20px 22px;border-right:1px solid var(--line)}
+    #icones .ir:last-child{border-right:none}
+    #icones .ir .h{font-family:var(--font);font-weight:500;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:9px}
+    #icones .ir p{font-size:12.5px;line-height:1.55;color:var(--text-soft)}
+    @media(max-width:760px){#icones .ico-grid{grid-template-columns:repeat(3,1fr)}#icones .ico-rules{grid-template-columns:1fr}#icones .ir{border-right:none;border-bottom:1px solid var(--line)}#icones .ir:last-child{border-bottom:none}}
+  </style>
+  <section class="blk" id="icones">
+    <div class="sec-head">
+      <div class="l"><div class="eyebrow"><b>10</b>Iconographie</div><h2>Un trait,<br>une grammaire.</h2></div>
+      <div class="intro">Un jeu d’icônes maison, au même esprit que la marque : <strong>linéaires (outlined), trait 1,5&nbsp;px, grille 24&nbsp;×&nbsp;24</strong>, 100&nbsp;% noir &amp; blanc. Jamais de pictos pleins, jamais de couleur. Elles servent les services, les valeurs et les points de contact.</div>
+    </div>
+    <div class="ico-grid">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 9.6V20h14V9.6"/><path d="M10 20v-5h4v5"/></svg><div class="nm">Immobilier</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.7a4.5 4.5 0 1 0 0 6.6"/><path d="M7 11h6"/><path d="M7 13.4h5"/></svg><div class="nm">Financement</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6"/><path d="M9 15h6"/><path d="M9 18h4"/></svg><div class="nm">Dossier</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5"/><path d="M4 9h16"/><path d="M6 9v8M10 9v8M14 9v8M18 9v8"/><path d="M3.5 20h17"/></svg><div class="nm">Banques</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="7.6" cy="7.6" r="3.6"/><path d="M10.2 10.2L19 19"/><path d="M16 16l2-2M18 18l1.5-1.5"/></svg><div class="nm">Acquisition</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.2-7 10-3.5-1.8-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><div class="nm">Assurance</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M7 15l4-5 3 3 4-6"/></svg><div class="nm">Patrimoine</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="1.5"/><path d="M4 9.5h16"/><path d="M8 3v4M16 3v4"/><path d="M8 13h2M14 13h2M8 17h2"/></svg><div class="nm">Rendez-vous</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 19l1-4 9-9 3 3-9 9z"/><path d="M14 6l3 3"/><path d="M5 19h4"/></svg><div class="nm">Signature</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.6 6.6l8.4 6.8 8.4-6.8"/></svg><div class="nm">Contact</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21c4-4.5 7-7.6 7-11a7 7 0 1 0-14 0c0 3.4 3 6.5 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div class="nm">Agences</div></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 7.2a3.2 3.2 0 0 1 0 6"/><path d="M17.5 14.4A5.5 5.5 0 0 1 20.5 19"/></svg><div class="nm">Conseil</div></div>
+    </div>
+    <div class="ico-rules">
+      <div class="ir"><div class="h">Construction</div><p>Grille 24&nbsp;×&nbsp;24, marge optique 2&nbsp;px. Trait 1,5&nbsp;px, terminaisons et jonctions arrondies. Géométrie simple, lisible en petit.</p></div>
+      <div class="ir"><div class="h">Couleur</div><p>Noir &amp; blanc uniquement — encre sur clair, blanc sur encre. La couleur n’entre jamais dans une icône : elle reste à la photo.</p></div>
+      <div class="ir"><div class="h">Le réflexe</div><p>Une icône appuie une idée, elle ne décore pas. Jamais de picto plein, jamais deux styles mélangés, jamais sous un titre fort.</p></div>
+    </div>
+  </section>
+
+  <!-- 11 FAVICON & APP ICON -->
+  <style>
+    #favicon .fav-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:28px;align-items:end}
+    #favicon .ft{display:flex;flex-direction:column;align-items:center;gap:14px}
+    #favicon .tile{background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;letter-spacing:-0.04em;border-radius:4px}
+    #favicon .tile.app{border-radius:22%}
+    #favicon .s16{width:32px;height:32px;font-size:13px}
+    #favicon .s32{width:54px;height:54px;font-size:22px}
+    #favicon .s180{width:96px;height:96px;font-size:40px}
+    #favicon .s192{width:120px;height:120px;font-size:50px}
+    #favicon .fl{font-family:var(--font);font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);text-align:center;line-height:1.7}
+    #favicon .fl span{display:block;color:var(--text-soft);letter-spacing:.04em}
+    #favicon .fav-spec{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line);margin-top:40px}
+    #favicon .fs{padding:22px 24px;border-right:1px solid var(--line)}
+    #favicon .fs:last-child{border-right:none}
+    #favicon .fs .h{font-family:var(--font);font-weight:500;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:10px}
+    #favicon .fs p{font-size:12.5px;line-height:1.6;color:var(--text-soft)}
+    #favicon .fs code{font-family:var(--font-mono,monospace);font-size:11.5px;color:var(--ink)}
+    @media(max-width:760px){#favicon .fav-spec{grid-template-columns:1fr}#favicon .fs{border-right:none;border-bottom:1px solid var(--line)}#favicon .fs:last-child{border-bottom:none}}
+  </style>
+  <section class="blk" id="favicon">
+    <div class="sec-head">
+      <div class="l"><div class="eyebrow"><b>11</b>Favicon &amp; app icon</div><h2>La marque,<br>en seize pixels.</h2></div>
+      <div class="intro">Le monogramme <strong>MP</strong> sur fond encre, lisible de l’onglet de navigateur à l’icône d’application. Logo centré, ~60&nbsp;% de l’espace, jamais collé aux bords. Une seule version : blanc sur encre.</div>
+    </div>
+    <div class="fav-row">
+      <div class="ft"><div class="tile s16"><span>MP</span></div><div class="fl">16 px<span>favicon onglet</span></div></div>
+      <div class="ft"><div class="tile s32"><span>MP</span></div><div class="fl">32 px<span>favicon HD</span></div></div>
+      <div class="ft"><div class="tile app s180"><span>MP</span></div><div class="fl">180 px<span>apple-touch</span></div></div>
+      <div class="ft"><div class="tile app s192"><span>MP</span></div><div class="fl">192 / 512 px<span>android · PWA</span></div></div>
+    </div>
+    <div class="fav-spec">
+      <div class="fs"><div class="h">Formats à livrer</div><p><code>favicon.ico</code> (16·32·48) · <code>favicon.svg</code> (vectoriel) · <code>apple-touch-icon.png</code> (180) · <code>icon-192.png</code> &amp; <code>icon-512.png</code> (Android / manifest PWA).</p></div>
+      <div class="fs"><div class="h">Construction</div><p>Fond encre plein, monogramme blanc centré occupant ~60&nbsp;% du carré. Coins vifs pour le favicon, arrondis ~22&nbsp;% pour l’app icon (recommandation iOS/Android).</p></div>
+      <div class="fs"><div class="h">À éviter</div><p>Logo complet « MP Finance » illisible en 16&nbsp;px, fond transparent, monogramme qui touche les bords, dégradé ou couleur. Toujours le même contraste blanc/encre.</p></div>
+    </div>
+  </section>
+
   <footer>
-    <span class="l">MP Finance × 56k Studio · Brand guidelines v2.2 · système N&amp;B + photo couleur · décisions du 10/06 intégrées · fond signature arrêté — pointe de Hongrie, opacité 10&nbsp;%<br>ORIAS n° 15 004 729 · mp-finance.com</span>
+    <span class="l">MP Finance × 56k Studio · Brand guidelines v2.3 · système N&amp;B + photo couleur · fond signature pointe de Hongrie 10&nbsp;% · ajouts : iconographie, favicon/app icon, ton de voix opérationnel<br>ORIAS n° 15 004 729 · mp-finance.com</span>
     <span class="r"><a href="./presentation.html" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Présentation →</a> · 56k.studio</span>
   </footer>
 
