@@ -59,6 +59,8 @@ a{color:inherit;text-decoration:none}
 
 .shell{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
 .wrap{padding:0 var(--gutter)}
+/* inset uniforme du corps des sections (hors bandes hero pleine largeur) */
+.sec-body{padding:0 var(--gutter)}
 
 /* ——— eyebrow ——— */
 .eyebrow{font-family:var(--font);font-weight:500;font-size:11px;font-weight:500;letter-spacing:.22em;
@@ -366,7 +368,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
 .spread .a4:first-child{border-right:0}
 .spread .fold{width:1px;align-self:stretch;background:linear-gradient(90deg,rgba(14,14,14,.16),rgba(14,14,14,.04))}
 .a4{width:348px;aspect-ratio:1/1.414;border:1px solid var(--line);overflow:hidden;position:relative;background:#111}
-.a4.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:38% 24%;filter:contrast(1.0) brightness(.82) saturate(.85)}
+.a4.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:38% 24%;filter:contrast(1.0) brightness(.82) saturate(.85)}
 .a4.cover .vl{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,.04) 40%,rgba(0,0,0,.70))}
 .a4.cover .top{position:absolute;left:32px;right:32px;top:32px;display:flex;justify-content:space-between;align-items:flex-start}
 .a4.cover .top img{height:28px;width:auto;flex:0 0 auto}
@@ -536,6 +538,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <span class="lbr">02.1 · Le logo</span>
     </div>
 
+    <div class="sec-body">
     <div class="construct">
       <div class="stage">
         <div class="frame">
@@ -558,6 +561,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <div class="v"><img src="../assets/logo-noir.png" alt="MP Finance"><span class="vl">Principal · encre sur papier</span></div>
       <div class="v dark"><img src="../assets/logo-blanc.png" alt="MP Finance"><span class="vl">Inversé · papier sur encre</span></div>
       <div class="v"><img src="../assets/logo-noir.png" alt="MP Finance" style="height:26px"><span class="vl">Taille réduite · ≥ 96 px</span></div>
+    </div>
     </div>
 
     <div class="entities">
@@ -1002,6 +1006,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       </div>
     </div>
 
+    <div class="sec-body">
     <div class="sig-why">
       <div class="sw"><div class="n">01 · Ancrage</div><h4>Tiré du lieu</h4><p>C’est le sol même des bureaux MP Finance. Un signe authentique, pas un motif de banque d’images.</p></div>
       <div class="sw"><div class="n">02 · Distinctif</div><h4>Reconnaissable</h4><p>Une trame que nul concurrent ne porte : le chevron devient un marqueur de marque immédiat.</p></div>
@@ -1093,6 +1098,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
         </div>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- 10 ICONOGRAPHIE -->
@@ -1113,6 +1119,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <div class="l"><div class="eyebrow"><b>10</b>Iconographie</div><h2>Un trait,<br>une grammaire.</h2></div>
       <div class="intro">Un jeu d’icônes maison, au même esprit que la marque : <strong>linéaires (outlined), trait 1,5&nbsp;px, grille 24&nbsp;×&nbsp;24</strong>, 100&nbsp;% noir &amp; blanc. Jamais de pictos pleins, jamais de couleur. Elles servent les services, les valeurs et les points de contact.</div>
     </div>
+    <div class="sec-body">
     <div class="ico-grid">
       <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 9.6V20h14V9.6"/><path d="M10 20v-5h4v5"/></svg><div class="nm">Immobilier</div></div>
       <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.7a4.5 4.5 0 1 0 0 6.6"/><path d="M7 11h6"/><path d="M7 13.4h5"/></svg><div class="nm">Financement</div></div>
@@ -1131,6 +1138,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <div class="ir"><div class="h">Construction</div><p>Grille 24&nbsp;×&nbsp;24, marge optique 2&nbsp;px. Trait 1,5&nbsp;px, terminaisons et jonctions arrondies. Géométrie simple, lisible en petit.</p></div>
       <div class="ir"><div class="h">Couleur</div><p>Noir &amp; blanc uniquement — encre sur clair, blanc sur encre. La couleur n’entre jamais dans une icône : elle reste à la photo.</p></div>
       <div class="ir"><div class="h">Le réflexe</div><p>Une icône appuie une idée, elle ne décore pas. Jamais de picto plein, jamais deux styles mélangés, jamais sous un titre fort.</p></div>
+    </div>
     </div>
   </section>
 
@@ -1159,6 +1167,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <div class="l"><div class="eyebrow"><b>11</b>Favicon &amp; app icon</div><h2>La marque,<br>en seize pixels.</h2></div>
       <div class="intro">Le monogramme <strong>MP</strong> sur fond encre, lisible de l’onglet de navigateur à l’icône d’application. Logo centré, ~60&nbsp;% de l’espace, jamais collé aux bords. Une seule version : blanc sur encre.</div>
     </div>
+    <div class="sec-body">
     <div class="fav-row">
       <div class="ft"><div class="tile s16"><span>MP</span></div><div class="fl">16 px<span>favicon onglet</span></div></div>
       <div class="ft"><div class="tile s32"><span>MP</span></div><div class="fl">32 px<span>favicon HD</span></div></div>
@@ -1169,6 +1178,7 @@ footer .r{font-weight:900;font-size:16px;letter-spacing:-0.02em}
       <div class="fs"><div class="h">Formats à livrer</div><p><code>favicon.ico</code> (16·32·48) · <code>favicon.svg</code> (vectoriel) · <code>apple-touch-icon.png</code> (180) · <code>icon-192.png</code> &amp; <code>icon-512.png</code> (Android / manifest PWA).</p></div>
       <div class="fs"><div class="h">Construction</div><p>Fond encre plein, monogramme blanc centré occupant ~60&nbsp;% du carré. Coins vifs pour le favicon, arrondis ~22&nbsp;% pour l’app icon (recommandation iOS/Android).</p></div>
       <div class="fs"><div class="h">À éviter</div><p>Logo complet « MP Finance » illisible en 16&nbsp;px, fond transparent, monogramme qui touche les bords, dégradé ou couleur. Toujours le même contraste blanc/encre.</p></div>
+    </div>
     </div>
   </section>
 
