@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MP Finance — Restitution · Charte graphique & exports</title>
+<meta name="description" content="Restitution de la charte graphique MP Finance : direction artistique complète, présentation et fichiers livrables.">
+<link rel="icon" type="image/svg+xml" href="assets/apps/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/apps/favicon/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apps/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/fonts/satoshi.css">
+<style>
+:root{
+  --p-ink:#0E0E0E;--p-ink-90:#2A2A28;--p-700:#4A4A47;--p-600:#5E5E5A;--p-500:#7C7C77;
+  --p-400:#9B9B95;--p-300:#C7C4BC;--p-200:#E3E0D8;--p-100:#EEEBE3;
+  --p-paper:#FAF8F3;--p-white:#FFFFFF;
+  --bg:var(--p-paper);--surface:var(--p-white);--ink:var(--p-ink);--text:var(--p-ink);
+  --text-soft:var(--p-ink-90);--text-muted:var(--p-600);--text-faint:var(--p-500);
+  --line:#DEDAD0;--line-strong:var(--p-ink);
+  --font:'Satoshi',-apple-system,system-ui,sans-serif;
+  --maxw:1280px;--gutter:48px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);letter-spacing:-0.011em;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;line-height:1.5}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.shell{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.mono{font-weight:500;letter-spacing:.04em}
+.eyebrow{font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);display:flex;align-items:center;gap:10px}
+.eyebrow b{color:var(--ink);font-weight:600}
+
+/* ── TOPBAR ── */
+.topbar{border-bottom:1px solid var(--line)}
+.topbar .shell{display:flex;align-items:center;justify-content:space-between;height:58px}
+.topbar .bl{display:flex;align-items:center;gap:11px;font-weight:600;font-size:13px;letter-spacing:-0.01em}
+.topbar .bl .dot{width:5px;height:5px;border-radius:50%;background:var(--ink)}
+.topbar .br{font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint)}
+
+/* ── HERO ── */
+.hero{padding:84px 0 64px}
+.hero h1{font-weight:800;font-size:clamp(42px,7vw,82px);line-height:.98;letter-spacing:-0.04em;margin:26px 0 0}
+.hero h1 .soft{color:var(--p-300)}
+.hero .lead{margin-top:30px;max-width:60ch;font-size:17px;line-height:1.62;color:var(--text-muted)}
+.hero .meta{margin-top:46px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.hero .meta .mi{padding:20px 22px 0 0;border-right:1px solid var(--line)}
+.hero .meta .mi:last-child{border-right:0}
+.hero .meta .mk{font-weight:500;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px}
+.hero .meta .mv{font-weight:600;font-size:15px;letter-spacing:-0.01em}
+
+/* ── SECTION ── */
+.blk{padding:64px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:42px;flex-wrap:wrap}
+.sec-head h2{font-weight:800;font-size:clamp(28px,3.6vw,40px);line-height:1.02;letter-spacing:-0.03em;margin-top:14px}
+.sec-head .sh-note{font-size:13.5px;line-height:1.6;color:var(--text-muted);max-width:42ch}
+
+/* ── CHARTE PRINCIPALE ── */
+.charte{display:grid;grid-template-columns:1.35fr 1fr;gap:0;border:1px solid var(--line-strong)}
+.charte .preview{border-right:1px solid var(--line-strong);background:var(--p-paper);overflow:hidden;position:relative}
+.charte .preview img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.charte .side{padding:44px 44px;display:flex;flex-direction:column;background:var(--surface)}
+.charte .side .ttl{font-weight:800;font-size:27px;letter-spacing:-0.03em;line-height:1.05}
+.charte .side .dsc{margin-top:16px;font-size:14px;line-height:1.65;color:var(--text-muted)}
+.charte .side .facts{margin-top:26px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr}
+.charte .side .facts .f{padding:16px 0;border-bottom:1px solid var(--line)}
+.charte .side .facts .f:nth-child(odd){padding-right:18px}
+.charte .side .facts .fk{font-weight:500;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);margin-bottom:5px}
+.charte .side .facts .fv{font-weight:600;font-size:14px;letter-spacing:-0.01em}
+.charte .side .cta{margin-top:auto;padding-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+
+/* ── BOUTONS ── */
+.btn{display:inline-flex;align-items:center;gap:9px;height:46px;padding:0 22px;font-weight:600;font-size:13.5px;letter-spacing:-0.01em;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);transition:background .16s,color .16s;cursor:pointer}
+.btn:hover{background:var(--ink);color:var(--p-paper)}
+.btn.primary{background:var(--ink);color:var(--p-paper)}
+.btn.primary:hover{background:var(--p-ink-90)}
+.btn svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── SOMMAIRE ── */
+.toc{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
+.toc a{display:flex;align-items:baseline;gap:18px;padding:18px 24px;border-bottom:1px solid var(--line);transition:background .14s}
+.toc a:nth-child(odd){border-right:1px solid var(--line)}
+.toc a:hover{background:var(--p-100)}
+.toc a .no{font-weight:500;font-size:11px;letter-spacing:.06em;color:var(--text-faint);min-width:22px}
+.toc a .ti{font-weight:600;font-size:15.5px;letter-spacing:-0.015em}
+.toc a .ds{font-size:12.5px;color:var(--text-muted);margin-left:auto;text-align:right;max-width:44%}
+.toc a .arr{width:14px;height:14px;stroke:var(--text-faint);stroke-width:1.5;fill:none;opacity:0;transform:translateX(-4px);transition:opacity .14s,transform .14s}
+.toc a:hover .arr{opacity:1;transform:translateX(0)}
+
+/* ── EXPORTS GRID ── */
+.exports{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 28px 26px;display:flex;flex-direction:column;min-height:208px;background:var(--surface);transition:background .14s}
+.card:hover{background:var(--p-100)}
+.card .ic{width:30px;height:30px;stroke:var(--ink);stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;margin-bottom:20px}
+.card .ct{font-weight:700;font-size:17px;letter-spacing:-0.02em}
+.card .cd{margin-top:9px;font-size:13px;line-height:1.55;color:var(--text-muted)}
+.card .cmeta{margin-top:16px;font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)}
+.card .clink{margin-top:auto;padding-top:20px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13px;letter-spacing:-0.01em}
+.card .clink svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .16s}
+.card:hover .clink svg{transform:translateX(3px)}
+.card.dl:hover .clink svg{transform:translateY(2px)}
+
+/* maquettes sub-list */
+.maqs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:18px}
+.maqs a{padding:18px 20px;border-right:1px solid var(--line);transition:background .14s}
+.maqs a:last-child{border-right:0}
+.maqs a:hover{background:var(--p-100)}
+.maqs a .mq-k{font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:7px}
+.maqs a .mq-t{font-weight:600;font-size:14.5px;letter-spacing:-0.015em;display:flex;align-items:center;gap:7px}
+.maqs a .mq-t svg{width:13px;height:13px;stroke:var(--text-faint);stroke-width:1.5;fill:none}
+
+/* ── FOOTER ── */
+.foot{border-top:1px solid var(--line-strong);padding:40px 0 64px}
+.foot .shell{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .fl{font-weight:600;font-size:13px;letter-spacing:-0.01em;display:flex;align-items:center;gap:11px}
+.foot .fl .dot{width:5px;height:5px;border-radius:50%;background:var(--ink)}
+.foot .fr{font-size:12px;color:var(--text-faint)}
+
+@media(max-width:900px){
+  :root{--gutter:24px}
+  .hero{padding:54px 0 40px}
+  .hero .meta{grid-template-columns:1fr 1fr}
+  .hero .meta .mi{padding:18px 18px 18px 0}
+  .hero .meta .mi:nth-child(2){border-right:0}
+  .charte{grid-template-columns:1fr}
+  .charte .preview{border-right:0;border-bottom:1px solid var(--line-strong);max-height:340px}
+  .toc{grid-template-columns:1fr}
+  .toc a:nth-child(odd){border-right:0}
+  .toc a .ds{display:none}
+  .exports{grid-template-columns:1fr}
+  .maqs{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="shell">
+    <div class="bl"><span class="dot"></span>56k&nbsp;Studio&nbsp;·&nbsp;MP&nbsp;Finance</div>
+    <div class="br">Restitution — Charte graphique</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="shell">
+    <div class="eyebrow"><b>00</b> · Livraison de la direction artistique</div>
+    <h1>La charte,<br>livrée. <span class="soft">Tout est là.</span></h1>
+    <p class="lead">La direction artistique complète de MP Finance — système noir &amp; blanc, typographie Satoshi, photographie réelle et composants. Cette page rassemble le document de référence, sa présentation et l’ensemble des fichiers prêts à l’emploi.</p>
+    <div class="meta">
+      <div class="mi"><div class="mk">Document</div><div class="mv">Brand guidelines v2</div></div>
+      <div class="mi"><div class="mk">Sections</div><div class="mv">13 chapitres</div></div>
+      <div class="mi"><div class="mk">Système</div><div class="mv">N&amp;B · Satoshi</div></div>
+      <div class="mi"><div class="mk">Édition</div><div class="mv">Juin 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARTE PRINCIPALE -->
+<section class="blk">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow"><b>01</b> · Le document</div>
+        <h2>La charte graphique</h2>
+      </div>
+      <p class="sh-note">Le document de référence, navigable et toujours à jour. À consulter à l’écran ou à imprimer en PDF depuis le navigateur.</p>
+    </div>
+    <div class="charte">
+      <a class="preview" href="v2/index.html" aria-label="Ouvrir la charte">
+        <img src="assets/restitution-cover.png" alt="Couverture de la charte MP Finance">
+      </a>
+      <div class="side">
+        <div class="ttl">Brand guidelines v2</div>
+        <p class="dsc">Fondations, logo, couleur, typographie, grille, photographie, attributs de marque, ton de voix, applications, fond signature, iconographie, favicon et système design.</p>
+        <div class="facts">
+          <div class="f"><div class="fk">Format</div><div class="fv">Web · responsive</div></div>
+          <div class="f"><div class="fk">Chapitres</div><div class="fv">13</div></div>
+          <div class="f"><div class="fk">Typographie</div><div class="fv">Satoshi</div></div>
+          <div class="f"><div class="fk">Palette</div><div class="fv">Noir &amp; blanc</div></div>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="v2/index.html">Ouvrir la charte
+            <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="btn" href="v2/presentation.html">Présentation
+            <svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOMMAIRE -->
+<section class="blk">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow"><b>02</b> · Au sommaire</div>
+        <h2>Les 13 chapitres</h2>
+      </div>
+      <p class="sh-note">Chaque entrée ouvre directement la section correspondante de la charte.</p>
+    </div>
+    <nav class="toc">
+      <a href="v2/index.html#fondations"><span class="no">01</span><span class="ti">Fondations</span><span class="ds">Principe directeur, stock, grille mère</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#logo"><span class="no">02</span><span class="ti">Logo</span><span class="ds">Monogramme, zones de respect, usages</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#couleur"><span class="no">03</span><span class="ti">Couleur</span><span class="ds">Échelle d’encre chaude, N&amp;B intégral</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#typo"><span class="no">04</span><span class="ti">Typographie</span><span class="ds">Satoshi — échelle &amp; usages</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#grille"><span class="no">05</span><span class="ti">Grille &amp; mise en page</span><span class="ds">Colonnes, gouttières, marges</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#photo"><span class="no">06</span><span class="ti">Photographie &amp; matière</span><span class="ds">Réelle uniquement, lumière douce</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#attributs"><span class="no">07</span><span class="ti">Attributs de marque</span><span class="ds">Cinq traits de personnalité</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#voix"><span class="no">08</span><span class="ti">Ton de voix</span><span class="ds">Registres, lexique, règle d’or</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#applications"><span class="no">09</span><span class="ti">Applications</span><span class="ds">Plaquette, carte, signature, social</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#signature"><span class="no">10</span><span class="ti">Fond signature</span><span class="ds">La seule matière de la marque</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#icones"><span class="no">11</span><span class="ti">Iconographie</span><span class="ds">Set maison, 24 icônes au trait</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#favicon"><span class="no">12</span><span class="ti">Favicon &amp; app icon</span><span class="ds">Monogramme à toutes les tailles</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="v2/index.html#systeme"><span class="no">13</span><span class="ti">Système design</span><span class="ds">Fondations &amp; composants UI</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </nav>
+  </div>
+</section>
+
+<!-- EXPORTS -->
+<section class="blk">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow"><b>03</b> · Prêt à l’emploi</div>
+        <h2>Exports &amp; fichiers</h2>
+      </div>
+      <p class="sh-note">Tous les fichiers livrables, prêts à poser sur le site, les supports et les outils.</p>
+    </div>
+    <div class="exports">
+
+      <a class="card dl" href="downloads/mp-finance-logos.zip" download>
+        <svg class="ic" viewBox="0 0 24 24"><path d="M4 7h16v12H4zM4 7l3-3h6l2 3"/></svg>
+        <div class="ct">Logos</div>
+        <div class="cd">Monogramme MP Finance, versions noire et blanche, haute résolution.</div>
+        <div class="cmeta">.zip · PNG ×2</div>
+        <span class="clink">Télécharger <svg viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg></span>
+      </a>
+
+      <a class="card dl" href="downloads/mp-finance-favicon-pack.zip" download>
+        <svg class="ic" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z"/></svg>
+        <div class="ct">Pack favicon</div>
+        <div class="cd">favicon.ico, PNG 16→512, apple-touch, SVG, manifest et snippet &lt;head&gt; prêt à coller.</div>
+        <div class="cmeta">.zip · ico · png · svg</div>
+        <span class="clink">Télécharger <svg viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg></span>
+      </a>
+
+      <a class="card dl" href="downloads/mp-finance-fond-signature.zip" download>
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9l6-6M3 15l12-12M9 21l12-12M15 21l6-6"/></svg>
+        <div class="ct">Fond signature</div>
+        <div class="cd">La matière de la marque — pointe de Hongrie Jaumont, déclinaisons or, profond et pâle.</div>
+        <div class="cmeta">.zip · PNG ×4</div>
+        <span class="clink">Télécharger <svg viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg></span>
+      </a>
+
+      <a class="card" href="v2/index.html#icones">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="7" cy="7" r="3"/><path d="M14 4h6v6h-6zM7 14h6v6H7zM17 14v6M14 17h6"/></svg>
+        <div class="ct">Iconographie</div>
+        <div class="cd">Le set maison de 24 icônes au trait, présenté dans la charte (§11).</div>
+        <div class="cmeta">SVG · dans la charte</div>
+        <span class="clink">Voir le set <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="card" href="v2/presentation.html">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 4h18v12H3zM8 20h8M12 16v4"/></svg>
+        <div class="ct">Présentation</div>
+        <div class="cd">Le deck de présentation de la direction artistique, pour partager la vision.</div>
+        <div class="cmeta">Web · slides</div>
+        <span class="clink">Ouvrir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+
+      <a class="card" href="v2/index.html">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM15 3v4h4"/><path d="M9 13h6M9 17h6"/></svg>
+        <div class="ct">Charte complète</div>
+        <div class="cd">Le document de référence — 13 chapitres. Imprimer en PDF via le navigateur.</div>
+        <div class="cmeta">Web · 13 sections</div>
+        <span class="clink">Ouvrir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+
+    </div>
+
+    <!-- MAQUETTES -->
+    <div class="maqs">
+      <a href="v2/maquettes/m1-plaquette.html"><div class="mq-k">Maquette 01</div><div class="mq-t">Plaquette <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></div></a>
+      <a href="v2/maquettes/m2-carousel.html"><div class="mq-k">Maquette 02</div><div class="mq-t">Carrousel <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></div></a>
+      <a href="v2/maquettes/m3-carte.html"><div class="mq-k">Maquette 03</div><div class="mq-t">Carte de visite <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></div></a>
+      <a href="v2/maquettes/m4-signature.html"><div class="mq-k">Maquette 04</div><div class="mq-t">Signature mail <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="shell">
+    <div class="fl"><span class="dot"></span>MP Finance — Direction artistique</div>
+    <div class="fr">Réalisé par 56k Studio · Édition juin 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
