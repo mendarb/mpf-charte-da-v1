@@ -4,3 +4,4 @@ assets/_backup_ph/
 *.log
 
 assets/_masters_4k/
+.DS_Store
