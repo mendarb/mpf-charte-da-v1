@@ -87,6 +87,16 @@ a{color:inherit;text-decoration:none}
 .toc a .arr{width:14px;height:14px;stroke:var(--text-faint);stroke-width:1.5;fill:none;opacity:0;transform:translateX(-4px);transition:opacity .14s,transform .14s}
 .toc a:hover .arr{opacity:1;transform:translateX(0)}
 
+/* ── TOUT TÉLÉCHARGER ── */
+.dlall{display:flex;align-items:center;justify-content:space-between;gap:28px;background:var(--ink);color:var(--p-paper);border:1px solid var(--line-strong);padding:30px 34px;margin-bottom:22px;flex-wrap:wrap}
+.dlall .dlall-k{font-weight:500;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--p-400)}
+.dlall .dlall-t{font-weight:800;font-size:23px;letter-spacing:-0.03em;margin-top:9px}
+.dlall .dlall-d{margin-top:10px;font-size:13px;line-height:1.55;color:var(--p-300);max-width:54ch}
+.dlall .dlall-btn{display:inline-flex;align-items:center;gap:11px;font-weight:600;font-size:14px;letter-spacing:-0.01em;border:1px solid var(--p-paper);padding:14px 24px;white-space:nowrap;transition:background .16s,color .16s}
+.dlall:hover .dlall-btn{background:var(--p-paper);color:var(--ink)}
+.dlall .dlall-btn svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .16s}
+.dlall:hover .dlall-btn svg{transform:translateY(2px)}
+
 /* ── EXPORTS GRID ── */
 .exports{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 28px 26px;display:flex;flex-direction:column;min-height:208px;background:var(--surface);transition:background .14s}
@@ -129,6 +139,8 @@ a{color:inherit;text-decoration:none}
   .toc a:nth-child(odd){border-right:0}
   .toc a .ds{display:none}
   .exports{grid-template-columns:1fr}
+  .dlall{padding:24px;align-items:flex-start}
+  .dlall .dlall-btn{width:100%;justify-content:center}
   .maqs{grid-template-columns:1fr 1fr}
 }
 </style>
@@ -188,8 +200,8 @@ a{color:inherit;text-decoration:none}
           <a class="btn" href="downloads/charte-mp-finance.pdf" download>PDF
             <svg viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>
           </a>
-          <a class="btn" href="v2/presentation.html">Présentation
-            <svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>
+          <a class="btn" href="downloads/presentation-mp-finance.pdf" download>Présentation
+            <svg viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>
           </a>
         </div>
       </div>
@@ -235,6 +247,18 @@ a{color:inherit;text-decoration:none}
       </div>
       <p class="sh-note">Tous les fichiers livrables, prêts à poser sur le site, les supports et les outils.</p>
     </div>
+
+    <a class="dlall" href="downloads/mp-finance-pack-complet.zip" download>
+      <div class="dlall-l">
+        <div class="dlall-k">Pack complet</div>
+        <div class="dlall-t">Tout télécharger en une fois</div>
+        <div class="dlall-d">Charte PDF, présentation, logos, favicon, icônes et fond signature — réunis dans un seul fichier.</div>
+      </div>
+      <span class="dlall-btn">Tout télécharger · .zip
+        <svg viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>
+      </span>
+    </a>
+
     <div class="exports">
 
       <a class="card dl" href="downloads/charte-mp-finance.pdf" download>
@@ -277,12 +301,12 @@ a{color:inherit;text-decoration:none}
         <span class="clink">Télécharger <svg viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg></span>
       </a>
 
-      <a class="card" href="v2/presentation.html">
+      <a class="card dl" href="downloads/presentation-mp-finance.pdf" download>
         <svg class="ic" viewBox="0 0 24 24"><path d="M3 4h18v12H3zM8 20h8M12 16v4"/></svg>
         <div class="ct">Présentation</div>
-        <div class="cd">Le deck de présentation de la direction artistique, pour partager la vision.</div>
-        <div class="cmeta">Web · slides</div>
-        <span class="clink">Ouvrir <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        <div class="cd">Le deck de présentation de la direction artistique, 15 slides, prêt à partager.</div>
+        <div class="cmeta">.pdf · 15 slides</div>
+        <span class="clink">Télécharger <svg viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg></span>
       </a>
 
     </div>
